@@ -1,0 +1,27 @@
+body {
+  margin: 25px 45px 30px;
+}
+
+h1 {
+  color: blue;
+}
+
+h2 {
+  color: orange;
+}
+
+.master-list {
+  color: blue;
+  list-style-type: square;
+}
+
+.sub-list {
+  color: black;
+}
+
+li.apple {
+  color: red;
+}
+ul.sub-list {
+    list-style-type: disc;
+}

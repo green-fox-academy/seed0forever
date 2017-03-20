@@ -1,0 +1,13 @@
+body {
+  margin: 33px 45px 30px;
+}
+
+main {
+  max-width: 342px;
+  margin 0;
+}
+
+p {
+  border-left: 2px solid black;
+  padding: 0 10px 0;
+}

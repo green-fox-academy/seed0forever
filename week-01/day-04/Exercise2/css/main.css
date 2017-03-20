@@ -1,0 +1,34 @@
+div {
+  margin: 2px 2px 3px 3px;
+  border: 16px solid #4285f4;
+  padding: 0;
+  width: 348px;
+  color: white;
+  font: 36px sans-serif;
+}
+
+
+p {
+  padding: 0;
+  height: 128px;
+  line-height: 128px;
+  margin: 0;
+  border: 0;
+  text-align: center
+}
+
+.north {
+  background: #e67676;
+}
+
+.east {
+  background: #f2f062;
+}
+
+.south {
+  background: #a9e6e6;
+}
+
+.west {
+  background: #7692e4;
+}
