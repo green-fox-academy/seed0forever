@@ -1,1 +1,2 @@
+And then I added this line to this file.
 File number 2
