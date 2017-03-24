@@ -22,8 +22,8 @@ public class GuessMyNumber {
     int upperBound = 100;
     int lowerBound = 1;
     int numberToGuess = 0;
-    int numberOfLives = 8;
     int difficultyLevel = 3;
+    int numberOfLives = 8;
 
     Scanner scanner = new Scanner(System.in);
     System.out.println("Guess my number!\nYou can tell me the range first.");
@@ -41,13 +41,14 @@ public class GuessMyNumber {
       System.out.println("Only 1, 2 or 3 is allowed!");
       System.exit(0);
     }
-    numberOfLives = (int) (Math.log10(upperBound - lowerBound + 1) / Math.log10(2.));
+    numberOfLives = (int) Math
+            .floor((Math.log10(upperBound - lowerBound + 1.) / Math.log10(2.)) + 1);
     switch (difficultyLevel) {
       case 1:
         numberOfLives *= 1.5;
         break;
       case 2:
-        numberOfLives *= 1.25;
+        numberOfLives *= 1.3;
         break;
     }
     Random rnd = new Random();
