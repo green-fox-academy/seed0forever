@@ -1,3 +1,4 @@
+import com.sun.corba.se.impl.encoding.OSFCodeSetRegistry.Entry;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -5,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeMap;
 
 public class Lotto {
 
@@ -14,9 +17,37 @@ public class Lotto {
     List<String> lines = readFileLines();
 
     int[] lottoNumbersStats = getLottoStats(lines);
-    System.out.println(Arrays.toString(lottoNumbersStats));
+    System.out.println(Arrays.toString(lottoNumbersStats) + "\n");
+/*
     Arrays.sort(lottoNumbersStats);
     System.out.println(Arrays.toString(lottoNumbersStats));
+*/
+    HashMap<Integer, ArrayList<Integer>> lottoHashNumsFrequencies = new HashMap<>();
+    for (int i = 0; i < lottoNumbersStats.length; i++) {
+      if (lottoHashNumsFrequencies.containsKey(lottoNumbersStats[i])) {
+        lottoHashNumsFrequencies.get(lottoNumbersStats[i]).add(i + 1);
+      } else {
+        ArrayList<Integer> eachLottoNumbers = new ArrayList<>();
+        eachLottoNumbers.add(i + 1);
+        lottoHashNumsFrequencies.put(lottoNumbersStats[i], eachLottoNumbers);
+      }
+    }
+
+    for (Integer mapKey : lottoHashNumsFrequencies.keySet()) {
+      System.out.println(mapKey + " times: " + lottoHashNumsFrequencies.get(mapKey));
+    }
+
+    System.out.println();
+
+    TreeMap<Integer, ArrayList<Integer>> sortedlottoHashNumsFrequencies = new TreeMap<>(
+            lottoHashNumsFrequencies);
+//    error:
+//    Set<Entry<Integer, ArrayList<Integer>>> sortedSet = sortedlottoHashNumsFrequencies.entrySet();
+
+    for (Integer mapKey : lottoHashNumsFrequencies.keySet()) {
+      System.out.println(mapKey + " times: " + lottoHashNumsFrequencies.get(mapKey));
+    }
+
 
 
   }
