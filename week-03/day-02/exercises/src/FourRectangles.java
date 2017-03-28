@@ -22,8 +22,7 @@ public class FourRectangles {
   private static void drawColorFilledRectangle(Graphics graphics, int xTopLeft, int yTopLeft,
           int xWidth, int yHeight,
           int redValue, int greenValue, int blueValue, int alphaValue) {
-    Color rectFillColor = new Color(redValue, greenValue, blueValue, alphaValue);
-    graphics.setColor(rectFillColor);
+    graphics.setColor(new Color(redValue, greenValue, blueValue, alphaValue));
     graphics.fillRect(xTopLeft, yTopLeft, xWidth, yHeight);
   }
 
