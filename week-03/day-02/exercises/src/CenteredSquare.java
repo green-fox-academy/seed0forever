@@ -12,7 +12,7 @@ public class CenteredSquare {
     int canvasHeight = 300; // Don't know yet how to get these from main
     int squareSideLength = 10;
     graphics.setColor(new Color(0, 255, 0, 255));
-    graphics.drawRect((canvasWidth - squareSideLength) / 2, (canvasHeight - squareSideLength) / 2,
+    graphics.fillRect((canvasWidth - squareSideLength) / 2, (canvasHeight - squareSideLength) / 2,
             squareSideLength, squareSideLength);
   }
 
