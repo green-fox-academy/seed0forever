@@ -12,13 +12,13 @@ public class String2 {
             + myNewString);
   }
 
-  private static String removeChar(String my_string, String char_change_from) {
-    if (!(my_string.contains(char_change_from))) {
-      return my_string;
+  private static String removeChar(String myString, String charChangeFrom) {
+    if (!(myString.contains(charChangeFrom))) {
+      return myString;
     }
-    return my_string.substring(0, my_string.indexOf(char_change_from))
-            + removeChar(my_string.substring(my_string.indexOf(char_change_from) + 1),
-            char_change_from);
+    return myString.substring(0, myString.indexOf(charChangeFrom))
+            + removeChar(myString.substring(myString.indexOf(charChangeFrom) + 1),
+            charChangeFrom);
   }
 
 }
