@@ -14,14 +14,14 @@ public class String1 {
             + myNewString);
   }
 
-  private static String changeChar(String my_string, String char_change_from,
-          String char_change_to) {
-    if (!(my_string.contains(char_change_from))) {
-      return my_string;
+  private static String changeChar(String myString, String charChangeFrom,
+          String charChangeTo) {
+    if (!(myString.contains(charChangeFrom))) {
+      return myString;
     }
-    return my_string.substring(0, my_string.indexOf(char_change_from))
-            + char_change_to
-            + changeChar(my_string.substring(my_string.indexOf(char_change_from) + 1),
-            char_change_from, char_change_to);
+    return myString.substring(0, myString.indexOf(charChangeFrom))
+            + charChangeTo
+            + changeChar(myString.substring(myString.indexOf(charChangeFrom) + 1),
+            charChangeFrom, charChangeTo);
   }
 }
