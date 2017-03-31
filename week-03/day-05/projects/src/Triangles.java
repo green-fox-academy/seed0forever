@@ -8,13 +8,12 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class Triangles {
 
   static int WIDTH = 600;
-  static int HEIGHT = (int) Math.round((double) WIDTH * Math.sqrt(3) / 2.);
+  static int HEIGHT = (int) Math.round((double) WIDTH * Math.sqrt(3) / 2d);
 
   public static void mainDraw(Graphics graphics) {
-    final int LAYERS = 7;
-    int areaWidth =
-            ((WIDTH > (int) Math.round((double) WIDTH / Math.sqrt(3) * 2.)) ? (int) Math
-                    .round((double) WIDTH * Math.sqrt(3) / 2.) : WIDTH);
+    final int LAYERS = 7;    int areaWidth =
+            ((WIDTH > (int) Math.round((double) WIDTH / Math.sqrt(3) * 2d)) ? (int) Math
+                    .round((double) WIDTH * Math.sqrt(3) / 2d) : WIDTH);
     int areaTopLeftX = 0;
     int areaTopLeftY = 0;
 
@@ -24,13 +23,13 @@ public class Triangles {
 
   private static void drawRecursiveTriangles(Graphics graphics, int topLeftX,
           int topLeftY, int width, int layers) {
-    double triangleHeight = (double) width * Math.sqrt(3) / 2.;
+    double triangleHeight = (double) width * Math.sqrt(3) / 2d;
     int triangleHeightRounded = (int) Math.round(triangleHeight);
 
 
     if (layers <= 1) {
       int[] trianglePointsX = new int[]{topLeftX, topLeftX + width - 1,
-              topLeftX + (int) Math.round((double) width / 2.) - 1};
+              topLeftX + (int) Math.round((double) width / 2d) - 1};
       int[] trianglePointsY = new int[]{topLeftY, topLeftY,
               topLeftY + triangleHeightRounded - 1};
 
@@ -43,14 +42,14 @@ public class Triangles {
 
     --layers;
 
-    drawRecursiveTriangles(graphics, topLeftX, topLeftY, (int) Math.round((double) width / 2.),
+    drawRecursiveTriangles(graphics, topLeftX, topLeftY, (int) Math.round((double) width / 2d),
             layers);
-    drawRecursiveTriangles(graphics, topLeftX + (int) Math.round((double) width / 2.), topLeftY,
-            (int) Math.round((double) width / 2.),
+    drawRecursiveTriangles(graphics, topLeftX + (int) Math.round((double) width / 2d), topLeftY,
+            (int) Math.round((double) width / 2d),
             layers);
-    drawRecursiveTriangles(graphics, topLeftX + (int) Math.round((double) width / 4.),
-            topLeftY + (int) Math.round(triangleHeight / 2.),
-            (int) Math.round((double) width / 2.),
+    drawRecursiveTriangles(graphics, topLeftX + (int) Math.round((double) width / 4d),
+            topLeftY + (int) Math.round(triangleHeight / 2d),
+            (int) Math.round((double) width / 2d),
             layers);
   }
 
