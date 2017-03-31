@@ -26,16 +26,18 @@ public class Triangles {
           int topLeftY, int width, int layers) {
     double triangleHeight = (double) width * Math.sqrt(3) / 2.;
     int triangleHeightRounded = (int) Math.round(triangleHeight);
-    int[] trianglePointsX = new int[]{topLeftX, topLeftX + width - 1,
-            topLeftX + (int) Math.round((double) width / 2.) - 1};
-    int[] trianglePointsY = new int[]{topLeftY, topLeftY,
-            topLeftY + triangleHeightRounded - 1};
 
-    graphics.setColor(Color.BLACK);
-    graphics.drawPolygon(trianglePointsX, trianglePointsY,
-            3);
 
     if (layers <= 1) {
+      int[] trianglePointsX = new int[]{topLeftX, topLeftX + width - 1,
+              topLeftX + (int) Math.round((double) width / 2.) - 1};
+      int[] trianglePointsY = new int[]{topLeftY, topLeftY,
+              topLeftY + triangleHeightRounded - 1};
+
+      graphics.setColor(Color.BLACK);
+      graphics.drawPolygon(trianglePointsX, trianglePointsY,
+              3);
+
       return;
     }
 
