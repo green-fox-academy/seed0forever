@@ -19,16 +19,15 @@ public class Circles {
     final int CIRCLES_INSIDE = 3;
     final int ROTATION_FROM_EAST = 90;
 
-    drawRecursiveCircles(graphics, AREA_TOP_LEFT_X, AREA_TOP_LEFT_Y, CIRCLE_DIAMETER,
-            CIRCLES_INSIDE, ROTATION_FROM_EAST,
-            LAYERS);
+    drawRecursiveCircles(graphics, new int[]{AREA_TOP_LEFT_X, AREA_TOP_LEFT_Y},
+            CIRCLE_DIAMETER, CIRCLES_INSIDE, ROTATION_FROM_EAST, LAYERS);
   }
 
-  private static void drawRecursiveCircles(Graphics graphics, int topLeftX,
-          int topLeftY, int diameter, int circlesInside, int rotationFromEast, int layers) {
+  private static void drawRecursiveCircles(Graphics graphics, int[] topLeftXY,
+          int diameter, int circlesInside, int rotationFromEast, int layers) {
 
     graphics.setColor(Color.BLACK);
-    graphics.drawOval(topLeftX, topLeftY, diameter, diameter);
+    graphics.drawOval(topLeftXY[0], topLeftXY[1], diameter, diameter);
 
     if (layers <= 1) {
       return;
@@ -37,24 +36,26 @@ public class Circles {
 
     for (int i = 0; i < circlesInside; i++) {
       drawRecursiveCircles(graphics,
-              getNewTopLeftX(topLeftX, diameter, circlesInside, rotationFromEast, i),
-              getNewTopLeftY(topLeftY, diameter, circlesInside, rotationFromEast, i),
-              (int) Math.round((double) diameter / 2d), circlesInside, rotationFromEast, layers);
+              getNewTopLeftXY(topLeftXY, diameter, circlesInside, rotationFromEast, i),
+              (int) Math.round((double) diameter / 2d),
+              circlesInside, rotationFromEast, layers);
     }
   }
 
-  private static int getNewTopLeftX(int topLeftX, double diameter, int numberOfCircles,
+  private static int[] getNewTopLeftXY(int[] topLeftXY, double diameter, int numberOfCircles,
           int rotationFromEast, int iterationNum) {
-    return topLeftX + (int) Math.round(diameter / 4d * Math
-            .cos(Math.toRadians(iterationNum * 360d / numberOfCircles - rotationFromEast))
-            + diameter / 2d - diameter / 4d);
-  }
-
-  private static int getNewTopLeftY(int topLeftY, double diameter, int numberOfCircles,
-          int rotationFromEast, int i) {
-    return topLeftY + (int) Math.round(diameter / 4d * Math
-            .sin(Math.toRadians(i * 360d / numberOfCircles - rotationFromEast))
-            + diameter / 2d - diameter / 4d);
+    return new int[]{
+            topLeftXY[0]
+                    + (int) Math.round(diameter / 4d * Math
+                    .cos(Math.toRadians(iterationNum * 360d / numberOfCircles - rotationFromEast))
+                    + diameter / 2d
+                    - diameter / 4d)
+            ,
+            topLeftXY[1]
+                    + (int) Math.round(diameter / 4d * Math
+                    .sin(Math.toRadians(iterationNum * 360d / numberOfCircles - rotationFromEast))
+                    + diameter / 2d
+                    - diameter / 4d)};
   }
 
 
