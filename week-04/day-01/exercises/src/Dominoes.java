@@ -12,12 +12,14 @@ public class Dominoes {
 
     List<Domino> dominoesSorted = sortDominoes(dominoes);
 
-    System.out.println(dominoes);
-    System.out.println(dominoesSorted);
+    System.out.println("Original: " + dominoes);
+    System.out.println("Lined up: " + dominoesSorted);
   }
 
-  public static List<Domino> sortDominoes(List<Domino> dominoList) {
+  public static List<Domino> sortDominoes(List<Domino> dominoTempList) {
     List<Domino> dominoesSorted = new ArrayList<>();
+    List<Domino> dominoList = new ArrayList<>();
+    dominoList.addAll(dominoTempList);
 
     dominoesSorted.add(dominoList.get(0));
     dominoList.remove(0);
