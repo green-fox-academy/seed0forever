@@ -10,15 +10,25 @@ public class Dice {
   int[] dices = new int[6];
 
   public static void main(String[] args) {
+    final int TARGET_DICE_VALUE = 6;
+
     Dice myDice = new Dice();
-    myDice.getCurrent();
     myDice.roll();
-    myDice.getCurrent();
-    myDice.getCurrent(5);
-    myDice.reroll();
-    myDice.getCurrent();
-    myDice.reroll(4);
-    myDice.getCurrent();
+
+    System.out.println("Initial: " + Arrays.toString(myDice.getCurrent()));
+
+    rerollUntilTarget(TARGET_DICE_VALUE, myDice);
+
+    System.out.println("Target:  " + Arrays.toString(myDice.getCurrent()));
+
+  }
+
+  private static void rerollUntilTarget(int TARGET_DICE_VALUE, Dice myDice) {
+    for (int i = 0; i < myDice.getCurrent().length; i++) {
+      while (myDice.getCurrent(i) != TARGET_DICE_VALUE) {
+        myDice.reroll(i);
+      }
+    }
   }
 
   public int[] roll() {
