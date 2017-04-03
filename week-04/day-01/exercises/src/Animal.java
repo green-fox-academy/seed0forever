@@ -12,6 +12,23 @@ public class Animal {
     this.thirst = thirst;
   }
 
+  public void eat() {
+    if (this.hunger != 0) {
+      this.hunger--;
+    }
+  }
+
+  public void drink() {
+    if (this.thirst != 0) {
+      this.thirst--;
+    }
+  }
+
+  public void play() {
+    this.hunger++;
+    this.thirst++;
+  }
+
   public static void main(String[] args) {
     Animal myDog = new Animal();
 
@@ -49,23 +66,6 @@ public class Animal {
     System.out.println("myDog ate until he wasn't hungry. Hunger: " + myDog.hunger + ", thirst: "
             + myDog.thirst);
 
-  }
-
-  public void eat() {
-    if (this.hunger != 0) {
-      this.hunger--;
-    }
-  }
-
-  public void drink() {
-    if (this.thirst != 0) {
-      this.thirst--;
-    }
-  }
-
-  public void play() {
-    this.hunger++;
-    this.thirst++;
   }
 
 }
