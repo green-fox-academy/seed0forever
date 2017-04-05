@@ -37,6 +37,12 @@ class ExtensionTest {
   }
 
   @Test
+  void testMaxOfThree_second() {
+    assertEquals(5, extension.maxOfThree(3, 5, 4));
+  }
+
+
+  @Test
   void testMedian_four() {
     assertEquals(5, extension.median(Arrays.asList(7, 5, 3, 5)));
   }
