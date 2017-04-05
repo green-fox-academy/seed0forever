@@ -81,4 +81,9 @@ class ExtensionTest {
   void testTranslate_kolbice() {
     assertEquals("lavagovopuvus", extension.translate("lagopus"));
   }
+
+  @Test
+  void testTranslate_vowelsOccurringMoreThanOnce() {
+    assertEquals("mevegeveszevem", extension.translate("megeszem"));
+  }
 }
