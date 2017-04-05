@@ -22,6 +22,11 @@ class ExtensionTest {
   }
 
   @Test
+  void testAdd_8an13is21() {
+    assertEquals(21, extension.add(8, 13));
+  }
+
+  @Test
   void testMaxOfThree_first() {
     assertEquals(5, extension.maxOfThree(5, 4, 3));
   }
