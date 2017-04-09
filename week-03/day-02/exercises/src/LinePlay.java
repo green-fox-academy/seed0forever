@@ -20,14 +20,6 @@ public class LinePlay {
     }
   }
 
-  public static void drawLineToCenter(Graphics graphics, int x, int y) {
-    int canvasWidth = 300; // Don't know yet how to get these from main
-    int canvasHeight = 300; // Don't know yet how to get these from main
-
-    graphics.setColor(new Color(0, 0, 0, 255));
-    graphics.drawLine(x, y, canvasWidth / 2, canvasHeight / 2);
-  }
-
   //    Don't touch the code below
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
