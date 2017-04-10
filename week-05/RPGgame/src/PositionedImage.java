@@ -14,8 +14,10 @@ public class PositionedImage {
     this.posY = posY;
     try {
       image = ImageIO.read(new File(filename));
+      System.out.println("Success reading image file '" + filename + "'.");
     } catch (IOException e) {
       e.printStackTrace();
+      System.out.println("Failed to read image file '" + filename + "'");
     }
   }
 
