@@ -40,6 +40,10 @@ public class GameObject {
     return image;
   }
 
+  void setImage(BufferedImage image) {
+    this.image = image;
+  }
+
   public int getPosColumn() {
     return posColumn;
   }
