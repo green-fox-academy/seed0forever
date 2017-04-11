@@ -16,4 +16,24 @@ class GameCharacter extends GameObject {
     imageFaceLeft = loadImage(imageFileFaceLeft);
     imageFaceRight = loadImage(imageFileFaceRight);
   }
+
+  void faceDown() {
+    direction = Direction.DOWN;
+    image = imageFaceDown;
+  }
+
+  void faceUp() {
+    direction = Direction.UP;
+    image = imageFaceUp;
+  }
+
+  void faceRight() {
+    direction = Direction.RIGHT;
+    image = imageFaceRight;
+  }
+
+  void faceLeft() {
+    direction = Direction.LEFT;
+    image = imageFaceLeft;
+  }
 }
