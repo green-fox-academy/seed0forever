@@ -16,7 +16,8 @@ public class Board extends JComponent implements KeyListener {
     tileSize = 72;
 
     currentArea = new Area(tileSize, areaColumns, areaRows);
-    hero1 = new Hero("assets/hero-down.png", tileSize, 0, 0);
+    hero1 = new Hero(tileSize, 0, 0, "assets/hero-down.png", "assets/hero-up.png",
+            "assets/hero-left.png", "assets/hero-right.png");
 
     // set the size of your draw board
     setPreferredSize(new Dimension(720, 720));
@@ -64,21 +65,21 @@ public class Board extends JComponent implements KeyListener {
   public void keyReleased(KeyEvent e) {
     // When the up or down keys hit, we change the position of our box
     if (e.getKeyCode() == KeyEvent.VK_UP) {
+      hero1.faceUp();
       int newPosY = hero1.getPosRow() - 1;
       hero1.setPosRow(newPosY);
-      hero1.setImage("assets/hero-up.png");
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+      hero1.faceDown();
       int newPosY = hero1.getPosRow() + 1;
       hero1.setPosRow(newPosY);
-      hero1.setImage("assets/hero-down.png");
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+      hero1.faceLeft();
       int newPosX = hero1.getPosColumn() - 1;
       hero1.setPosColumn(newPosX);
-      hero1.setImage("assets/hero-left.png");
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+      hero1.faceRight();
       int newPosX = hero1.getPosColumn() + 1;
       hero1.setPosColumn(newPosX);
-      hero1.setImage("assets/hero-right.png");
     }
     // and redraw to have a new picture with the new coordinates
     invalidate();
