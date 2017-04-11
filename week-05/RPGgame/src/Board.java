@@ -66,20 +66,28 @@ public class Board extends JComponent implements KeyListener {
     // When the up or down keys hit, we change the position of our box
     if (e.getKeyCode() == KeyEvent.VK_UP) {
       hero1.faceUp();
-      int newPosY = hero1.getPosRow() - 1;
-      hero1.setPosRow(newPosY);
+      if (hero1.getPosRow() > 0) {
+        int newPosY = hero1.getPosRow() - 1;
+        hero1.setPosRow(newPosY);
+      }
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
       hero1.faceDown();
-      int newPosY = hero1.getPosRow() + 1;
-      hero1.setPosRow(newPosY);
+      if (hero1.getPosRow() < areaRows - 1) {
+        int newPosY = hero1.getPosRow() + 1;
+        hero1.setPosRow(newPosY);
+      }
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
       hero1.faceLeft();
-      int newPosX = hero1.getPosColumn() - 1;
-      hero1.setPosColumn(newPosX);
+      if (hero1.getPosColumn() > 0) {
+        int newPosX = hero1.getPosColumn() - 1;
+        hero1.setPosColumn(newPosX);
+      }
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
       hero1.faceRight();
-      int newPosX = hero1.getPosColumn() + 1;
-      hero1.setPosColumn(newPosX);
+      if (hero1.getPosColumn() < areaColumns - 1) {
+        int newPosX = hero1.getPosColumn() + 1;
+        hero1.setPosColumn(newPosX);
+      }
     }
     // and redraw to have a new picture with the new coordinates
     invalidate();
