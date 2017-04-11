@@ -66,15 +66,19 @@ public class Board extends JComponent implements KeyListener {
     if (e.getKeyCode() == KeyEvent.VK_UP) {
       int newPosY = hero1.getPosRow() - 1;
       hero1.setPosRow(newPosY);
+      hero1.setImage("assets/hero-up.png");
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
       int newPosY = hero1.getPosRow() + 1;
       hero1.setPosRow(newPosY);
+      hero1.setImage("assets/hero-down.png");
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
       int newPosX = hero1.getPosColumn() - 1;
       hero1.setPosColumn(newPosX);
+      hero1.setImage("assets/hero-left.png");
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
       int newPosX = hero1.getPosColumn() + 1;
       hero1.setPosColumn(newPosX);
+      hero1.setImage("assets/hero-right.png");
     }
     // and redraw to have a new picture with the new coordinates
     invalidate();
