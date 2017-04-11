@@ -9,21 +9,24 @@ public class GameObject {
   BufferedImage image;
   int posColumn, posRow, size;
 
-  public GameObject(String filename, int size, int posColumn, int posRow) {
+  public GameObject(String imageFile, int size, int posColumn, int posRow) {
     this.posColumn = posColumn;
     this.posRow = posRow;
     this.size = size;
-    setImage(filename);
+    image = loadImage(imageFile);
   }
 
-  protected void setImage(String filename) {
+  BufferedImage loadImage(String filename) {
+    BufferedImage emptyImage = new BufferedImage(size, size, BufferedImage.TYPE_INT_RGB);
     try {
-      image = ImageIO.read(new File(filename));
+      BufferedImage readImage = ImageIO.read(new File(filename));
       System.out.println("Success reading image file '" + filename + "'.");
+      return readImage;
     } catch (IOException e) {
       e.printStackTrace();
       System.out.println("Failed to read image file '" + filename + "'");
     }
+    return emptyImage;
   }
 
   public void draw(Graphics graphics) {
