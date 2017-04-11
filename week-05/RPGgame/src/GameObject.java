@@ -26,7 +26,7 @@ public class GameObject {
     }
   }
 
-  public void draw(Graphics graphics){
+  public void draw(Graphics graphics) {
     if (image != null) {
       graphics.drawImage(image, posColumn * size, posRow * size, null);
       System.out.println("Executed " + this.getClass().getSimpleName() + "'s draw method.");
@@ -36,4 +36,21 @@ public class GameObject {
   public BufferedImage getImage() {
     return image;
   }
+
+  public int getPosColumn() {
+    return posColumn;
+  }
+
+  public int getPosRow() {
+    return posRow;
+  }
+
+  public void setPosColumn(int posColumn) {
+    this.posColumn = posColumn;
+  }
+
+  public void setPosRow(int posRow) {
+    this.posRow = posRow;
+  }
+
 }
