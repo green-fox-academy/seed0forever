@@ -8,20 +8,15 @@ public class Board extends JComponent implements KeyListener {
   int areaColumns, areaRows, tileSize, testBoxX, testBoxY;
   Area currentArea;
   PositionedImage i1, i2, i3;
-
+  Hero hero1;
 
   public Board() {
     areaRows = 10;
     areaColumns = 10;
     tileSize = 72;
 
-    testBoxX = tileSize * 5;
-    testBoxY = tileSize * 5;
-    i1 = new PositionedImage("assets/boss.png", testBoxX, testBoxY);
-    i2 = new PositionedImage("assets/boss.png", testBoxX + tileSize * 2, tileSize * 2);
-    i3 = new PositionedImage("assets/boss.png", testBoxX + tileSize * 4, testBoxY + tileSize * 4);
-
     currentArea = new Area(tileSize, areaColumns, areaRows);
+    hero1 = new Hero("assets/hero-down.png", tileSize, 0, 0);
 
     // set the size of your draw board
     setPreferredSize(new Dimension(720, 720));
@@ -31,14 +26,10 @@ public class Board extends JComponent implements KeyListener {
   @Override
   public void paint(Graphics graphics) {
     super.paint(graphics);
-    graphics.fillRect(testBoxX, testBoxY, 72, 72);
     // here you have a 720x720 canvas
     // you can create and draw an image using the class below e.g.
     currentArea.draw(graphics);
-    i1.draw(graphics);
-//    i2.draw(graphics);
-//    i3.draw(graphics);
-
+    hero1.draw(graphics);
   }
 
   public static void main(String[] args) {
@@ -73,17 +64,17 @@ public class Board extends JComponent implements KeyListener {
   public void keyReleased(KeyEvent e) {
     // When the up or down keys hit, we change the position of our box
     if (e.getKeyCode() == KeyEvent.VK_UP) {
-      int newPosY = i1.getPosY() - tileSize;
-      i1.setPosY(newPosY);
+      int newPosY = hero1.getPosRow() - 1;
+      hero1.setPosRow(newPosY);
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-      int newPosY = i1.getPosY() + tileSize;
-      i1.setPosY(newPosY);
+      int newPosY = hero1.getPosRow() + 1;
+      hero1.setPosRow(newPosY);
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-      int newPosX = i1.getPosX() - tileSize;
-      i1.setPosX(newPosX);
+      int newPosX = hero1.getPosColumn() - 1;
+      hero1.setPosColumn(newPosX);
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-      int newPosX = i1.getPosX() + tileSize;
-      i1.setPosX(newPosX);
+      int newPosX = hero1.getPosColumn() + 1;
+      hero1.setPosColumn(newPosX);
     }
     // and redraw to have a new picture with the new coordinates
     invalidate();
