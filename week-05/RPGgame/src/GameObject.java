@@ -7,9 +7,7 @@ import java.io.IOException;
 public class GameObject {
 
   BufferedImage image;
-  int posColumn;
-  int posRow;
-  int size;
+  int posColumn, posRow, size;
 
   public GameObject(String filename, int size, int posColumn, int posRow) {
     this.posColumn = posColumn;
