@@ -5,16 +5,16 @@ import java.awt.*;
 
 public class Board extends JComponent implements KeyListener {
 
-  int areaColumns, areaRows, tileSize;
-  Area currentArea;
+  int mapColumns, mapRows, tileSize;
+  TileMap currentMap;
   Hero hero1;
 
   public Board() {
-    areaRows = 10;
-    areaColumns = 10;
     tileSize = 72;
+    mapRows = GameMap.MAP.length;
+    mapColumns = GameMap.MAP[0].length;
 
-    currentArea = new Area(tileSize, areaColumns, areaRows);
+    currentMap = new TileMap(tileSize, mapColumns, mapRows);
     hero1 = new Hero(tileSize, 0, 0,
             ImageLoader.getInstance().HERO_DOWN,
             ImageLoader.getInstance().HERO_UP,
@@ -22,7 +22,9 @@ public class Board extends JComponent implements KeyListener {
             ImageLoader.getInstance().HERO_RIGHT);
 
     // set the size of your draw board
-    setPreferredSize(new Dimension(720, 720));
+    setPreferredSize(new Dimension(
+            mapColumns * tileSize,
+            mapRows * tileSize));
     setVisible(true);
   }
 
@@ -32,7 +34,7 @@ public class Board extends JComponent implements KeyListener {
     // here you have a 720x720 canvas
     // you can create and draw an image using the class below e.g.
 
-    currentArea.draw(graphics);
+    currentMap.draw(graphics);
     hero1.draw(graphics);
 
   }
@@ -76,7 +78,7 @@ public class Board extends JComponent implements KeyListener {
       }
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
       hero1.faceDown();
-      if (hero1.getPosRow() < areaRows - 1) {
+      if (hero1.getPosRow() < mapRows - 1) {
         int newPosY = hero1.getPosRow() + 1;
         hero1.setPosRow(newPosY);
       }
@@ -88,7 +90,7 @@ public class Board extends JComponent implements KeyListener {
       }
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
       hero1.faceRight();
-      if (hero1.getPosColumn() < areaColumns - 1) {
+      if (hero1.getPosColumn() < mapColumns - 1) {
         int newPosX = hero1.getPosColumn() + 1;
         hero1.setPosColumn(newPosX);
       }

@@ -6,30 +6,42 @@ public class TileMap {
 
   int tileSize, columns, rows;
 
-  List<List<Tile>> area;
+  List<List<Tile>> tileMap;
 
   public TileMap(int tileSize, int columns, int rows) {
     this.tileSize = tileSize;
     this.columns = columns;
     this.rows = rows;
 
-    area = new ArrayList<>();
+    tileMap = new ArrayList<>();
+
     for (int row = 0; row < rows; row++) {
       List<Tile> rowList = new ArrayList<>();
-      for (int column = 0; column < columns; column++) {
-        Floor tileElement = new Floor(
-                tileSize, column, row, ImageLoader.getInstance().FLOOR);
-        rowList.add(tileElement);
+      for (int col = 0; col < columns; col++) {
+        switch (GameMap.MAP[row][col]) {
+          case 0:
+            Floor floor = new Floor(
+                    tileSize, col, row, ImageLoader.getInstance().FLOOR);
+            rowList.add(floor);
+            break;
+          case 1:
+            Wall wall = new Wall(
+                    tileSize, col, row, ImageLoader.getInstance().WALL);
+            rowList.add(wall);
+            break;
+          default:
+            break;
+        }
       }
-      area.add(rowList);
+      tileMap.add(rowList);
     }
   }
 
   void draw(Graphics graphics) {
     for (int row = 0; row < rows; row++) {
-      for (int column = 0; column < columns; column++) {
-        area.get(row).get(column).draw(graphics);
-        System.out.println("Executed TileMap draw for col " + column + ", row " + row + ".");
+      for (int col = 0; col < columns; col++) {
+        tileMap.get(row).get(col).draw(graphics);
+        System.out.println("Executed TileMap draw for col " + col + ", row " + row + ".");
       }
     }
   }
