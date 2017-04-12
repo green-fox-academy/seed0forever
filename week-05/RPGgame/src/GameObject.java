@@ -9,11 +9,11 @@ public class GameObject {
   BufferedImage image;
   int posColumn, posRow, size;
 
-  public GameObject(String imageFile, int size, int posColumn, int posRow) {
+  public GameObject(int size, int posColumn, int posRow, BufferedImage image) {
     this.posColumn = posColumn;
     this.posRow = posRow;
     this.size = size;
-    image = loadImage(imageFile);
+    this.image = image;
   }
 
   BufferedImage loadImage(String filename) {
@@ -48,12 +48,12 @@ public class GameObject {
     return posColumn;
   }
 
-  public int getPosRow() {
-    return posRow;
-  }
-
   public void setPosColumn(int posColumn) {
     this.posColumn = posColumn;
+  }
+
+  public int getPosRow() {
+    return posRow;
   }
 
   public void setPosRow(int posRow) {

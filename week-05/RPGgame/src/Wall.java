@@ -1,6 +1,8 @@
+import java.awt.image.BufferedImage;
+
 public class Wall extends Tile {
 
-  public Wall(String filename, int size, int posColumn, int posRow) {
-    super(filename, size, posColumn, posRow);
+  public Wall(int size, int posColumn, int posRow, BufferedImage image) {
+    super(size, posColumn, posRow, image);
   }
 }

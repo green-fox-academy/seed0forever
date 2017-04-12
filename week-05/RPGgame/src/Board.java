@@ -15,8 +15,11 @@ public class Board extends JComponent implements KeyListener {
     tileSize = 72;
 
     currentArea = new Area(tileSize, areaColumns, areaRows);
-    hero1 = new Hero(tileSize, 0, 0, "assets/hero-down.png", "assets/hero-up.png",
-            "assets/hero-left.png", "assets/hero-right.png");
+    hero1 = new Hero(tileSize, 0, 0,
+            ImageLoader.getInstance().HERO_DOWN,
+            ImageLoader.getInstance().HERO_UP,
+            ImageLoader.getInstance().HERO_LEFT,
+            ImageLoader.getInstance().HERO_RIGHT);
 
     // set the size of your draw board
     setPreferredSize(new Dimension(720, 720));
@@ -28,8 +31,10 @@ public class Board extends JComponent implements KeyListener {
     super.paint(graphics);
     // here you have a 720x720 canvas
     // you can create and draw an image using the class below e.g.
+
     currentArea.draw(graphics);
     hero1.draw(graphics);
+
   }
 
   public static void main(String[] args) {

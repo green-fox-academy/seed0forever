@@ -6,15 +6,16 @@ class GameCharacter extends GameObject {
   Direction direction;
 
   public GameCharacter(int size, int posColumn, int posRow,
-          String imageFileFaceDown, String imageFileFaceUp, String imageFileFaceLeft,
-          String imageFileFaceRight) {
-    super(imageFileFaceDown, size, posColumn, posRow); // Default direction is DOWN
+          BufferedImage imageFaceDown, BufferedImage imageFaceUp,
+          BufferedImage imageFaceLeft, BufferedImage imageFaceRight) {
+
+    super(size, posColumn, posRow, imageFaceDown); // Default direction is DOWN
     direction = Direction.DOWN; // Default direction is DOWN
 
-    imageFaceDown = image;
-    imageFaceUp = loadImage(imageFileFaceUp);
-    imageFaceLeft = loadImage(imageFileFaceLeft);
-    imageFaceRight = loadImage(imageFileFaceRight);
+    this.imageFaceDown = imageFaceDown;
+    this.imageFaceUp = imageFaceUp;
+    this.imageFaceLeft = imageFaceLeft;
+    this.imageFaceRight = imageFaceRight;
   }
 
   void faceDown() {

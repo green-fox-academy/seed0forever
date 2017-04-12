@@ -17,7 +17,8 @@ public class Area {
     for (int row = 0; row < rows; row++) {
       List<Tile> rowList = new ArrayList<>();
       for (int column = 0; column < columns; column++) {
-        Floor tileElement = new Floor("assets/floor.png", tileSize, column, row);
+        Floor tileElement = new Floor(
+                tileSize, column, row, ImageLoader.getInstance().FLOOR);
         rowList.add(tileElement);
       }
       area.add(rowList);
