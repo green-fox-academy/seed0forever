@@ -16,19 +16,6 @@ public class GameObject {
     this.image = image;
   }
 
-  BufferedImage loadImage(String filename) {
-    BufferedImage emptyImage = new BufferedImage(size, size, BufferedImage.TYPE_INT_RGB);
-    try {
-      BufferedImage readImage = ImageIO.read(new File(filename));
-      System.out.println("Success reading image file '" + filename + "'.");
-      return readImage;
-    } catch (IOException e) {
-      e.printStackTrace();
-      System.out.println("Failed to read image file '" + filename + "'");
-    }
-    return emptyImage;
-  }
-
   public void draw(Graphics graphics) {
     if (image != null) {
       graphics.drawImage(image, posColumn * size, posRow * size, null);
