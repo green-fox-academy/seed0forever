@@ -1,19 +1,18 @@
 import java.awt.Graphics;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Area {
 
-  int columns, rows;
-  int tileSize;
+  int tileSize, columns, rows;
 
   List<List<Tile>> area;
 
   public Area(int tileSize, int columns, int rows) {
+    this.tileSize = tileSize;
     this.columns = columns;
     this.rows = rows;
-    this.tileSize = tileSize;
+
     area = new ArrayList<>();
     for (int row = 0; row < rows; row++) {
       List<Tile> rowList = new ArrayList<>();
@@ -31,8 +30,6 @@ public class Area {
         area.get(row).get(column).draw(graphics);
         System.out.println("Executed Area draw for col " + column + ", row " + row + ".");
       }
-
     }
-
   }
 }
