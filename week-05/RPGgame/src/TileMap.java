@@ -2,13 +2,13 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Area {
+public class TileMap {
 
   int tileSize, columns, rows;
 
   List<List<Tile>> area;
 
-  public Area(int tileSize, int columns, int rows) {
+  public TileMap(int tileSize, int columns, int rows) {
     this.tileSize = tileSize;
     this.columns = columns;
     this.rows = rows;
@@ -29,7 +29,7 @@ public class Area {
     for (int row = 0; row < rows; row++) {
       for (int column = 0; column < columns; column++) {
         area.get(row).get(column).draw(graphics);
-        System.out.println("Executed Area draw for col " + column + ", row " + row + ".");
+        System.out.println("Executed TileMap draw for col " + column + ", row " + row + ".");
       }
     }
   }
