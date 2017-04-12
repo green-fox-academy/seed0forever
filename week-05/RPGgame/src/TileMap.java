@@ -45,4 +45,15 @@ public class TileMap {
       }
     }
   }
+
+  boolean isFloor(int column, int row) {
+    if (row >= 0
+            && row < tileMap.size()
+            && column >= 0
+            && column < tileMap.get(0).size()
+            ) {
+      return (tileMap.get(row).get(column) instanceof Floor);
+    }
+    return false;
+  }
 }
