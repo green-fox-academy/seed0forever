@@ -37,4 +37,20 @@ class GameCharacter extends GameObject {
     direction = Direction.LEFT;
     image = imageFaceLeft;
   }
+
+  void moveUp() {
+    posRow--;
+  }
+
+  void moveDown() {
+    posRow++;
+  }
+
+  void moveLeft() {
+    posColumn--;
+  }
+
+  void moveRight() {
+    posColumn++;
+  }
 }
