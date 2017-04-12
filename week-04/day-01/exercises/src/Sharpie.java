@@ -18,4 +18,8 @@ public class Sharpie {
     this.inkAmount--;
   }
 
+  public boolean isUsable() {
+    return inkAmount > 0;
+  }
+
 }
