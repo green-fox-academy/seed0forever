@@ -71,29 +71,33 @@ public class Board extends JComponent implements KeyListener {
   public void keyReleased(KeyEvent e) {
     // When the up or down keys hit, we change the position of our box
     if (e.getKeyCode() == KeyEvent.VK_UP) {
+
       hero1.faceUp();
       if (hero1.getPosRow() > 0) {
-        int newPosY = hero1.getPosRow() - 1;
-        hero1.setPosRow(newPosY);
+        hero1.moveUp();
       }
+
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+
       hero1.faceDown();
       if (hero1.getPosRow() < mapRows - 1) {
-        int newPosY = hero1.getPosRow() + 1;
-        hero1.setPosRow(newPosY);
+        hero1.moveDown();
       }
+
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+
       hero1.faceLeft();
       if (hero1.getPosColumn() > 0) {
-        int newPosX = hero1.getPosColumn() - 1;
-        hero1.setPosColumn(newPosX);
+        hero1.moveLeft();
       }
+
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+
       hero1.faceRight();
       if (hero1.getPosColumn() < mapColumns - 1) {
-        int newPosX = hero1.getPosColumn() + 1;
-        hero1.setPosColumn(newPosX);
+        hero1.moveRight();
       }
+
     }
     // and redraw to have a new picture with the new coordinates
     invalidate();
