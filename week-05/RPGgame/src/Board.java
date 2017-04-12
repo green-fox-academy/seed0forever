@@ -5,9 +5,8 @@ import java.awt.*;
 
 public class Board extends JComponent implements KeyListener {
 
-  int areaColumns, areaRows, tileSize, testBoxX, testBoxY;
+  int areaColumns, areaRows, tileSize;
   Area currentArea;
-  PositionedImage i1, i2, i3;
   Hero hero1;
 
   public Board() {
