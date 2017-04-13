@@ -1,5 +1,7 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,6 +10,7 @@ public class Board extends JComponent implements KeyListener {
   int mapColumns, mapRows, tileSize;
   TileMap currentMap;
   Hero hero1;
+  List<GameCharacter> currentCharacters;
 
   public Board() {
     tileSize = 72;
@@ -15,11 +18,14 @@ public class Board extends JComponent implements KeyListener {
     mapColumns = GameMap.MAP[0].length;
 
     currentMap = new TileMap(tileSize, mapColumns, mapRows);
+    currentCharacters = new ArrayList<>();
+
     hero1 = new Hero(tileSize, 0, 0,
             ImageLoader.getInstance().HERO_DOWN,
             ImageLoader.getInstance().HERO_UP,
             ImageLoader.getInstance().HERO_LEFT,
             ImageLoader.getInstance().HERO_RIGHT);
+    currentCharacters.add(hero1);
 
     // set the size of your draw board
     setPreferredSize(new Dimension(
@@ -36,6 +42,9 @@ public class Board extends JComponent implements KeyListener {
 
     currentMap.draw(graphics);
     hero1.draw(graphics);
+    graphics.setColor(Color.BLACK);
+    graphics.fillRect(0, tileSize * (mapRows - 1), tileSize * mapColumns, tileSize);
+
 
   }
 
