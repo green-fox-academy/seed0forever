@@ -47,11 +47,11 @@ public class AircraftCarrier {
   }
 
   void fight(AircraftCarrier enemyCarrier) {
-    int dealtDamage = 0;
-    for (Aircraft aircraft : aircraftStorage) {
-      dealtDamage += aircraft.fight();
-    }
-    enemyCarrier.setHealthPoint(enemyCarrier.getHealthPoint() - dealtDamage);
+    aircraftStorage.forEach(aircraft -> enemyCarrier.receiveDamage(aircraft.fight()));
+  }
+
+  private void receiveDamage(int damage) {
+    healthPoint -= (healthPoint > damage) ? damage : healthPoint;
   }
 
   int getHealthPoint() {
@@ -67,7 +67,7 @@ public class AircraftCarrier {
     status += "Aircraft count: " + aircraftStorage.size()
             + ", Ammo Storage: " + ammoStorage
             + ", Total damage: " + getTotalDamage()
-            + ", HP: " + getHealthPoint();
+            + ", HP: " + healthPoint;
 
     for (Aircraft aircraft : aircraftStorage) {
       status += "\n" + aircraft.getStatus();
