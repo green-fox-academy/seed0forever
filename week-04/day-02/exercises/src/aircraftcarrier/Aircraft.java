@@ -11,7 +11,7 @@ public class Aircraft {
   }
 
   int fight() {
-    int causedDamage = currentAmmo * baseDamage;
+    int causedDamage = getAllDamage();
     currentAmmo = 0;
     return causedDamage;
   }
@@ -30,16 +30,18 @@ public class Aircraft {
     return remainigRefill;
   }
 
+  int getAllDamage() {
+    return currentAmmo * baseDamage;
+  }
+
   String getType() {
     return this.getClass().getSimpleName();
   }
 
   String getStatus() {
-    int allDamage = currentAmmo * baseDamage;
-
     return "Type " + getType()
             + ", Ammo: " + currentAmmo
             + ", Base Damage: " + baseDamage
-            + ", All Damage: " + allDamage;
+            + ", All Damage: " + getAllDamage();
   }
 }
