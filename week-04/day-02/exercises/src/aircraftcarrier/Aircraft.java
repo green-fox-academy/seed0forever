@@ -15,4 +15,18 @@ public class Aircraft {
     currentAmmo = 0;
     return causedDamage;
   }
+
+  int refill(int receivedAmmo) {
+    int remainigRefill = receivedAmmo;
+    int emptySlots = maxAmmo - currentAmmo;
+
+    if (emptySlots < remainigRefill) {
+      remainigRefill -= emptySlots;
+      currentAmmo = maxAmmo;
+    } else {
+      currentAmmo += remainigRefill;
+      remainigRefill = 0;
+    }
+    return remainigRefill;
+  }
 }
