@@ -33,4 +33,13 @@ public class Aircraft {
   String getType() {
     return this.getClass().getSimpleName();
   }
+
+  String getStatus() {
+    int allDamage = currentAmmo * baseDamage;
+
+    return "Type " + getType()
+            + ", Ammo: " + currentAmmo
+            + ", Base Damage: " + baseDamage
+            + ", All Damage: " + allDamage;
+  }
 }
