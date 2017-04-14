@@ -11,9 +11,9 @@ public class Aircraft {
   }
 
   int fight() {
-    int causedDamage = getAllDamage();
+    int dealtDamage = getAllDamage();
     currentAmmo = 0;
-    return causedDamage;
+    return dealtDamage;
   }
 
   int refill(int receivedAmmo) {
