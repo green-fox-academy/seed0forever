@@ -29,4 +29,8 @@ public class Aircraft {
     }
     return remainigRefill;
   }
+
+  String getType() {
+    return this.getClass().getSimpleName();
+  }
 }
