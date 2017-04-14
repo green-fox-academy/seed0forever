@@ -37,7 +37,6 @@ public class AircraftCarrier {
         return;
       }
     }
-
     for (Aircraft aircraft : aircraftStorage) {
       if (aircraft instanceof F16) {
         ammoStorage = aircraft.refill(ammoStorage);
@@ -46,5 +45,21 @@ public class AircraftCarrier {
         return;
       }
     }
+  }
+
+  void fight(AircraftCarrier enemyCarrier) {
+    int dealtDamage = 0;
+    for (Aircraft aircraft : aircraftStorage) {
+      dealtDamage += aircraft.fight();
+    }
+    enemyCarrier.setHealthPoint(enemyCarrier.getHealthPoint() - dealtDamage);
+  }
+
+  int getHealthPoint() {
+    return healthPoint;
+  }
+
+  private void setHealthPoint(int healthPoint) {
+    this.healthPoint = healthPoint;
   }
 }
