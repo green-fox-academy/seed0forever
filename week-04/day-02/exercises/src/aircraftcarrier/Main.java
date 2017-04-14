@@ -22,5 +22,16 @@ public class Main {
     secondCarrier.addAircraft("F35");
     secondCarrier.fill();
     System.out.println(secondCarrier.getStatus());
+
+    while (firstCarrier.getHealthPoint() > 0
+            && secondCarrier.getHealthPoint() > 0) {
+      firstCarrier.fight(secondCarrier);
+      secondCarrier.fight(firstCarrier);
+      firstCarrier.fill();
+      secondCarrier.fill();
+    }
+
+    System.out.println(firstCarrier.getStatus());
+    System.out.println(secondCarrier.getStatus());
   }
 }
