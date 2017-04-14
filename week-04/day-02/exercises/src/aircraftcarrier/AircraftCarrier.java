@@ -62,4 +62,25 @@ public class AircraftCarrier {
   private void setHealthPoint(int healthPoint) {
     this.healthPoint = healthPoint;
   }
+
+  String getStatus() {
+    String status = "";
+    status += "Aircraft count: " + aircraftStorage.size()
+            + ", Ammo Storage: " + ammoStorage
+            + ", Total damage: " + getTotalDamage()
+            + ", HP: " + getHealthPoint();
+
+    for (Aircraft aircraft : aircraftStorage) {
+      status += "\n" + aircraft.getStatus();
+    }
+    return status;
+  }
+
+  int getTotalDamage() {
+    int totalDamage = 0;
+    for (Aircraft aircraft : aircraftStorage) {
+      totalDamage += aircraft.getAllDamage();
+    }
+    return totalDamage;
+  }
 }
