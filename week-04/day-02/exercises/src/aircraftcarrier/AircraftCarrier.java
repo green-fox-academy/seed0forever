@@ -23,26 +23,25 @@ public class AircraftCarrier {
     }
   }
 
-  void fill() {
+  void fill() throws Exception {
     if (ammoStorage == 0) {
-      System.out.println("should throw an OutOfAmmo exception");
-      System.exit(0);
+      throw new Exception("Out of ammo on ship - cannot refill more aircraft.");
     }
 
     for (Aircraft aircraft : aircraftStorage) {
       if (aircraft instanceof F35) {
         ammoStorage = aircraft.refill(ammoStorage);
-      }
-      if (ammoStorage == 0) {
-        return;
+        if (ammoStorage == 0) {
+          return;
+        }
       }
     }
     for (Aircraft aircraft : aircraftStorage) {
       if (aircraft instanceof F16) {
         ammoStorage = aircraft.refill(ammoStorage);
-      }
-      if (ammoStorage == 0) {
-        return;
+        if (ammoStorage == 0) {
+          return;
+        }
       }
     }
   }

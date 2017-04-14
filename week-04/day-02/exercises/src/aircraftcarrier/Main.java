@@ -3,24 +3,34 @@ package aircraftcarrier;
 public class Main {
 
   public static void main(String[] args) {
-    AircraftCarrier firstCarrier = new AircraftCarrier(1000);
+    AircraftCarrier firstCarrier = new AircraftCarrier(130);
     firstCarrier.addAircraft("F16");
     firstCarrier.addAircraft("F16");
     firstCarrier.addAircraft("F35");
     firstCarrier.addAircraft("F35");
     firstCarrier.addAircraft("F35");
     firstCarrier.addAircraft("F35");
-    firstCarrier.fill();
+
+    try {
+      firstCarrier.fill();
+    } catch (Exception e) {
+      System.out.println("First carrier: " + e.getMessage() + "\n");
+    }
     System.out.println(firstCarrier.getStatus());
 
-    AircraftCarrier secondCarrier = new AircraftCarrier(4000);
+    AircraftCarrier secondCarrier = new AircraftCarrier(110);
     secondCarrier.addAircraft("F16");
     secondCarrier.addAircraft("F16");
     secondCarrier.addAircraft("F16");
     secondCarrier.addAircraft("F16");
     secondCarrier.addAircraft("F35");
     secondCarrier.addAircraft("F35");
-    secondCarrier.fill();
+
+    try {
+      secondCarrier.fill();
+    } catch (Exception e) {
+      System.out.println("Second carrier: " + e.getMessage() + "\n");
+    }
     System.out.println(secondCarrier.getStatus());
 
     war(firstCarrier, secondCarrier);
@@ -30,12 +40,24 @@ public class Main {
   }
 
   static void war(AircraftCarrier firstShip, AircraftCarrier secondShip) {
+    System.out.println("War started!\n");
     while (firstShip.getHealthPoint() > 0
             && secondShip.getHealthPoint() > 0) {
       firstShip.fight(secondShip);
       secondShip.fight(firstShip);
-      firstShip.fill();
-      secondShip.fill();
+
+      try {
+        firstShip.fill();
+      } catch (Exception e) {
+        System.out.println("First carrier: " + e.getMessage() + "\n");
+      }
+
+      try {
+        secondShip.fill();
+      } catch (Exception e) {
+        System.out.println("Second carrier: " + e.getMessage() + "\n");
+      }
     }
+    System.out.println("War ended. Final stats:\n");
   }
 }
