@@ -22,4 +22,29 @@ public class AircraftCarrier {
       aircraftStorage.add(new F35());
     }
   }
+
+  void fill() {
+    if (ammoStorage == 0) {
+      System.out.println("should throw an OutOfAmmo exception");
+      System.exit(0);
+    }
+
+    for (Aircraft aircraft : aircraftStorage) {
+      if (aircraft instanceof F35) {
+        ammoStorage = aircraft.refill(ammoStorage);
+      }
+      if (ammoStorage == 0) {
+        return;
+      }
+    }
+
+    for (Aircraft aircraft : aircraftStorage) {
+      if (aircraft instanceof F16) {
+        ammoStorage = aircraft.refill(ammoStorage);
+      }
+      if (ammoStorage == 0) {
+        return;
+      }
+    }
+  }
 }
