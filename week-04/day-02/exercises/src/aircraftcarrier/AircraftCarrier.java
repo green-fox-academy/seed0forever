@@ -73,6 +73,8 @@ public class AircraftCarrier {
     for (Aircraft aircraft : aircraftStorage) {
       status += "\n" + aircraft.getStatus();
     }
+
+    status += ((healthPoint <= 0) ? "\nIt's dead Jim :(" : "") + "\n";
     return status;
   }
 
