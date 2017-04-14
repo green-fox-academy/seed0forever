@@ -58,10 +58,6 @@ public class AircraftCarrier {
     return healthPoint;
   }
 
-  private void setHealthPoint(int healthPoint) {
-    this.healthPoint = healthPoint;
-  }
-
   String getStatus() {
     String status = "";
     status += "Aircraft count: " + aircraftStorage.size()
