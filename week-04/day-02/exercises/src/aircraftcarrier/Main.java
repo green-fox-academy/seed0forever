@@ -23,15 +23,19 @@ public class Main {
     secondCarrier.fill();
     System.out.println(secondCarrier.getStatus());
 
-    while (firstCarrier.getHealthPoint() > 0
-            && secondCarrier.getHealthPoint() > 0) {
-      firstCarrier.fight(secondCarrier);
-      secondCarrier.fight(firstCarrier);
-      firstCarrier.fill();
-      secondCarrier.fill();
-    }
+    war(firstCarrier, secondCarrier);
 
     System.out.println(firstCarrier.getStatus());
     System.out.println(secondCarrier.getStatus());
+  }
+
+  static void war(AircraftCarrier firstShip, AircraftCarrier secondShip) {
+    while (firstShip.getHealthPoint() > 0
+            && secondShip.getHealthPoint() > 0) {
+      firstShip.fight(secondShip);
+      secondShip.fight(firstShip);
+      firstShip.fill();
+      secondShip.fill();
+    }
   }
 }
