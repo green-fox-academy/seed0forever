@@ -19,15 +19,8 @@ public class Aircraft {
   int refill(int ammoSupply) {
     int emptySlots = maxAmmo - currentAmmo;
 
-    currentAmmo += ammoSupply;
-    if (currentAmmo > maxAmmo) {
-      currentAmmo = maxAmmo;
-    }
-
-    ammoSupply -= emptySlots;
-    if (ammoSupply < 0) {
-      ammoSupply = 0;
-    }
+    currentAmmo += (emptySlots > ammoSupply) ? ammoSupply : emptySlots;
+    ammoSupply -= (emptySlots > ammoSupply) ? 0 : emptySlots;
     return ammoSupply;
   }
 
