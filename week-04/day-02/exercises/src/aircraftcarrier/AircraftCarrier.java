@@ -59,25 +59,23 @@ public class AircraftCarrier {
   }
 
   String getStatus() {
-    String status = "";
-    status += "Aircraft count: " + aircraftStorage.size()
+    String[] status = {""};
+    status[0] += "Aircraft count: " + aircraftStorage.size()
             + ", Ammo Storage: " + ammoStorage
             + ", Total damage: " + getTotalDamage()
             + ", HP: " + healthPoint;
 
-    for (Aircraft aircraft : aircraftStorage) {
-      status += "\n" + aircraft.getStatus();
-    }
+    aircraftStorage.forEach(a -> status[0] += "\n" + a.getStatus());
 
-    status += ((healthPoint <= 0) ? "\nIt's dead Jim :(" : "") + "\n";
-    return status;
+    status[0] += ((healthPoint < 0)
+          ? "\nIt's dead Jim :("
+          : "") + "\n";
+    return status[0];
   }
 
   int getTotalDamage() {
-    int totalDamage = 0;
-    for (Aircraft aircraft : aircraftStorage) {
-      totalDamage += aircraft.getAllDamage();
-    }
-    return totalDamage;
+    int totalDamage[] = {0};
+    aircraftStorage.forEach(a -> totalDamage[0] += a.getAllDamage());
+    return totalDamage[0];
   }
 }
