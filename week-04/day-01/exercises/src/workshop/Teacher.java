@@ -1,3 +1,5 @@
+package workshop;
+
 public class Teacher {
 
   public void answer() {

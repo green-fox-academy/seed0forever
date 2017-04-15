@@ -1,3 +1,5 @@
+package workshop;
+
 public class SharpieApp {
 
   public static void main(String[] args) {

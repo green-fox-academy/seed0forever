@@ -1,3 +1,5 @@
+package workshop;
+
 /**
  * Created by aze on 2017.03.29..
  */

@@ -1,3 +1,5 @@
+package workshop;
+
 public class PostIt {
   String backgroundColor;
   String text;

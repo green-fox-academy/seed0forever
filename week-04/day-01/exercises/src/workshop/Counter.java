@@ -1,3 +1,5 @@
+package workshop;
+
 public class Counter {
 
   int counter, counterInitial;

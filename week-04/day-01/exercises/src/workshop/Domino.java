@@ -1,3 +1,5 @@
+package workshop;
+
 import java.util.Arrays;
 
 public class Domino {
