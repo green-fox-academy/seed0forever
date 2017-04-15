@@ -5,10 +5,13 @@ import java.util.List;
 
 public class Ship {
 
+  private static int shipCount = 0;
+  private int shipId;
   private List<Pirate> crew;
   private Captain captain;
 
   Ship() {
+    shipId = ++shipCount;
     crew = new ArrayList<>();
   }
 
@@ -21,6 +24,10 @@ public class Ship {
       pirate.setIdNumber(i);
       crew.add(new Pirate());
     }
+  }
+
+  void printStatus() {
+
   }
 
 }
