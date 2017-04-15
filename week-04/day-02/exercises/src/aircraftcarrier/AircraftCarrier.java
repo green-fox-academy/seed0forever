@@ -51,7 +51,7 @@ public class AircraftCarrier {
   }
 
   private void receiveDamage(int damage) {
-    healthPoint -= (healthPoint > damage) ? damage : healthPoint;
+    healthPoint -= Math.min(damage, healthPoint);
   }
 
   int getHealthPoint() {
