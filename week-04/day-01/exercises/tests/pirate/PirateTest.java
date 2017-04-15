@@ -7,6 +7,12 @@ import org.junit.jupiter.api.Test;
 class PirateTest {
 
   @Test
+  void constructor() {
+    Pirate pirateDefault = new Pirate();
+
+  }
+
+  @Test
   void drinkSomeRum() {
 
   }
