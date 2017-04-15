@@ -62,15 +62,10 @@ class Pirate {
           anotherPirate.passOut();
         default:
       }
-
     }
-
-
   }
 
   private void passOut() {
     isPassedOut = true;
   }
-
-
 }
