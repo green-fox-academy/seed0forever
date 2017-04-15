@@ -20,7 +20,7 @@ public class Aircraft {
     int emptySlots = maxAmmo - currentAmmo;
 
     currentAmmo += (emptySlots > ammoSupply) ? ammoSupply : emptySlots;
-    ammoSupply -= (emptySlots > ammoSupply) ? 0 : emptySlots;
+    ammoSupply -= (emptySlots > ammoSupply) ? ammoSupply : emptySlots;
     return ammoSupply;
   }
 
