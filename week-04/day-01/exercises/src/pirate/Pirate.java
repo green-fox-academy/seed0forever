@@ -1,12 +1,15 @@
 package pirate;
 
 class Pirate {
+
   private int rumsDrank;
-  private boolean isDead;
+  private boolean isAlive;
+  private String deadMessage;
 
   Pirate() {
     rumsDrank = 0;
-    isDead = false;
+    isAlive = true;
+    deadMessage = "He's dead!";
   }
 
   void drinkSomeRum() {
@@ -17,8 +20,20 @@ class Pirate {
     String askMoreRum = "Pour me anudder!";
     String tooDrunk = "Arghh, I'ma Pirate. How d'ya d'ink its goin?";
 
-    String answer = (rumsDrank < 5) ? askMoreRum : tooDrunk;
-    System.out.println(answer);
+    if (isAlive) {
+      String answer = (rumsDrank < 5) ? askMoreRum : tooDrunk;
+      System.out.println(answer);
+    } else {
+      System.out.println(deadMessage);
+    }
+  }
+
+  void die() {
+    isAlive = false;
+  }
+
+  void brawl(Pirate anotherPirate) {
+
   }
 
 
