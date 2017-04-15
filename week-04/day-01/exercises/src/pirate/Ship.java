@@ -6,12 +6,12 @@ import java.util.List;
 public class Ship {
 
   private static int shipCount = 0;
-  private int shipId;
+  private int idNumber;
   private List<Pirate> crew;
   private Captain captain;
 
   Ship() {
-    shipId = ++shipCount;
+    idNumber = ++shipCount;
     crew = new ArrayList<>();
   }
 
