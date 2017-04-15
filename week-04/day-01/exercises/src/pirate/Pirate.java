@@ -2,9 +2,8 @@ package pirate;
 
 class Pirate {
 
-  private int rumsDrank;
-  private boolean isAlive;
-  private boolean isPassedOut;
+  private int rumsDrank, idNumber;
+  private boolean isAlive, isPassedOut;
   private String deadMessage;
   private String anotherDeadMessage;
 
@@ -18,6 +17,10 @@ class Pirate {
 
   void drinkSomeRum() {
     rumsDrank++;
+  }
+
+  void setIdNumber(int idNumber) {
+    this.idNumber = idNumber;
   }
 
   void howsItGoingMate() {
