@@ -27,7 +27,12 @@ public class Ship {
   }
 
   void printStatus() {
+    String status = "";
 
+    status += "Ship #" + idNumber
+            + " - Pirates: " + crew.size();
+
+    System.out.println(status);
   }
 
 }
