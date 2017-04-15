@@ -26,11 +26,19 @@ public class Ship {
     }
   }
 
+  Captain getCaptain() {
+    return captain;
+  }
+
   void printStatus() {
     String status = "";
 
     status += "Ship #" + idNumber
             + " - Pirates: " + crew.size();
+
+    status += ", Captain " + ((captain != null)
+            ? "drank " + captain.getRumsDrunk() + " rums"
+            : "not on board");
 
     System.out.println(status);
   }

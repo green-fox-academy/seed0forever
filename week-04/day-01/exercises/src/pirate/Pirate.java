@@ -68,4 +68,8 @@ class Pirate {
   private void passOut() {
     isPassedOut = true;
   }
+
+  int getRumsDrunk() {
+    return rumsDrank;
+  }
 }
