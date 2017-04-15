@@ -16,18 +16,19 @@ public class Aircraft {
     return dealtDamage;
   }
 
-  int refill(int receivedAmmo) {
-    int remainigRefill = receivedAmmo;
+  int refill(int ammoSupply) {
     int emptySlots = maxAmmo - currentAmmo;
 
-    if (emptySlots < remainigRefill) {
-      remainigRefill -= emptySlots;
+    currentAmmo += ammoSupply;
+    if (currentAmmo > maxAmmo) {
       currentAmmo = maxAmmo;
-    } else {
-      currentAmmo += remainigRefill;
-      remainigRefill = 0;
     }
-    return remainigRefill;
+
+    ammoSupply -= emptySlots;
+    if (ammoSupply < 0) {
+      ammoSupply = 0;
+    }
+    return ammoSupply;
   }
 
   int getAllDamage() {
