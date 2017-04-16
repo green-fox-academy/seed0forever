@@ -16,9 +16,9 @@ public class AircraftCarrier {
   }
 
   void addAircraft(String aircraftType) {
-    if (aircraftType.toUpperCase() == "F16") {
+    if (aircraftType.equalsIgnoreCase("F16")) {
       aircraftStorage.add(new F16());
-    } else if (aircraftType.toUpperCase() == "F35") {
+    } else if (aircraftType.equalsIgnoreCase("F35")) {
       aircraftStorage.add(new F35());
     }
   }
