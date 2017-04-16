@@ -15,6 +15,10 @@ public class TileMap {
 
     tileMap = new ArrayList<>();
 
+    fillMap(tileSize, columns, rows);
+  }
+
+  private void fillMap(int tileSize, int columns, int rows) {
     for (int row = 0; row < rows; row++) {
       List<Tile> rowList = new ArrayList<>();
       for (int col = 0; col < columns; col++) {
@@ -36,7 +40,6 @@ public class TileMap {
       tileMap.add(rowList);
     }
   }
-
   void draw(Graphics graphics) {
     for (int row = 0; row < rows; row++) {
       for (int col = 0; col < columns; col++) {
