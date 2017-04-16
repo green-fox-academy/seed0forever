@@ -36,9 +36,14 @@ public class Ship {
     status += "Ship #" + idNumber
             + " - Pirates: " + crew.size();
 
-    status += ", Captain " + ((captain != null)
-            ? "drank " + captain.getRumsDrunk() + " rums"
-            : "not on board");
+    if (captain == null) {
+      status += ", Captain not on board";
+    } else {
+      status += ", Captain: drank " + captain.getRumsDrunk() + " rums, "
+              + (!captain.isPassedOut()
+              ? "is conscious"
+              : "has passed out");
+    }
 
     System.out.println(status);
   }

@@ -72,4 +72,8 @@ class Pirate {
   int getRumsDrunk() {
     return rumsDrank;
   }
+
+  boolean isPassedOut() {
+    return isPassedOut;
+  }
 }
