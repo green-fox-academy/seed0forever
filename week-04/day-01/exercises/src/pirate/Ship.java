@@ -36,7 +36,7 @@ public class Ship {
     status += "Pirate Ship #" + idNumber;
     status += " - Live crew: "
             + crew.stream().filter(Pirate::isAlive).count()
-            + ".";
+            + ",";
 
     if (captain == null) {
       status += " No captain";
