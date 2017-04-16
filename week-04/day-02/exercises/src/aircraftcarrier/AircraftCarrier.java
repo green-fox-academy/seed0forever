@@ -74,8 +74,7 @@ class AircraftCarrier {
   }
 
   int getTotalDamage() {
-    int totalDamage[] = {0};
-    aircraftStorage.forEach(a -> totalDamage[0] += a.getAllDamage());
-    return totalDamage[0];
+    int totalDamage = aircraftStorage.stream().mapToInt(Aircraft::getAllDamage).sum();
+    return totalDamage;
   }
 }
