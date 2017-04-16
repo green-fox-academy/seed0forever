@@ -1,5 +1,5 @@
 package pirate;
 
-public class Captain extends Pirate {
+class Captain extends Pirate {
 
 }

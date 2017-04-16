@@ -4,15 +4,15 @@ class Pirate {
 
   private int rumsDrank, idNumber;
   private boolean isAlive, isPassedOut;
-  private String deadMessage;
-  private String anotherDeadMessage;
+  private final String DEAD_MESSAGE;
+  private final String DEAD_MESSAGE_FOR_ANOTHER;
 
   Pirate() {
     rumsDrank = 0;
     isAlive = true;
     isPassedOut = false;
-    deadMessage = "He's dead!";
-    anotherDeadMessage = "The other pirate is dead!";
+    DEAD_MESSAGE = "He's dead!";
+    DEAD_MESSAGE_FOR_ANOTHER = "The other pirate is dead!";
   }
 
   void drinkSomeRum() {
@@ -34,19 +34,19 @@ class Pirate {
       String answer = (!isPassedOut) ? askMoreRum : tooDrunk;
       System.out.println(answer);
     } else {
-      System.out.println(deadMessage);
+      System.out.println(DEAD_MESSAGE);
     }
   }
 
-  void die() {
+  private void die() {
     isAlive = false;
   }
 
   void brawl(Pirate anotherPirate) {
     if (!isAlive) {
-      System.out.println(deadMessage);
+      System.out.println(DEAD_MESSAGE);
     } else if (!anotherPirate.isAlive) {
-      System.out.println(anotherDeadMessage);
+      System.out.println(DEAD_MESSAGE_FOR_ANOTHER);
     } else {
       // outcome: what is the result of the fight
       // 1 - this Pirate dies
