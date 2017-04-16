@@ -1,12 +1,12 @@
 package aircraftcarrier;
 
-public class Aircraft {
+class Aircraft {
 
-  int currentAmmo;
+  private int currentAmmo;
   int maxAmmo;
   int baseDamage;
 
-  public Aircraft() {
+  Aircraft() {
     currentAmmo = 0;
   }
 
@@ -28,7 +28,7 @@ public class Aircraft {
     return currentAmmo * baseDamage;
   }
 
-  String getType() {
+  private String getType() {
     return this.getClass().getSimpleName();
   }
 

@@ -39,7 +39,7 @@ public class Main {
     System.out.println(secondCarrier.getStatus());
   }
 
-  static void war(AircraftCarrier firstShip, AircraftCarrier secondShip) {
+  private static void war(AircraftCarrier firstShip, AircraftCarrier secondShip) {
     System.out.println("War started!\n");
     while (firstShip.getHealthPoint() > 0
             && secondShip.getHealthPoint() > 0

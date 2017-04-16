@@ -3,11 +3,11 @@ package aircraftcarrier;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AircraftCarrier {
+class AircraftCarrier {
 
   List<Aircraft> aircraftStorage;
-  int ammoStorage;
-  int healthPoint;
+  private int ammoStorage;
+  private int healthPoint;
 
   public AircraftCarrier(int ammoStorage) {
     aircraftStorage = new ArrayList<>();

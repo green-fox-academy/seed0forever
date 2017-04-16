@@ -1,6 +1,6 @@
 package aircraftcarrier;
 
-public class F16 extends Aircraft {
+class F16 extends Aircraft {
 
   public F16() {
     maxAmmo = 8;
