@@ -33,16 +33,18 @@ public class Ship {
   void printStatus() {
     String status = "";
 
-    status += "Ship #" + idNumber
-            + " - Pirates: " + crew.size();
+    status += "Pirate Ship #" + idNumber;
+    status += " - Live crew: "
+            + crew.stream().filter(Pirate::isAlive).count()
+            + ".";
 
     if (captain == null) {
-      status += ", Captain not on board";
+      status += " No captain";
     } else {
-      status += ", Captain: drank " + captain.getRumsDrunk() + " rums, "
-              + (!captain.isPassedOut()
-              ? "is conscious"
-              : "has passed out");
+      status += " Captain: rums drank: " + captain.getRumsDrunk();
+      status += ", state: " + (!captain.isPassedOut()
+              ? "conscious"
+              : "passed out");
     }
 
     System.out.println(status);

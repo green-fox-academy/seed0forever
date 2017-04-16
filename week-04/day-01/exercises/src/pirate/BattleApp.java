@@ -7,7 +7,9 @@ public class BattleApp {
     ship1.printStatus();
     ship1.fillShip();
     ship1.printStatus();
-    ship1.getCaptain().drinkSomeRum();
+    for (int i=0; i < 5; i++) {
+      ship1.getCaptain().drinkSomeRum();
+    }
     ship1.printStatus();
   }
 }

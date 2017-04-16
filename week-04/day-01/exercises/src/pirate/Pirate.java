@@ -17,6 +17,9 @@ class Pirate {
 
   void drinkSomeRum() {
     rumsDrank++;
+    if (rumsDrank > 5) {
+      passOut();
+    }
   }
 
   void setIdNumber(int idNumber) {
@@ -28,7 +31,7 @@ class Pirate {
     String tooDrunk = "Arghh, I'ma Pirate. How d'ya d'ink its goin?";
 
     if (isAlive) {
-      String answer = (rumsDrank < 5) ? askMoreRum : tooDrunk;
+      String answer = (!isPassedOut) ? askMoreRum : tooDrunk;
       System.out.println(answer);
     } else {
       System.out.println(deadMessage);
@@ -75,5 +78,9 @@ class Pirate {
 
   boolean isPassedOut() {
     return isPassedOut;
+  }
+
+  boolean isAlive() {
+    return isAlive;
   }
 }
