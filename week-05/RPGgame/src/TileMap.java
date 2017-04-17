@@ -2,23 +2,25 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TileMap {
+class TileMap {
 
-  int tileSize, columns, rows;
+  private int tileSize;
+  private int columns;
+  private int rows;
 
-  List<List<Tile>> tileMap;
+  private List<List<Tile>> tileMap;
 
-  public TileMap(int tileSize, int columns, int rows) {
+  TileMap(int tileSize, int columns, int rows) {
     this.tileSize = tileSize;
     this.columns = columns;
     this.rows = rows;
 
     tileMap = new ArrayList<>();
 
-    fillMap(tileSize, columns, rows);
+    fillMap(columns, rows);
   }
 
-  private void fillMap(int tileSize, int columns, int rows) {
+  private void fillMap(int columns, int rows) {
     for (int row = 0; row < rows; row++) {
       List<Tile> rowList = new ArrayList<>();
       for (int col = 0; col < columns; col++) {

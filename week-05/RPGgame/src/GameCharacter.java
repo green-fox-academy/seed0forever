@@ -2,10 +2,13 @@ import java.awt.image.BufferedImage;
 
 class GameCharacter extends GameObject {
 
-  BufferedImage imageFaceDown, imageFaceUp, imageFaceLeft, imageFaceRight;
-  Direction direction;
+  private BufferedImage imageFaceDown;
+  private BufferedImage imageFaceUp;
+  private BufferedImage imageFaceLeft;
+  private BufferedImage imageFaceRight;
+  private Direction direction;
 
-  public GameCharacter(int size, int posColumn, int posRow,
+  GameCharacter(int size, int posColumn, int posRow,
           BufferedImage imageFaceDown, BufferedImage imageFaceUp,
           BufferedImage imageFaceLeft, BufferedImage imageFaceRight) {
 

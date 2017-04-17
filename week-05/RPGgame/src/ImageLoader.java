@@ -3,11 +3,11 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-public class ImageLoader {
+class ImageLoader {
 
   private static ImageLoader instance;
 
-  public BufferedImage FLOOR, WALL, HERO_DOWN, HERO_UP, HERO_RIGHT, HERO_LEFT, BOSS;
+  BufferedImage FLOOR, WALL, HERO_DOWN, HERO_UP, HERO_RIGHT, HERO_LEFT, BOSS;
 
   private ImageLoader() {
     try {

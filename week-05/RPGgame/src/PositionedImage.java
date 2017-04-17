@@ -4,12 +4,13 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class PositionedImage {
+class PositionedImage {
 
-  BufferedImage image;
-  int posX, posY;
+  private BufferedImage image;
+  private int posX;
+  private int posY;
 
-  public PositionedImage(String filename, int posX, int posY) {
+  PositionedImage(String filename, int posX, int posY) {
     this.posX = posX;
     this.posY = posY;
     try {

@@ -1,7 +1,7 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Test implements KeyListener {
+class Test implements KeyListener {
 
   @Override
   public void keyTyped(KeyEvent e) {

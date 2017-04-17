@@ -7,12 +7,14 @@ import java.awt.*;
 
 public class Board extends JComponent implements KeyListener {
 
-  int mapColumns, mapRows, tileSize;
-  TileMap currentMap;
-  Hero hero1;
-  List<GameCharacter> currentCharacters;
+  private int mapColumns;
+  private int mapRows;
+  private int tileSize;
+  private TileMap currentMap;
+  private Hero hero1;
+  private List<GameCharacter> currentCharacters;
 
-  public Board() {
+  private Board() {
     tileSize = 72;
     mapRows = GameMap.MAP.length;
     mapColumns = GameMap.MAP[0].length;

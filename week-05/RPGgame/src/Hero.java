@@ -1,8 +1,8 @@
 import java.awt.image.BufferedImage;
 
-public class Hero extends GameCharacter {
+class Hero extends GameCharacter {
 
-  public Hero(int size, int posColumn, int posRow,
+  Hero(int size, int posColumn, int posRow,
           BufferedImage imageFaceDown, BufferedImage imageFaceUp,
           BufferedImage imageFaceLeft, BufferedImage imageFaceRight) {
 
