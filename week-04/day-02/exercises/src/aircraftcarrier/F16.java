@@ -2,8 +2,7 @@ package aircraftcarrier;
 
 class F16 extends Aircraft {
 
-  public F16() {
-    maxAmmo = 8;
-    baseDamage = 30;
+  F16() {
+    super(8, 30);
   }
 }

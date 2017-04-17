@@ -3,11 +3,17 @@ package aircraftcarrier;
 class Aircraft {
 
   private int currentAmmo;
-  int maxAmmo;
-  int baseDamage;
+  private int maxAmmo;
+  private int baseDamage;
 
   Aircraft() {
     currentAmmo = 0;
+  }
+
+  Aircraft(int maxAmmo, int baseDamage) {
+    this();
+    this.maxAmmo = maxAmmo;
+    this.baseDamage =  baseDamage;
   }
 
   int fight() {

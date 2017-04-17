@@ -5,11 +5,11 @@ import java.util.List;
 
 class AircraftCarrier {
 
-  List<Aircraft> aircraftStorage;
+  private List<Aircraft> aircraftStorage;
   private int ammoStorage;
   private int healthPoint;
 
-  public AircraftCarrier(int ammoStorage) {
+  AircraftCarrier(int ammoStorage) {
     aircraftStorage = new ArrayList<>();
     this.ammoStorage = ammoStorage;
     healthPoint = 5000;

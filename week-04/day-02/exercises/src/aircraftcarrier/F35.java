@@ -2,8 +2,7 @@ package aircraftcarrier;
 
 class F35 extends Aircraft {
 
-  public F35() {
-    maxAmmo = 12;
-    baseDamage = 50;
+  F35() {
+    super(12, 50);
   }
 }
