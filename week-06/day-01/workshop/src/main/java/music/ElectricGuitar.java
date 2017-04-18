@@ -10,6 +10,10 @@ public class ElectricGuitar extends StringedInstrument {
     this(DEFAULT_NAME, NUM_OF_STRINGS, SOUND_WHEN_PLAYED);
   }
 
+  public ElectricGuitar(int numberOfStrings) {
+    this(DEFAULT_NAME, numberOfStrings, SOUND_WHEN_PLAYED);
+  }
+
   ElectricGuitar(String name, int numberOfStrings, String soundWhenPlayed) {
     super(name, numberOfStrings, soundWhenPlayed);
   }
