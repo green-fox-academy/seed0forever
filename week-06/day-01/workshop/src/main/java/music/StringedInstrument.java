@@ -9,12 +9,8 @@ abstract class StringedInstrument extends Instrument {
   }
 
   StringedInstrument(String name, int numberOfStrings, String soundWhenPlayed) {
-    this(name, soundWhenPlayed);
-    this.numberOfStrings = numberOfStrings;
-  }
-
-  StringedInstrument(String name, String soundWhenPlayed) {
     super(name, soundWhenPlayed);
+    this.numberOfStrings = numberOfStrings;
   }
 
   @Override
