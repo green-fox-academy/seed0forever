@@ -2,10 +2,10 @@ import main.java.music.*;
 
 public class AppMusic {
 
-
   public static void main(String[] args) {
 
-    System.out.println("Test 1, create Electric Guitar, Bass Guitar and Violin with default strings.");
+    System.out.println(
+            "Test 1, create Electric Guitar, Bass Guitar and Violin with default strings.");
     ElectricGuitar guitar = new ElectricGuitar();
     BassGuitar bassGuitar = new BassGuitar();
     Violin violin = new Violin();
