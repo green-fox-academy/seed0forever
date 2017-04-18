@@ -1,6 +1,6 @@
 package main.java.music;
 
-public abstract class Instrument {
+abstract class Instrument {
 
   String name;
 

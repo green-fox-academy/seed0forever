@@ -1,5 +1,5 @@
 package main.java.music;
 
-public class BassGuitar extends StringedInstrument {
+class BassGuitar extends StringedInstrument {
 
 }
