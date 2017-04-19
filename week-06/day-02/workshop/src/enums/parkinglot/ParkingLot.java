@@ -16,22 +16,22 @@ public class ParkingLot {
   }
 
   int getAmountOfCars(CarType matchType) {
-    int amountThatMatches = 0;
+    int matchingAmount = 0;
     for (Car car : carsInside) {
       if (car.getType().equals(matchType)) {
-        amountThatMatches++;
+        matchingAmount++;
       }
     }
-    return amountThatMatches;
+    return matchingAmount;
   }
 
   int getAmountOfCars(Color matchColor) {
-    int amountThatMatches = 0;
+    int matchingAmount = 0;
     for (Car car : carsInside) {
       if (car.getColor().equals(matchColor)) {
-        amountThatMatches++;
+        matchingAmount++;
       }
     }
-    return amountThatMatches;
+    return matchingAmount;
   }
 }
