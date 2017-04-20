@@ -1,8 +1,13 @@
+# IntelliJ
 out/
 .idea/
 *.iml
 *.xml
 *.class
+
+#Atom
 .~lock.*#
+
+#Own additions to ignore
 _materials/
 
