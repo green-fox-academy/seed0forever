@@ -1,13 +1,38 @@
-# IntelliJ
+# Own additions #
+_materials/
+
+# Mac OS #
+.DS_Store
+
+# Atom #
+.~lock.*#
+
+# IntelliJ #
 out/
 .idea/
 *.iml
 *.xml
 *.class
 
-#Atom
-.~lock.*#
+# Package Files #
+*.jar
+*.war
+*.ear
 
-#Own additions to ignore
-_materials/
+# Gradle #
+.gradle/
+build/
+gradle.properties
+local.properties
+
+!build.gradle
+!build.properties
+!settings.gradle
+
+# Gradle Wrapper #
+!gradlew
+!gradlew.bat
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
 
