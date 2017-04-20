@@ -1,4 +1,4 @@
-package date;
+package com.greenfox.seed0forever.birthdaycalculator;
 
 import org.junit.Test;
 
