@@ -15,7 +15,7 @@ public class BirthdayWithLocalDate implements BirthdayCalculator<LocalDate> {
 
   @Override
   public String printMonthAndDay(LocalDate date) {
-    // TODO - return the date formatted: month & day (MM. dd.)
+    // return the date formatted: month & day (MM. dd.)
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM. dd.");
     date.format(formatter);
     return date.format(formatter);
