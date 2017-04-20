@@ -1,15 +1,16 @@
 package com.greenfox.seed0forever.birthdaycalculator;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class BirthdayWithLocalDate implements BirthdayCalculator<LocalDate> {
 
   @Override
   public LocalDate parseDate(String str) {
-    // TODO - return with the parsed date; format is: yyyy-MM-dd
-    LocalDate dummy1 = LocalDate.now();
-    return dummy1;
+    // return with the parsed date; format is: yyyy-MM-dd
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    return LocalDate.parse(str, formatter);
   }
 
   @Override
