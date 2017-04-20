@@ -2,7 +2,9 @@ package com.greenfox.seed0forever.birthdaycalculator;
 
 import java.time.LocalDate;
 import java.time.MonthDay;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class BirthdayWithLocalDate implements BirthdayCalculator<LocalDate> {
@@ -33,13 +35,26 @@ public class BirthdayWithLocalDate implements BirthdayCalculator<LocalDate> {
   @Override
   public int calculateAgeInYears(LocalDate birthday) {
     // TODO - return how many years age the input date 'birthday' was
-    return -1;
+    LocalDate today = LocalDate.now();
+
+    Period lifeDuration = Period.between(birthday, today);
+    return lifeDuration.getYears();
   }
 
   @Override
   public int calculateDaysToNextAnniversary(LocalDate date) {
     // TODO - the number of days remaining to the next anniversary of 'date' (e.g. if tomorrow, return 1)
-    return -1;
+    LocalDate nextAnniversary = LocalDate.of(date.getYear() + 1, date.getMonth(), date.getDayOfMonth());
+    LocalDate today = LocalDate.now();
+
+    Period remainingDuration = Period.between(nextAnniversary, today);
+    long remainingDays = ChronoUnit.DAYS.between(today, nextAnniversary);
+
+    System.out.println(date.toString() + " was the " + date.getDayOfYear() + "th day of the year.");
+    System.out.println(LocalDate.of(date.getYear() +1, date.getMonth(), date.getDayOfMonth()).toString()
+            + " was the " + LocalDate.of(date.getYear() - 1, date.getMonth(), date.getDayOfMonth()).getDayOfYear()
+            + "th day of that year.");
+    return (int) remainingDays;
   }
 
   public static void main(String[] args) {
