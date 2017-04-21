@@ -34,7 +34,7 @@ public class TodoList {
       return;
     }
     for (int i = 0; i < todoListItems.size(); i++) {
-      System.out.println(i + 1 + " - " + todoListItems.get(i).toString());
+      System.out.println((todoListItems.get(i).getId() + 1) + " - " + todoListItems.get(i).toString());
     }
   }
 
@@ -45,5 +45,11 @@ public class TodoList {
   public void add(String item) {
     Todo todoItem = new Todo(item);
     todoListItems.add(todoItem);
+  }
+
+  public void remove(int itemIndex) {
+    if (todoListItems.size() <= itemIndex + 1) {
+      todoListItems.remove(itemIndex);
+    }
   }
 }

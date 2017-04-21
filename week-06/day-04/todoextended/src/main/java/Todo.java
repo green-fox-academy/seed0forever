@@ -9,11 +9,14 @@ public class Todo {
   private int id;
   private String itemName;
   private ZonedDateTime createdAt, completedAt;
-
   public Todo(String itemName) {
     id = ++instanceCounter;
     createdAt = ZonedDateTime.now();
     this.itemName = itemName;
+  }
+
+  public int getId() {
+    return id;
   }
 
   public boolean isCompleted() {

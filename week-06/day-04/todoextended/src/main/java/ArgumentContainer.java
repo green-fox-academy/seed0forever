@@ -52,7 +52,7 @@ public class ArgumentContainer {
               && args[i].contains(dashArg)
               && args.length > i + 1
               && !args[i + 1].startsWith("-")) {
-        indexOfDashArg = Integer.parseInt(args[i + 1]) - 1;
+        indexOfDashArg = Integer.parseInt(args[i + 1]);
         return indexOfDashArg;
       }
     }
