@@ -1,9 +1,9 @@
-public class ToDo {
+public class Todo {
 
   private String itemName;
   private boolean completed;
 
-  public ToDo(String itemName) {
+  public Todo(String itemName) {
     completed = false;
     this.itemName = itemName;
   }

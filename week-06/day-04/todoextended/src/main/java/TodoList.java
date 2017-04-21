@@ -1,28 +1,28 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class ToDoList {
+public class TodoList {
 
   private String outMessageEmpty;
-  private List<ToDo> toDoListItems;
+  private List<Todo> todoListItems;
 
-  public ToDoList() {
+  public TodoList() {
     this(new ArrayList<>());
   }
 
-  public ToDoList(List<String> toDoLines) {
+  public TodoList(List<String> toDoLines) {
     outMessageEmpty = "No todo items for today! :)";
-    toDoListItems = new ArrayList<>();
+    todoListItems = new ArrayList<>();
 
     for (String line : toDoLines) {
-      ToDo toDoItem = new ToDo(line);
-      toDoListItems.add(toDoItem);
+      Todo todoItem = new Todo(line);
+      todoListItems.add(todoItem);
     }
   }
 
   List<String> toListOfStrings() {
     List<String> listOfStrings = new ArrayList<>();
-    for (ToDo todo : toDoListItems) {
+    for (Todo todo : todoListItems) {
       listOfStrings.add(todo.toString());
     }
     return listOfStrings;
@@ -33,17 +33,17 @@ public class ToDoList {
       System.out.println(outMessageEmpty);
       return;
     }
-    for (int i = 0; i < toDoListItems.size(); i++) {
-      System.out.println(i + 1 + " - " + toDoListItems.get(i).toString());
+    for (int i = 0; i < todoListItems.size(); i++) {
+      System.out.println(i + 1 + " - " + todoListItems.get(i).toString());
     }
   }
 
   public boolean isEmpty() {
-    return toDoListItems.size() == 0;
+    return todoListItems.size() == 0;
   }
 
   public void add (String item) {
-    ToDo toDoItem = new ToDo(item);
-    toDoListItems.add(toDoItem);
+    Todo todoItem = new Todo(item);
+    todoListItems.add(todoItem);
   }
 }

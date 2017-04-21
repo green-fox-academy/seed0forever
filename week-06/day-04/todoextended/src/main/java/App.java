@@ -19,7 +19,7 @@ public class App {
           "-c   Completes an task");
   private static final String TODO_STORAGE_FILE = "todo.txt";
 
-  private static ToDoList runtimeToDoList;
+  private static TodoList runtimeTodoList;
 
   public static void main(String[] args) {
     ArgumentContainer arguments = new ArgumentContainer(args);
@@ -28,12 +28,12 @@ public class App {
       printUsage();
     } else if (arguments.hasDashArg("l")) {
       loadToDoList();
-      runtimeToDoList.printLines();
+      runtimeTodoList.printLines();
     } else if (arguments.hasDashArg("a")) {
       String newToDoItem = arguments.getStringOfDashArg("a");
       loadToDoList();
-      runtimeToDoList.add(newToDoItem);
-      runtimeToDoList.printLines();
+      runtimeTodoList.add(newToDoItem);
+      runtimeTodoList.printLines();
       saveToDoList();
     } else if (arguments.hasDashArg("r")) {
       int itemIndexToRemove = arguments.getIntOfDashArg("r");
@@ -45,11 +45,11 @@ public class App {
 
   private static void loadToDoList() {
     List<String> loadedToDoFile = readFile(TODO_STORAGE_FILE);
-    runtimeToDoList = new ToDoList(loadedToDoFile);
+    runtimeTodoList = new TodoList(loadedToDoFile);
   }
 
   private static void saveToDoList() {
-    writeFile(TODO_STORAGE_FILE, runtimeToDoList.toListOfStrings());
+    writeFile(TODO_STORAGE_FILE, runtimeTodoList.toListOfStrings());
   }
 
   private static void printUsage() {
