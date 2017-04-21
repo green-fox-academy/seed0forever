@@ -42,7 +42,7 @@ public class TodoList {
     return todoListItems.size() == 0;
   }
 
-  public void add (String item) {
+  public void add(String item) {
     Todo todoItem = new Todo(item);
     todoListItems.add(todoItem);
   }
