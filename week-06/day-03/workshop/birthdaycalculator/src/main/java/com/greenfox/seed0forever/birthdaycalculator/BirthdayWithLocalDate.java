@@ -34,7 +34,7 @@ public class BirthdayWithLocalDate implements BirthdayCalculator<LocalDate> {
 
   @Override
   public int calculateAgeInYears(LocalDate birthday) {
-    // TODO - return how many years age the input date 'birthday' was
+    // return how many years age the input date 'birthday' was
     LocalDate today = LocalDate.now();
 
     Period lifeDuration = Period.between(birthday, today);
@@ -43,18 +43,25 @@ public class BirthdayWithLocalDate implements BirthdayCalculator<LocalDate> {
 
   @Override
   public int calculateDaysToNextAnniversary(LocalDate date) {
-    // TODO - the number of days remaining to the next anniversary of 'date' (e.g. if tomorrow, return 1)
-    LocalDate nextAnniversary = LocalDate.of(date.getYear() + 1, date.getMonth(), date.getDayOfMonth());
+    // the number of days remaining to the next anniversary of 'date' (e.g. if tomorrow, return 1)
+    // TODO - check if it is sound. Might have a bug in the calculation.
+    int daysToNextAnniversary;
     LocalDate today = LocalDate.now();
+    MonthDay anniversaryMonthDay = MonthDay.from(date);
+    MonthDay todayMonthDay = MonthDay.from(today);
 
-    Period remainingDuration = Period.between(nextAnniversary, today);
-    long remainingDays = ChronoUnit.DAYS.between(today, nextAnniversary);
+    if (todayMonthDay.equals(anniversaryMonthDay)) {
+      daysToNextAnniversary = 0;
+    } else {
+      boolean isAnniversaryNextYear = todayMonthDay.isAfter(anniversaryMonthDay);
 
-    System.out.println(date.toString() + " was the " + date.getDayOfYear() + "th day of the year.");
-    System.out.println(LocalDate.of(date.getYear() +1, date.getMonth(), date.getDayOfMonth()).toString()
-            + " was the " + LocalDate.of(date.getYear() - 1, date.getMonth(), date.getDayOfMonth()).getDayOfYear()
-            + "th day of that year.");
-    return (int) remainingDays;
+      LocalDate nextAnniversary = LocalDate
+              .of(today.getYear() + ((isAnniversaryNextYear) ? 1 : 0),
+                      anniversaryMonthDay.getMonth(),
+                      anniversaryMonthDay.getDayOfMonth());
+      daysToNextAnniversary = (int) (ChronoUnit.DAYS.between(today, nextAnniversary));
+    }
+    return daysToNextAnniversary;
   }
 
   public static void main(String[] args) {
