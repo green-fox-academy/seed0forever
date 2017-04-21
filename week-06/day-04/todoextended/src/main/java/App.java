@@ -8,7 +8,15 @@ import java.util.List;
 
 public class App {
 
-  private static final String USAGE_HELP_MSG = "usage.txt";
+  private static final List<String> USAGE_MSG = Arrays.asList(
+          "Java Todo application",
+          "=======================",
+          "",
+          "Command line arguments:",
+          "-l   Lists all the tasks",
+          "-a   Adds a new task",
+          "-r   Removes an task",
+          "-c   Completes an task");
   private static final String TODO_STORAGE_FILE = "todo.txt";
 
   private static ToDoList runtimeToDoList;
@@ -45,8 +53,7 @@ public class App {
   }
 
   private static void printUsage() {
-    List<String> loadedFileLines = readFile(USAGE_HELP_MSG);
-    printListLines(loadedFileLines);
+    printListLines(USAGE_MSG);
   }
 
   private static void printListLines(List<String> readFileLines) {
