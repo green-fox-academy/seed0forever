@@ -2,23 +2,13 @@ package com.greenfox.seed0forever.reservations;
 
 public class Reservation implements Reservationy {
 
-  private static final String[] codeAlphabet = generateCodeAlphabet();
 
-  private static String[] generateCodeAlphabet() {
-    String[] codeAlphabet = new String[10 + (91 - 65)];
+  private String dowBooking;
+  private String codeBooking;
 
-    for (int arrayIndex = 0; arrayIndex < codeAlphabet.length; arrayIndex++) {
-      if (arrayIndex < 10) {
-        codeAlphabet[arrayIndex] = String.valueOf(arrayIndex);
-      } else {
-        codeAlphabet[arrayIndex] = Character.toString((char) ('A' + arrayIndex - 10));
-      }
-    }
-    return codeAlphabet;
-  }
-
-  public static String[] getCodeAlphabet() {
-    return codeAlphabet;
+  public Reservation(String codeBooking, String dowBooking) {
+    this.codeBooking = codeBooking;
+    this.dowBooking = dowBooking;
   }
 
   @Override
@@ -33,6 +23,6 @@ public class Reservation implements Reservationy {
 
   @Override
   public String toString() {
-    return super.toString();
+    return String.format("Booking# %s for %s", codeBooking, dowBooking);
   }
 }
