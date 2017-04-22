@@ -3,7 +3,7 @@ package com.greenfox.seed0forever.creditcards;
 public class CreditCard implements CreditCardy {
 
   @Override
-  public int getSumCVV() {
+  public int getSumCvv() {
     return 0;
   }
 
@@ -18,7 +18,7 @@ public class CreditCard implements CreditCardy {
   }
 
   @Override
-  public int cumeSumCVV(String codeAccount) {
+  public int cumeSumCvv(String codeAccount) {
     return 0;
   }
 }
