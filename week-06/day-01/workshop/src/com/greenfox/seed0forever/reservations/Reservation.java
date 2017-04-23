@@ -2,27 +2,26 @@ package com.greenfox.seed0forever.reservations;
 
 public class Reservation implements Reservationy {
 
-
-  private String dowBooking;
+  private DayOfTheWeek dowBooking;
   private String codeBooking;
 
-  public Reservation(String codeBooking, String dowBooking) {
+  public Reservation(String codeBooking, DayOfTheWeek dowBooking) {
     this.codeBooking = codeBooking;
     this.dowBooking = dowBooking;
   }
 
   @Override
   public String getDowBooking() {
-    return null;
+    return dowBooking.toString();
   }
 
   @Override
   public String getCodeBooking() {
-    return null;
+    return codeBooking;
   }
 
   @Override
   public String toString() {
-    return String.format("Booking# %s for %s", codeBooking, dowBooking);
+    return String.format(DEFAULT_FORMAT_RESERVATIONY, codeBooking, dowBooking);
   }
 }

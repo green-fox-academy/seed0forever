@@ -5,8 +5,8 @@ import java.util.List;
 
 public class ReservationTable {
 
-  private static final String[] CODE_ALPHABET = generateCodeAlphabet();
-  private static final int LENGTH_CODE_BOOKING = 8;
+  public static final String[] CODE_ALPHABET = generateCodeAlphabet();
+  public static final int LENGTH_CODE_BOOKING = 8;
 
   private List<Reservation> contents;
 
@@ -31,8 +31,26 @@ public class ReservationTable {
     return codeAlphabet;
   }
 
+  public static String randomCodeBooking() {
+    return randomDow(CODE_ALPHABET, LENGTH_CODE_BOOKING);
+  }
+
+  private static String randomDow(String[] elements, int length) {
+    String generatedString = "";
+    for (int i = 0; i < length; i++) {
+      int randomIndex = (int) (Math.random() * elements.length);
+      generatedString += elements[randomIndex];
+    }
+    return generatedString;
+  }
+
+  public static DayOfTheWeek randomDow() {
+    int randomIndex = (int) (Math.random() * DayOfTheWeek.values().length);
+    return DayOfTheWeek.values()[randomIndex];
+  }
+
   public void add() {
-    contents.add(new Reservation(randomCodeBooking(), randomDowBooking()));
+    contents.add(new Reservation(randomCodeBooking(), randomDow()));
   }
 
   @Override
@@ -44,28 +62,6 @@ public class ReservationTable {
       reservationList += (i != contents.size() - 1) ? "\n" : "";
     }
     return reservationList;
-  }
-
-  private String randomDowBooking() {
-    return generateRandomString(DayOfTheWeek.values());
-  }
-
-  private String randomCodeBooking() {
-    return generateRandomString(CODE_ALPHABET, LENGTH_CODE_BOOKING);
-  }
-
-  private String generateRandomString(String[] elements, int length) {
-    String generatedString = "";
-    for (int i = 0; i < length; i++) {
-      int randomIndex = (int) (Math.random() * elements.length);
-      generatedString += elements[randomIndex];
-    }
-    return generatedString;
-  }
-
-  private String generateRandomString(DayOfTheWeek[] dow) {
-    int randomIndex = (int) (Math.random() * dow.length);
-    return dow[randomIndex].toString();
   }
 
   public void add(int amount) {

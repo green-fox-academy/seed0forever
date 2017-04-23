@@ -1,6 +1,6 @@
 package com.greenfox.seed0forever;
 
-import com.greenfox.seed0forever.reservations.*;
+import com.greenfox.seed0forever.reservations.ReservationTable;
 
 public class ReservationApp {
 
