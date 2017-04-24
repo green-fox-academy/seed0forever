@@ -12,7 +12,7 @@ public interface CreditCardy {
 
   String getCodeAccount();
 
-  int cumeSumCvv(String codeAccount); // computes codeAccount checksum
+  int cumeSumCvv(long codeAccount); // computes codeAccount checksum
 
   String toString(); //String.format("Name=%s CC#=%s CVV=%d");
 }

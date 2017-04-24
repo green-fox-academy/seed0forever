@@ -11,7 +11,7 @@ public class CreditCard implements CreditCardy {
   public CreditCard() {
     nameCardHolder = String.format(DEFAULT_NAME_FORMAT, counter++);
     codeAccount = randomCreditCardCodeAccount();
-    sumCvv = 99;
+    sumCvv = cumeSumCvv(codeAccount);
   }
 
   public static long randomCreditCardCodeAccount() {
@@ -40,7 +40,7 @@ public class CreditCard implements CreditCardy {
   }
 
   @Override
-  public int cumeSumCvv(String codeAccount) {
+  public int cumeSumCvv(long codeAccount) {
     return 0;
   }
 
