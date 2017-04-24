@@ -17,7 +17,7 @@ public class GreenFoxApp {
     people.add(john);
     Student student = new Student();
     people.add(student);
-    Mentor gandhi = new Mentor("Gandhi", 148, "male", "senior");
+    Mentor gandhi = new Mentor("Gandhi", 148, "male", MentorLevel.SENIOR);
     people.add(gandhi);
     Mentor mentor = new Mentor();
     people.add(mentor);
@@ -44,5 +44,17 @@ public class GreenFoxApp {
     badass.addMentor(mentor);
     badass.addMentor(gandhi);
     badass.info();
+
+    Student student1 = new Student();
+    Student student2 = new Student();
+    student2.skippedDays = 5;
+    System.out.println(student1.compareTo(student2));
+
+    Mentor mentor1 = new Mentor();
+
+    for (Person person : people) {
+      person.introduce();
+    }
+
   }
 }

@@ -1,6 +1,6 @@
 package com.greenfox.seed0forever.comparatortask.greenfoxorg;
 
-public class Student extends Person {
+public class Student extends Person implements Comparable {
 
   String previousOrganization; // the name of the student’s previous company/school
   int skippedDays; // the number of days skipped from the course
@@ -31,4 +31,13 @@ public class Student extends Person {
     skippedDays += numberOfDays;
   }
 
+  @Override
+  public int compareTo(Object anotherStudent) {
+    if (anotherStudent instanceof Student) {
+      int x = skippedDays;
+      int y = ((Student) anotherStudent).skippedDays;
+      return (x < y) ? -1 : ((x == y) ? 0 : 1);
+    }
+    return -99;
+  }
 }
