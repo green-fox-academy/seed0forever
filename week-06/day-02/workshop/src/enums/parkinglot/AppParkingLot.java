@@ -11,24 +11,32 @@ public class AppParkingLot {
 
     addRandomCars(streetParkingLot, 256);
 
-    for (Color color : Color.values()) {
-      System.out.println(color.toString().substring(0, 1).toUpperCase()
-              + color.toString().substring(1).toLowerCase()
-              + " colored cars: " + streetParkingLot.getAmountOfCars(color) + ".");
-    }
+    printColorStats(streetParkingLot);
 
     System.out.println();
 
+    printTypeStats(streetParkingLot);
+  }
+
+  private static void printTypeStats(ParkingLot parkingLot) {
     for (CarType type : CarType.values()) {
       System.out.println(type.toString().substring(0, 1).toUpperCase()
               + type.toString().substring(1).toLowerCase()
-              + " type cars: " + streetParkingLot.getAmountOfCars(type));
+              + " type cars: " + parkingLot.getAmountOfCars(type));
     }
   }
 
-  private static void addRandomCars(ParkingLot streetParkingLot, int numberOfCars) {
+  private static void printColorStats(ParkingLot parkingLot) {
+    for (Color color : Color.values()) {
+      System.out.println(color.toString().substring(0, 1).toUpperCase()
+              + color.toString().substring(1).toLowerCase()
+              + " colored cars: " + parkingLot.getAmountOfCars(color) + ".");
+    }
+  }
+
+  private static void addRandomCars(ParkingLot parkingLot, int numberOfCars) {
     for (int i = 0; i < numberOfCars; i++) {
-      streetParkingLot.add(randomCar());
+      parkingLot.add(randomCar());
     }
   }
 
