@@ -21,7 +21,7 @@ public class CreditCard implements CreditCardy {
   private static long generateRandomLong(int length) {
     long min = (long) Math.pow(10, length - 1);
     long maxExclusive = (long) Math.pow(10, length);
-    return (long) min + (long) (Math.random() * (maxExclusive - min));
+    return min + (long) (Math.random() * (maxExclusive - min));
   }
 
   @Override
@@ -41,7 +41,13 @@ public class CreditCard implements CreditCardy {
 
   @Override
   public int cumeSumCvv(long codeAccount) {
-    return 0;
+    int sumCvv = 0;
+    String codeString = String.valueOf(codeAccount);
+
+    for (int i = 0; i < codeString.length(); i++) {
+      sumCvv += Integer.parseInt(String.valueOf(codeString.charAt(i)));
+    }
+    return sumCvv;
   }
 
   @Override
