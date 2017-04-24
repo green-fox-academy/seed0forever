@@ -1,6 +1,6 @@
 package annotations;
 
-@Monitor(aspectRatio = "16:9")
+@Monitor(aspectRatio = "16:9", classification = "LCD")
 public class Screen169 extends Screen {
 
 }
