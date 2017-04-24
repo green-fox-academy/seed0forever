@@ -12,6 +12,10 @@ public class Calculator {
   }
 
   static <T extends Number> T subtract(T... numbers) {
+    if (numbers.length == 0) {
+      return (T) Double.valueOf(0);
+    }
+
     Double lastDifference = numbers[0].doubleValue();
 
     for (int i = 1; i < numbers.length; i++) {
