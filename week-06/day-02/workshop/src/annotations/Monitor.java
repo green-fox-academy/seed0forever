@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Monitor {
+@interface Monitor {
 
   String aspectRatio() default "4:3";
   String classification() default "TFT";

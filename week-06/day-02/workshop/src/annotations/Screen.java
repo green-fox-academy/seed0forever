@@ -1,16 +1,16 @@
 package annotations;
 
 @Monitor
-public class Screen {
+class Screen {
 
   final String aspectRatio;
   final String classification;
-  Size size;
+  final Size size;
 
-  public Screen(Size size) {
+  Screen(Size size) {
     this.size = size;
-    this.aspectRatio = this.getClass().getAnnotation(Monitor.class).aspectRatio();
-    this.classification = this.getClass().getAnnotation(Monitor.class).classification();
+    this.aspectRatio = getClass().getAnnotation(Monitor.class).aspectRatio();
+    this.classification = getClass().getAnnotation(Monitor.class).classification();
   }
 
   @Override
