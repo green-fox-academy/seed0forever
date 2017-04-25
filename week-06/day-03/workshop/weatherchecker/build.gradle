@@ -21,3 +21,12 @@ dependencies {
     // https://mvnrepository.com/artifact/com.squareup.retrofit2/retrofit
     compile group: 'com.squareup.retrofit2', name: 'retrofit', version: '2.2.0'
 }
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'weatherchecker/Main'
+        )
+    }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
