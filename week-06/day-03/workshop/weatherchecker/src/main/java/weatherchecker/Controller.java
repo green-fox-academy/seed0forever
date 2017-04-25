@@ -12,12 +12,12 @@ public class Controller {
 
   public void handleArgs(String[] args) {
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://mxrck-ser-programadores-apis.p.mashape.com/")
+            .baseUrl("https://simple-weather.p.mashape.com/")
             .build();
 
     WeatherChecker service = retrofit.create(WeatherChecker.class);
 
-    Call<ResponseBody> response = service.getLine("es");
+    Call<ResponseBody> response = service.getLine("47.5", "19.0");
     try {
       System.out.println(response.execute().body().string());
     } catch (IOException e) {
