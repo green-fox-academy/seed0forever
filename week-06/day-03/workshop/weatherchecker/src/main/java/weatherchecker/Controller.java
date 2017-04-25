@@ -1,12 +1,29 @@
 package weatherchecker;
 
+import java.io.IOException;
 import java.util.Arrays;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Retrofit;
 
 public class Controller {
 
   public void handleArgs(String[] args) {
+    Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl("https://mxrck-ser-programadores-apis.p.mashape.com/")
+            .build();
+
+    WeatherChecker service = retrofit.create(WeatherChecker.class);
+
+    Call<ResponseBody> response = service.getLine("es");
+    try {
+      System.out.println(response.execute().body().string());
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
     OptionParser parser = new OptionParser();
 
     parser.accepts("h");
@@ -19,6 +36,7 @@ public class Controller {
       printUsage();
     } else if (options.has("c") && options.hasArgument("c")) {
       GeolocationHandler location = new GeolocationHandler();
+
       for (String[] strings : location) {
         System.out.println(Arrays.toString(strings));
       }
