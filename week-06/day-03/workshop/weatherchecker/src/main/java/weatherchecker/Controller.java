@@ -1,6 +1,6 @@
 package weatherchecker;
 
-import java.io.IOException;
+import java.util.Arrays;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 
@@ -18,11 +18,9 @@ public class Controller {
     } else if (options.has("h")) {
       printUsage();
     } else if (options.has("c") && options.hasArgument("c")) {
-      try {
-        GeolocationHandler location = new GeolocationHandler();
-      } catch (IOException e) {
-        System.out.println("Cannot load geolocation csv file");
-        System.exit(0);
+      GeolocationHandler location = new GeolocationHandler();
+      for (String[] strings : location) {
+        System.out.println(Arrays.toString(strings));
       }
     }
   }
