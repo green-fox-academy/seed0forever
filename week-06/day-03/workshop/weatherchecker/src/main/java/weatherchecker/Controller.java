@@ -1,7 +1,6 @@
 package weatherchecker;
 
 import java.io.IOException;
-import java.util.Arrays;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 import okhttp3.ResponseBody;
@@ -14,18 +13,9 @@ public class Controller {
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("https://simple-weather.p.mashape.com/")
             .build();
-
     WeatherChecker service = retrofit.create(WeatherChecker.class);
 
-    Call<ResponseBody> response = service.getLine("47.5", "19.0");
-    try {
-      System.out.println(response.execute().body().string());
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-
     OptionParser parser = new OptionParser();
-
     parser.accepts("h");
     parser.accepts("c").withOptionalArg();
     OptionSet options = parser.parse(args);
@@ -36,11 +26,29 @@ public class Controller {
       printUsage();
     } else if (options.has("c") && options.hasArgument("c")) {
       GeolocationHandler location = new GeolocationHandler();
+      for (String[] line : location) {
+        if (line[0].equalsIgnoreCase(options.valueOf("c").toString())) {
+          String latitude = getFormattedCoord(line[1]);
+          String longitude = getFormattedCoord(line[2]);
 
-      for (String[] strings : location) {
-        System.out.println(Arrays.toString(strings));
+          printWeatherAtLocation(service, latitude, longitude);
+        }
       }
     }
+  }
+
+  private void printWeatherAtLocation(WeatherChecker service, String latitude, String longitude) {
+    Call<ResponseBody> response = service.getLine(latitude, longitude);
+    try {
+      System.out.println(response.execute().body().string());
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  private String getFormattedCoord(String coordAsString) {
+    return String.format("%.1f",
+            (float) (Math.round(Float.parseFloat(coordAsString) * 10)) / 10);
   }
 
   private void printUsage() {
