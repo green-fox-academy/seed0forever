@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileHandler {
+public class FileHandler {  
 
   public static List<String[]> readFile(String filePathName) {
     List<String[]> lines = new ArrayList<>();
