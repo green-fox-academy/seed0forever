@@ -1,7 +1,9 @@
+import controller.ArgumentHandler;
+
 public class AppMain {
 
   public static void main(String[] args) {
-    Controller controller = new Controller();
-    controller.executeCommands(args);
+    ArgumentHandler argumentHandler = new ArgumentHandler();
+    argumentHandler.executeCommands(args);
   }
 }
