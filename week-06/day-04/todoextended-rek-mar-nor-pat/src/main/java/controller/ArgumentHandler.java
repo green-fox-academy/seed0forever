@@ -31,9 +31,19 @@ public class ArgumentHandler {
       todoController.setTodoCompleted(Long.parseLong(options.valueOf("c").toString()));
     }
 
-    // if (options.hasArgument("u")) {
-    //   todoList.updateTask(options.valueOf("u").toString());
-    // }
+    if (options.hasArgument("u")) {
+      String[] optionUArgument = options.valueOf("u").toString().split(" ");
+      long todoId = Long.parseLong(optionUArgument[0]);
+      String todoText = "";
+
+      for (int i = 1; i < optionUArgument.length; i++) {
+        todoText += optionUArgument[i] +
+                ((i != optionUArgument.length - 1)
+                        ? " " : "");
+      }
+
+      todoController.changeTodoText(todoId, todoText);
+    }
   }
 
   private OptionSet parseArguments(String[] args) {

@@ -21,6 +21,11 @@ public class Todo implements Entity {
     return todoId;
   }
 
+  public boolean isCompleted() {
+    return (completedAt == null || completedAt.isAfter(ZonedDateTime.now()))
+            ? false : true;
+  }
+
   public ZonedDateTime getCreatedAt() {
     return createdAt;
   }
@@ -36,12 +41,10 @@ public class Todo implements Entity {
   @Override
   public String toString() {
     return "#" + todoId +
-            (completedAt == null || completedAt.isAfter(ZonedDateTime.now())
-            ? " [ ]" : " [X]") +
+            (isCompleted() ? " [ ]" : " [X]") +
             ", created: " + createdAt +
             ", task: " + todoText +
-            ((completedAt == null || completedAt.isAfter(ZonedDateTime.now()))
-                    ? "" : ", completed: " + completedAt);
+            (isCompleted() ? "" : ", completed: " + completedAt);
   }
 
   @Override
