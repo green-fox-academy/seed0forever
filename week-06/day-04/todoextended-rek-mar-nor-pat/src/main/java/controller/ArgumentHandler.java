@@ -1,11 +1,5 @@
 package controller;
 
-import controller.TodoController;
-import datasource.TodoDataAccessObject;
-import entity.Todo;
-import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 
@@ -33,10 +27,10 @@ public class ArgumentHandler {
       todoController.removeTodo(Long.parseLong(options.valueOf("r").toString()));
     }
 
-    // if (options.hasArgument("c")) {
-    //   todoList.checkTask(options.valueOf("c").toString());
-    // }
-    //
+    if (options.hasArgument("c")) {
+      todoController.setTodoCompleted(Long.parseLong(options.valueOf("c").toString()));
+    }
+
     // if (options.hasArgument("u")) {
     //   todoList.updateTask(options.valueOf("u").toString());
     // }

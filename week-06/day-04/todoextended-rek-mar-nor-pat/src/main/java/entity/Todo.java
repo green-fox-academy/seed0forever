@@ -4,21 +4,21 @@ import java.time.ZonedDateTime;
 
 public class Todo implements Entity {
 
-  private final int todoID;
+  private final long todoId;
   private final ZonedDateTime createdAt;
   private final ZonedDateTime completedAt;
-  private final String taskText;
+  private final String todoText;
 
-  public Todo(int todoID, ZonedDateTime createdAt, ZonedDateTime completedAt,
-          String taskText) {
-    this.todoID = todoID;
+  public Todo(int todoId, ZonedDateTime createdAt, ZonedDateTime completedAt,
+          String todoText) {
+    this.todoId = todoId;
     this.createdAt = createdAt;
     this.completedAt = completedAt;
-    this.taskText = taskText;
+    this.todoText = todoText;
   }
 
-  public int getTodoID() {
-    return todoID;
+  public long getTodoId() {
+    return todoId;
   }
 
   public ZonedDateTime getCreatedAt() {
@@ -29,16 +29,16 @@ public class Todo implements Entity {
     return completedAt;
   }
 
-  public String getTaskText() {
-    return taskText;
+  public String getTodoText() {
+    return todoText;
   }
 
   @Override
   public String toString() {
-    return "#" + todoID +
+    return "#" + todoId +
             ", createdAt=" + createdAt +
             ", completedAt=" + completedAt +
-            ", taskText='" + taskText + '\'';
+            ", taskText='" + todoText + '\'';
   }
 
   @Override
@@ -46,8 +46,8 @@ public class Todo implements Entity {
     String completedAt = (this.completedAt == null)
             ? ""
             : this.completedAt.toInstant().toString();
-    return String.format("%s;%s;%s;%s", todoID, createdAt.toInstant().toString(),
-            completedAt, taskText);
+    return String.format("%s;%s;%s;%s", todoId, createdAt.toInstant().toString(),
+            completedAt, todoText);
   }
 }
 

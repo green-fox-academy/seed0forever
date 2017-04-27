@@ -43,13 +43,31 @@ public class TodoController {
     List<Todo> loadedTodoList = todoDao.loadAll();
     List<Todo> todoListToSave = new ArrayList<>();
     for (Todo todoEntity : loadedTodoList) {
-      if (todoEntity.getTodoID() != todoId) {
+      if (todoEntity.getTodoId() != todoId) {
         todoListToSave.add(todoEntity);
       }
     }
     todoDao.saveAll(todoListToSave);
   }
 
+  public void setTodoCompleted(long todoId) {
+    List<Todo> loadedTodoList = todoDao.loadAll();
+    List<Todo> todoListToSave = new ArrayList<>();
+    for (Todo todoEntity : loadedTodoList) {
+      if (todoEntity.getTodoId() == todoId) {
+        String[] changedTodoStringArray = new String[4];
+        changedTodoStringArray[0] = String.valueOf(todoEntity.getTodoId());
+        changedTodoStringArray[1] = todoEntity.getCreatedAt().toString();
+        changedTodoStringArray[2] = ZonedDateTime.now().toString();
+        changedTodoStringArray[3] = todoEntity.getTodoText();
+
+        todoListToSave.add(TodoFactory.createTodo(changedTodoStringArray));
+      } else {
+        todoListToSave.add(todoEntity);
+      }
+    }
+    todoDao.saveAll(todoListToSave);
+  }
 
   public void printUsageInfo() {
     List<RunOption> runOptionList = runOptionDao.loadAll();
