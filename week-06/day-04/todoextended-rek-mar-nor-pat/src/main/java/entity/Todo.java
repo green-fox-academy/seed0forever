@@ -36,9 +36,12 @@ public class Todo implements Entity {
   @Override
   public String toString() {
     return "#" + todoId +
-            ", createdAt=" + createdAt +
-            ", completedAt=" + completedAt +
-            ", taskText='" + todoText + '\'';
+            (completedAt == null || completedAt.isAfter(ZonedDateTime.now())
+            ? " [ ]" : " [X]") +
+            ", created: " + createdAt +
+            ", task: " + todoText +
+            ((completedAt == null || completedAt.isAfter(ZonedDateTime.now()))
+                    ? "" : ", completed: " + completedAt);
   }
 
   @Override
