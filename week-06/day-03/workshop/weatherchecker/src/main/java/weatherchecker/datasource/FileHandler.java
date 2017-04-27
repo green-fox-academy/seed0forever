@@ -1,4 +1,4 @@
-package weatherchecker;
+package weatherchecker.datasource;
 
 import com.opencsv.CSVReader;
 import java.io.FileReader;

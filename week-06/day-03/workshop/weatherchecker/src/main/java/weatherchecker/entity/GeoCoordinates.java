@@ -1,4 +1,4 @@
-package weatherchecker;
+package weatherchecker.entity;
 
 public class GeoCoordinates {
 

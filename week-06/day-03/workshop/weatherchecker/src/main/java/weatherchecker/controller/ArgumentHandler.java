@@ -1,4 +1,4 @@
-package weatherchecker;
+package weatherchecker.controller;
 
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;

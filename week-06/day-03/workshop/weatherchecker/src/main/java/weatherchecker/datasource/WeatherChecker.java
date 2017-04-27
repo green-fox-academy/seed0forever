@@ -1,4 +1,4 @@
-package weatherchecker;
+package weatherchecker.datasource;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;

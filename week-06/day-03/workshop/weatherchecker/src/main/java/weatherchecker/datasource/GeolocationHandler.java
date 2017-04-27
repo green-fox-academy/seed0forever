@@ -1,7 +1,8 @@
-package weatherchecker;
+package weatherchecker.datasource;
 
 import java.util.ArrayList;
 import java.util.List;
+import weatherchecker.entity.GeoCoordinates;
 
 public class GeolocationHandler extends ArrayList<String[]> {
 

@@ -4,9 +4,9 @@ import java.io.IOException;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Retrofit;
-import weatherchecker.GeoCoordinates;
-import weatherchecker.GeolocationHandler;
-import weatherchecker.WeatherChecker;
+import weatherchecker.datasource.GeolocationHandler;
+import weatherchecker.datasource.WeatherChecker;
+import weatherchecker.entity.GeoCoordinates;
 
 public class Controller {
 
@@ -41,8 +41,12 @@ public class Controller {
   }
 
   public void printWeatherAt(String countryCodeIsoAlpha2) {
-    GeoCoordinates coordinates = location.getCoordinates(countryCodeIsoAlpha2);
-    printWeatherAt(coordinates);
+    try {
+      GeoCoordinates coordinates = location.getCoordinates(countryCodeIsoAlpha2);
+      printWeatherAt(coordinates);
+    } catch (NullPointerException e) {
+      System.out.println("Nonexistent country code: " + countryCodeIsoAlpha2.toUpperCase());
+    }
   }
 
   public void printWeatherAtCoordinates(float latitude, float longitude) {
@@ -57,6 +61,7 @@ public class Controller {
             .setQueryCoordinates(latitudeDot1, longitudeDot1);
 
     String weatherResponse = null;
+
     try {
       weatherResponse = weatherQuery.execute().body().string();
     } catch (IOException e) {
@@ -67,23 +72,42 @@ public class Controller {
   }
 
   public void compareTemperatureAt(String countryCode1, String countryCode2) {
-    GeoCoordinates country1Coordinates = location.getCoordinates(countryCode1);
-    float latitude1 = country1Coordinates.getLatitude();
-    float longitude1 = country1Coordinates.getLongitude();
-    GeoCoordinates country2Coordinates = location.getCoordinates(countryCode2);
-    float latitude2 = country2Coordinates.getLatitude();
-    float longitude2 = country2Coordinates.getLongitude();
+
+    float latitude1 = 0;
+    float longitude1 = 0;
+    GeoCoordinates country1Coordinates = null;
+    try {
+      country1Coordinates = location.getCoordinates(countryCode1);
+      latitude1 = country1Coordinates.getLatitude();
+      longitude1 = country1Coordinates.getLongitude();
+    } catch (NullPointerException e) {
+      System.out.println("Nonexistent country code: " + countryCode1.toUpperCase());
+    }
+
+    float latitude2 = 0;
+    float longitude2 = 0;
+    GeoCoordinates country2Coordinates = null;
+    try {
+      country2Coordinates = location.getCoordinates(countryCode2);
+      latitude2 = country2Coordinates.getLatitude();
+      longitude2 = country2Coordinates.getLongitude();
+    } catch (Exception e) {
+      System.out.println("Nonexistent country code: " + countryCode2.toUpperCase());
+    }
 
     String weatherInCountry1 = getWeatherResponse(latitude1, longitude1);
     String weatherInCountry2 = getWeatherResponse(latitude2, longitude2);
 
-    int temperatureInCountry1 = Integer
-            .parseInt(weatherInCountry1.substring(0, weatherInCountry1.indexOf(" ")));
-    int temperatureInCountry2 = Integer
-            .parseInt(weatherInCountry2.substring(0, weatherInCountry2.indexOf(" ")));
+    try {
+      int temperatureInCountry1 = Integer
+              .parseInt(weatherInCountry1.substring(0, weatherInCountry1.indexOf(" ")));
+      int temperatureInCountry2 = Integer
+              .parseInt(weatherInCountry2.substring(0, weatherInCountry2.indexOf(" ")));
 
-    int differenceInTemperature = temperatureInCountry1 - temperatureInCountry2;
+      int differenceInTemperature = temperatureInCountry1 - temperatureInCountry2;
 
-    System.out.printf("%d°C\n", differenceInTemperature);
+      System.out.printf("%d°C\n", differenceInTemperature);
+    } catch (NumberFormatException e) {
+    }
   }
 }
