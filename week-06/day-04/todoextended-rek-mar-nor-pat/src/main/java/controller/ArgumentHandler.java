@@ -11,7 +11,7 @@ import joptsimple.OptionSet;
 
 public class ArgumentHandler {
 
-  public void executeCommands(String[] args) {
+  public void handleArguments(String[] args) {
 
     OptionSet options = parseArguments(args);
     TodoController todoController = new TodoController();
@@ -25,10 +25,10 @@ public class ArgumentHandler {
       todoController.listAllTodos();
     }
 
-    // if (options.hasArgument("a")) {
-    //   todoList.addTask(options.valueOf("a").toString());
-    // }
-    //
+    if (options.hasArgument("a")) {
+      todoController.addTodo(options.valueOf("a").toString());
+    }
+
     // if (options.hasArgument("r")) {
     //   todoList.removeTask(options.valueOf("r").toString());
     // }

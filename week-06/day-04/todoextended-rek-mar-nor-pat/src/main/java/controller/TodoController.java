@@ -5,6 +5,8 @@ import datasource.RunOptionDataAccessObject;
 import datasource.TodoDataAccessObject;
 import entity.RunOption;
 import entity.Todo;
+import entity.TodoFactory;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 public class TodoController {
@@ -22,6 +24,18 @@ public class TodoController {
     for (Todo todo : todoList) {
       System.out.println(todo);
     }
+  }
+
+  public void addTodo(String todoText) {
+    List<Todo> todoList = todoDao.loadAll();
+    String[] todoStringArray = new String[4];
+    todoStringArray[0] = String.valueOf(666);
+    todoStringArray[1] = ZonedDateTime.now().toString();
+    todoStringArray[2] = null;
+    todoStringArray[3] = todoText;
+
+    todoList.add(TodoFactory.createTodo(todoStringArray));
+    todoDao.saveAll(todoList);
   }
 
   public void printUsageInfo() {

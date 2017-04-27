@@ -4,6 +4,6 @@ public class AppMain {
 
   public static void main(String[] args) {
     ArgumentHandler argumentHandler = new ArgumentHandler();
-    argumentHandler.executeCommands(args);
+    argumentHandler.handleArguments(args);
   }
 }
