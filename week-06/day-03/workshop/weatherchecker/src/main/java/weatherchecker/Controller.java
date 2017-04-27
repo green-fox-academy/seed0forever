@@ -17,6 +17,9 @@ public class Controller {
       printUsage();
     } else if (options.has("h")) {
       printUsage();
+    } else if (options.has("c") && options.hasArgument("c")
+            && options.has("compare") && options.hasArgument("compare")) {
+      System.out.println("Program was run with --compare " + options.valueOf("compare"));
     } else if (options.has("c") && options.hasArgument("c")) {
       GeolocationHandler location = new GeolocationHandler();
       GeoCoordinates coordinates = location
@@ -40,14 +43,17 @@ public class Controller {
     OptionParser parser = new OptionParser();
     parser.accepts("h");
     parser.accepts("c").withOptionalArg();
+    parser.accepts("compare").withOptionalArg();
     return parser.parse(args);
   }
 
-  private void printWeatherAtLocation(WeatherChecker weatherChecker, float latitude, float longitude) {
+  private void printWeatherAtLocation(WeatherChecker weatherChecker, float latitude,
+          float longitude) {
     String latitudeDot1 = GeoCoordinates.toStringFormatOfFloatDot1(latitude);
     String longitudeDot1 = GeoCoordinates.toStringFormatOfFloatDot1(longitude);
 
-    Call<ResponseBody> weatherQuery = weatherChecker.setQueryCoordinates(latitudeDot1, longitudeDot1);
+    Call<ResponseBody> weatherQuery = weatherChecker
+            .setQueryCoordinates(latitudeDot1, longitudeDot1);
 
     try {
       System.out.println(weatherQuery.execute().body().string());
