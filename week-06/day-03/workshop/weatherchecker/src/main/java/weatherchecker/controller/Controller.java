@@ -50,7 +50,11 @@ public class Controller {
   }
 
   public void printWeatherAtCoordinates(float latitude, float longitude) {
-    System.out.println(getWeatherResponse(latitude, longitude));
+    String weatherResponse = getWeatherResponse(latitude, longitude);
+    int temperature = Integer.parseInt(weatherResponse.substring(0, weatherResponse.indexOf(" ")));
+    String weatherTextPart = weatherResponse.substring(weatherResponse.indexOf(",") + 2);
+
+    System.out.printf("\n%d°C, %s\n\n", temperature, weatherTextPart);
   }
 
   private String getWeatherResponse(float latitude, float longitude) {
@@ -106,7 +110,7 @@ public class Controller {
 
       int differenceInTemperature = temperatureInCountry1 - temperatureInCountry2;
 
-      System.out.printf("%d°C\n", differenceInTemperature);
+      System.out.printf("\n%d°C\n\n", differenceInTemperature);
     } catch (NumberFormatException e) {
     }
   }
