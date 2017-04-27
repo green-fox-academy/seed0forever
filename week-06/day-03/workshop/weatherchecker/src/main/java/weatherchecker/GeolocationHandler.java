@@ -13,10 +13,10 @@ public class GeolocationHandler extends ArrayList<String[]> {
     loadGeoFile();
   }
 
-  public GeoCoordinates getCoordinates(String countryCodeIso2Letter) {
+  public GeoCoordinates getCoordinates(String countryCodeIsoAlpha2) {
 
     for (String[] geoEntity : this) {
-      if (geoEntity[0].equalsIgnoreCase(countryCodeIso2Letter)) {
+      if (geoEntity[0].equalsIgnoreCase(countryCodeIsoAlpha2)) {
         float latitude = Float.parseFloat(geoEntity[1]);
         float longitude = Float.parseFloat(geoEntity[2]);
         return new GeoCoordinates(latitude, longitude);
