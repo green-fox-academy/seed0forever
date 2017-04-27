@@ -1,6 +1,5 @@
 package entity;
 
-import entity.Todo;
 import java.time.ZonedDateTime;
 import org.apache.commons.lang3.StringUtils;
 
