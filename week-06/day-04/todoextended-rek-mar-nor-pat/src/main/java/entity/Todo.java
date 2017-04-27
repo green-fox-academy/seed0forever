@@ -35,12 +35,10 @@ public class Todo implements Entity {
 
   @Override
   public String toString() {
-    return "Todo{" +
-            "todoID=" + todoID +
+    return "#" + todoID +
             ", createdAt=" + createdAt +
             ", completedAt=" + completedAt +
-            ", taskText='" + taskText + '\'' +
-            '}';
+            ", taskText='" + taskText + '\'';
   }
 
   @Override
