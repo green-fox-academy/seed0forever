@@ -29,10 +29,10 @@ public class ArgumentHandler {
       todoController.addTodo(options.valueOf("a").toString());
     }
 
-    // if (options.hasArgument("r")) {
-    //   todoList.removeTask(options.valueOf("r").toString());
-    // }
-    //
+    if (options.hasArgument("r")) {
+      todoController.removeTodo(Long.parseLong(options.valueOf("r").toString()));
+    }
+
     // if (options.hasArgument("c")) {
     //   todoList.checkTask(options.valueOf("c").toString());
     // }

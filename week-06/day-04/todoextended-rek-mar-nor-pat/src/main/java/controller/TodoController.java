@@ -7,6 +7,7 @@ import entity.RunOption;
 import entity.Todo;
 import entity.TodoFactory;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TodoController {
@@ -37,6 +38,18 @@ public class TodoController {
     todoList.add(TodoFactory.createTodo(todoStringArray));
     todoDao.saveAll(todoList);
   }
+
+  public void removeTodo(long todoId) {
+    List<Todo> loadedTodoList = todoDao.loadAll();
+    List<Todo> todoListToSave = new ArrayList<>();
+    for (Todo todoEntity : loadedTodoList) {
+      if (todoEntity.getTodoID() != todoId) {
+        todoListToSave.add(todoEntity);
+      }
+    }
+    todoDao.saveAll(todoListToSave);
+  }
+
 
   public void printUsageInfo() {
     List<RunOption> runOptionList = runOptionDao.loadAll();
