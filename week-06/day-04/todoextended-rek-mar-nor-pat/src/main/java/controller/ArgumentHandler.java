@@ -13,14 +13,6 @@ public class ArgumentHandler {
 
   public void executeCommands(String[] args) {
 
-    TodoDataAccessObject dao = new TodoDataAccessObject("example.csv");
-    List<Todo> testTodoList = new ArrayList<>();
-    for (int i = 1; i < 100; i++) {
-      testTodoList.add(new Todo(i, ZonedDateTime.now(), null,
-              "example" + i));
-    }
-    dao.saveAll(testTodoList);
-
     OptionSet options = parseArguments(args);
     TodoController todoController = new TodoController();
 
