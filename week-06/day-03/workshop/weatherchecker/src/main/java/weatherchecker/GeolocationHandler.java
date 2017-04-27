@@ -13,6 +13,18 @@ public class GeolocationHandler extends ArrayList<String[]> {
     loadGeoFile();
   }
 
+  public GeoCoordinates getCoordinates(String countryCodeIso2Letter) {
+
+    for (String[] geoEntity : this) {
+      if (geoEntity[0].equalsIgnoreCase(countryCodeIso2Letter)) {
+        float latitude = Float.parseFloat(geoEntity[1]);
+        float longitude = Float.parseFloat(geoEntity[2]);
+        return new GeoCoordinates(latitude, longitude);
+      }
+    }
+    return null;
+  }
+
   private void loadGeoFile() {
     List<String[]> geoDatabase = FileHandler.readFile(GEO_CSV_FILENAME);
     this.addAll(geoDatabase);

@@ -12,5 +12,7 @@ public interface WeatherChecker {
           "Accept: text/plain"})
 
   @GET("weather")
-  Call<ResponseBody> getLine(@Query("lat") String latitude, @Query("lng") String longitude);
+  Call<ResponseBody> setQueryCoordinates(
+          @Query("lat") String latitude,
+          @Query("lng") String longitude);
 }

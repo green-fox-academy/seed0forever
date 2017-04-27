@@ -10,15 +10,8 @@ import retrofit2.Retrofit;
 public class Controller {
 
   public void handleArgs(String[] args) {
-    Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://simple-weather.p.mashape.com/")
-            .build();
-    WeatherChecker service = retrofit.create(WeatherChecker.class);
-
-    OptionParser parser = new OptionParser();
-    parser.accepts("h");
-    parser.accepts("c").withOptionalArg();
-    OptionSet options = parser.parse(args);
+    WeatherChecker weatherService = createWeatherService();
+    OptionSet options = getOptionSetFromParser(args);
 
     if (args.length == 0) {
       printUsage();
@@ -26,29 +19,41 @@ public class Controller {
       printUsage();
     } else if (options.has("c") && options.hasArgument("c")) {
       GeolocationHandler location = new GeolocationHandler();
-      for (String[] line : location) {
-        if (line[0].equalsIgnoreCase(options.valueOf("c").toString())) {
-          String latitude = getFormattedCoord(line[1]);
-          String longitude = getFormattedCoord(line[2]);
+      GeoCoordinates coordinates = location
+              .getCoordinates(options.valueOf("c").toString());
 
-          printWeatherAtLocation(service, latitude, longitude);
-        }
-      }
+      float latitude = coordinates.getLatitude();
+      float longitude = coordinates.getLongitude();
+
+      printWeatherAtLocation(weatherService, latitude, longitude);
     }
   }
 
-  private void printWeatherAtLocation(WeatherChecker service, String latitude, String longitude) {
-    Call<ResponseBody> response = service.getLine(latitude, longitude);
+  private WeatherChecker createWeatherService() {
+    Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl("https://simple-weather.p.mashape.com/")
+            .build();
+    return retrofit.create(WeatherChecker.class);
+  }
+
+  private OptionSet getOptionSetFromParser(String[] args) {
+    OptionParser parser = new OptionParser();
+    parser.accepts("h");
+    parser.accepts("c").withOptionalArg();
+    return parser.parse(args);
+  }
+
+  private void printWeatherAtLocation(WeatherChecker weatherChecker, float latitude, float longitude) {
+    String latitudeDot1 = GeoCoordinates.toStringFormatOfFloatDot1(latitude);
+    String longitudeDot1 = GeoCoordinates.toStringFormatOfFloatDot1(longitude);
+
+    Call<ResponseBody> weatherQuery = weatherChecker.setQueryCoordinates(latitudeDot1, longitudeDot1);
+
     try {
-      System.out.println(response.execute().body().string());
+      System.out.println(weatherQuery.execute().body().string());
     } catch (IOException e) {
       e.printStackTrace();
     }
-  }
-
-  private String getFormattedCoord(String coordAsString) {
-    return String.format("%.1f",
-            (float) (Math.round(Float.parseFloat(coordAsString) * 10)) / 10);
   }
 
   private void printUsage() {
