@@ -14,11 +14,6 @@ out/
 *.xml
 *.class
 
-# Package Files #
-*.jar
-*.war
-*.ear
-
 # Gradle #
 .gradle/
 build/
