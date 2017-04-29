@@ -29,8 +29,17 @@ public class TodoController {
 
   public void addTodo(String todoText) {
     List<Todo> todoList = todoDao.loadAll();
+    long highestId = 0;
+
+    for (Todo todoEntity : todoList) {
+      long entityId = todoEntity.getTodoId();
+      if (entityId > highestId) {
+        highestId = entityId;
+      }
+    }
+
     String[] todoStringArray = new String[4];
-    todoStringArray[0] = String.valueOf(666);
+    todoStringArray[0] = String.valueOf(++highestId);
     todoStringArray[1] = ZonedDateTime.now().toString();
     todoStringArray[2] = null;
     todoStringArray[3] = todoText;
