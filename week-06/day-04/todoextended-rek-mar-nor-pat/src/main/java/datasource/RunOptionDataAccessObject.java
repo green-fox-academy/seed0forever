@@ -10,7 +10,8 @@ public class RunOptionDataAccessObject implements DataAccessObject<RunOption> {
   private final FileHandler fileHandler;
 
   public RunOptionDataAccessObject(String filePath) {
-    this.fileHandler = new FileHandler(filePath);
+    // Absolute file paths inside JAR files begin at archive's root ("/") directory
+    this.fileHandler = new JarInternalFileHandler("/" + filePath);
   }
 
   @Override

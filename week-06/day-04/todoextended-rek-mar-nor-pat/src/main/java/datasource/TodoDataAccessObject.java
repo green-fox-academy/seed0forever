@@ -10,7 +10,7 @@ public class TodoDataAccessObject implements DataAccessObject<Todo> {
   private final FileHandler fileHandler;
 
   public TodoDataAccessObject(String filePath) {
-    this.fileHandler = new FileHandler(filePath);
+    this.fileHandler = new LocalFileHandler(filePath);
   }
 
   @Override
