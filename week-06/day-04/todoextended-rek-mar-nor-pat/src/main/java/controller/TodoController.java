@@ -6,7 +6,7 @@ import datasource.TodoDataAccessObject;
 import entity.RunOption;
 import entity.Todo;
 import entity.TodoFactory;
-import java.time.ZonedDateTime;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +40,7 @@ public class TodoController {
 
     String[] todoStringArray = new String[4];
     todoStringArray[0] = String.valueOf(++highestId);
-    todoStringArray[1] = ZonedDateTime.now().toString();
+    todoStringArray[1] = Instant.now().toString();
     todoStringArray[2] = null;
     todoStringArray[3] = todoText;
 
@@ -67,7 +67,7 @@ public class TodoController {
         String[] changedTodoStringArray = new String[4];
         changedTodoStringArray[0] = String.valueOf(todoEntity.getTodoId());
         changedTodoStringArray[1] = todoEntity.getCreatedAt().toString();
-        changedTodoStringArray[2] = ZonedDateTime.now().toString();
+        changedTodoStringArray[2] = Instant.now().toString();
         changedTodoStringArray[3] = todoEntity.getTodoText();
 
         todoListToSave.add(TodoFactory.createTodo(changedTodoStringArray));

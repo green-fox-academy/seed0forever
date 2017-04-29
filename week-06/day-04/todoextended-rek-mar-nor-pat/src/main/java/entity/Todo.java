@@ -1,19 +1,29 @@
 package entity;
 
-import java.time.ZonedDateTime;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.time.temporal.ChronoUnit;
+import java.util.Locale;
 
 public class Todo implements Entity {
 
+  private final static DateTimeFormatter TODO_DATETIME_FORMAT = DateTimeFormatter
+          .ofLocalizedDateTime(FormatStyle.MEDIUM).withLocale(Locale.getDefault());
   private final long todoId;
-  private final ZonedDateTime createdAt;
-  private final ZonedDateTime completedAt;
+  private final Instant createdAt;
+  private final Instant completedAt;
   private final String todoText;
 
-  public Todo(int todoId, ZonedDateTime createdAt, ZonedDateTime completedAt,
+  public Todo(int todoId, Instant createdAt, Instant completedAt,
           String todoText) {
     this.todoId = todoId;
-    this.createdAt = createdAt;
-    this.completedAt = completedAt;
+    this.createdAt = createdAt.truncatedTo(ChronoUnit.SECONDS);
+    this.completedAt = (completedAt == null)
+            ? null
+            : completedAt.truncatedTo(ChronoUnit.SECONDS);
     this.todoText = todoText;
   }
 
@@ -22,15 +32,15 @@ public class Todo implements Entity {
   }
 
   public boolean isCompleted() {
-    return (completedAt == null || completedAt.isAfter(ZonedDateTime.now()))
+    return (completedAt == null || completedAt.isAfter(Instant.now()))
             ? false : true;
   }
 
-  public ZonedDateTime getCreatedAt() {
+  public Instant getCreatedAt() {
     return createdAt;
   }
 
-  public ZonedDateTime getCompletedAt() {
+  public Instant getCompletedAt() {
     return completedAt;
   }
 
@@ -44,20 +54,22 @@ public class Todo implements Entity {
             (isCompleted()
                     ? " [X]"
                     : " [ ]") +
-            ", created: " + createdAt +
+            ", created: " + LocalDateTime.ofInstant(createdAt, ZoneId.systemDefault())
+            .format(TODO_DATETIME_FORMAT) +
             ", task: " + todoText +
             (isCompleted()
-                    ? ", completed: " + completedAt
+                    ? ", completed: " + LocalDateTime.ofInstant(completedAt, ZoneId.systemDefault())
+                    .format(TODO_DATETIME_FORMAT)
                     : "");
   }
 
   @Override
   public String toDataFormat() {
+    String createdAt = this.createdAt.toString();
     String completedAt = (this.completedAt == null)
-            ? ""
-            : this.completedAt.toInstant().toString();
-    return String.format("%s;%s;%s;%s", todoId, createdAt.toInstant().toString(),
-            completedAt, todoText);
+            ? "" : this.completedAt.toString();
+
+    return String.format("%s;%s;%s;%s", todoId, createdAt, completedAt, todoText);
   }
 }
 

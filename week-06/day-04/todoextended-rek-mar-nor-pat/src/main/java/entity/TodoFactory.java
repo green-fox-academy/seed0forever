@@ -1,21 +1,20 @@
 package entity;
 
-import java.time.ZonedDateTime;
+import java.time.Instant;
 
 public class TodoFactory {
 
   public static Todo createTodo(String[] todoStringArray) {
     int todoId = Integer.parseInt(todoStringArray[0]);
-    ZonedDateTime createdAt = ZonedDateTime.parse(todoStringArray[1]);
+    Instant createdAt = Instant.parse(todoStringArray[1]);
 
-    ZonedDateTime completedAt =
+    Instant completedAt =
             (todoStringArray[2] == null || todoStringArray[2].isEmpty())
-                    ? null
-                    : ZonedDateTime.parse(todoStringArray[2]);
+                    ? null : Instant.parse(todoStringArray[2]);
 
-    String taskText = todoStringArray[3];
+    String todoText = todoStringArray[3];
 
-    Todo todo = new Todo(todoId, createdAt, completedAt, taskText);
+    Todo todo = new Todo(todoId, createdAt, completedAt, todoText);
     return todo;
   }
 }
