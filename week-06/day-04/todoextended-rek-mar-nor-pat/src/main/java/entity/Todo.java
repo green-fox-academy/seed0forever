@@ -41,10 +41,14 @@ public class Todo implements Entity {
   @Override
   public String toString() {
     return "#" + todoId +
-            (isCompleted() ? " [ ]" : " [X]") +
+            (isCompleted()
+                    ? " [X]"
+                    : " [ ]") +
             ", created: " + createdAt +
             ", task: " + todoText +
-            (isCompleted() ? "" : ", completed: " + completedAt);
+            (isCompleted()
+                    ? ", completed: " + completedAt
+                    : "");
   }
 
   @Override
