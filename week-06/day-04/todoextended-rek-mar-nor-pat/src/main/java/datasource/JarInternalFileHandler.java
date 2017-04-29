@@ -15,7 +15,8 @@ public class JarInternalFileHandler implements FileHandler {
   }
 
   // Implementation specific for files inside current application's JAR file
-  // TODO: make it gracefully work with external file source.
+  // Also works in when run from within IntelliJ IDEA,
+  // when specified file is inside the default resources directory.
   @Override
   public List<String> readDataFromFile() {
     InputStream inputFileStream = getClass().getResourceAsStream(filePath);
