@@ -1,10 +1,9 @@
 package com.greenfoxacademy.springstart.controllers;
 
+import com.greenfoxacademy.springstart.entities.SayHelloEntity;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +25,7 @@ public class HelloAllEntitesWebController {
     List<String> shuffledHellos = Arrays.asList(HELLOS);
     Collections.shuffle(shuffledHellos);
 
-    HelloEntity[] helloEntities = fillWithHelloEntities(shuffledHellos);
+    SayHelloEntity[] helloEntities = fillWithHelloEntities(shuffledHellos);
 
 
     model.addAttribute("helloEntities", helloEntities);
@@ -40,11 +39,11 @@ public class HelloAllEntitesWebController {
     return "hello-all-entities";
   }
 
-  private HelloEntity[] fillWithHelloEntities(List<String> shuffledHellos) {
-    HelloEntity[] helloEntityArray = new HelloEntity[shuffledHellos.size()];
+  private SayHelloEntity[] fillWithHelloEntities(List<String> shuffledHellos) {
+    SayHelloEntity[] helloEntityArray = new SayHelloEntity[shuffledHellos.size()];
 
     for (int i = 0; i < helloEntityArray.length; i++) {
-      helloEntityArray[i] = new HelloEntity(
+      helloEntityArray[i] = new SayHelloEntity(
               shuffledHellos.get(i),
               generateRandomColorRgb(),
               generateRandomFontSize());
@@ -82,11 +81,4 @@ public class HelloAllEntitesWebController {
     return String.format(rgbFormat, red, green, blue);
   }
 
-  @AllArgsConstructor
-  @Getter
-  public static final class HelloEntity {
-    private final String helloInALanguage;
-    private final String fontColor;
-    private final String fontSize;
-  }
 }

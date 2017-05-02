@@ -8,7 +8,7 @@
 <body>
 <table>
   <tr th:each="hello : ${helloEntities}">
-    <td th:text="${hello} + ', ' + ${name} + '!' " th:style="'color: ' + ${hello.fontColor} + ';' + ' font-size: ' + ${hello.fontSize} + ';'"></td>
+    <td th:text="${hello.helloText} + ', ' + ${name} + '!' " th:style="'color: ' + ${hello.fontColor} + ';' + ' font-size: ' + ${hello.fontSize} + ';'"></td>
   </tr>
 </table>
 </body>
