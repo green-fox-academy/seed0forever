@@ -7,7 +7,11 @@
 </head>
 <body>
 <table>
+  <!--/*@thymesVar id="helloElements" type="java.util.List<String>"*/-->
   <tr th:each="hello,iterStat : ${helloElements}">
+    <!--/*@thymesVar id="name" type="java.lang.String"*/-->
+    <!--/*@thymesVar id="color" type="java.lang.String[]"*/-->
+    <!--/*@thymesVar id="fontSize" type="java.lang.String[]"*/-->
     <td th:text="${hello} + ', ' + ${name} + '!' " th:style="'color: ' + ${color[iterStat.index]} + ';' + ' font-size: ' + ${fontSize[iterStat.index]} + ';'"></td>
   </tr>
 </table>
