@@ -1,5 +1,8 @@
 package com.greenfoxacademy.springstart.controllers;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +21,9 @@ public class HelloAllWebController {
   public String greeting(@RequestParam(value = "name", defaultValue = "World") String name,
           Model model) {
     model.addAttribute("name", name);
-    model.addAttribute("helloElements", HELLOS);
+    List<String> shuffledHellos = Arrays.asList(HELLOS);
+    Collections.shuffle(shuffledHellos);
+    model.addAttribute("helloElements", shuffledHellos);
 
     String[] randomHelloColors = fillWithRandomColors(HELLOS.length);
     model.addAttribute("color", randomHelloColors);
