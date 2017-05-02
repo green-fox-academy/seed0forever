@@ -8,11 +8,11 @@
 <body>
 <table>
   <tr>
-    <th>How to say hello:</th>
+    <th>How to say hello_2:</th>
   </tr>
   <tr th:each="hello : ${helloEntities}">
-    <td th:text="${hello.helloText} + ', ' + ${name} + '!' "
-        th:style="'color: ' + ${hello.fontColor} + ';' + ' font-size: ' + ${hello.fontSize} + ';'"></td>
+    <td th:text="|${hello.helloText}, ${name}!|"
+        th:style="|color: ${hello.fontColor}; font-size: ${hello.fontSize};|"></td>
   </tr>
 </table>
 </body>
