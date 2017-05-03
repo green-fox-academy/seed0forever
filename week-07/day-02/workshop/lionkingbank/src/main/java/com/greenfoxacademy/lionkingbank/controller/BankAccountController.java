@@ -78,4 +78,18 @@ public class BankAccountController {
     return "bank-account-list-and-stat-and-king-badguy";
   }
 
+  @RequestMapping("/exercise9")
+  public String listBankAccountsAndStatsKingBadGuySwitch(Model model) {
+    List<BankAccount> bankAccountList = new ArrayList<>();
+    bankAccountList.add(new BankAccount("Mufasa", "10000000", "lion", true));
+    bankAccountList.add(new BankAccount("Pumbaa", "0", "warthog"));
+    bankAccountList.add(new BankAccount("Timon", "-200", "meerkat"));
+    bankAccountList.add(new BankAccount("Rafiki", "500", "monkey"));
+    bankAccountList.add(new BankAccount("Scar", "1000", "lion", true, false));
+
+    model.addAttribute(bankAccountList);
+
+    return "bank-account-list-and-stat-and-king-badguy-switch";
+  }
+
 }
