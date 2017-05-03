@@ -23,7 +23,7 @@
     </td>
     <td th:text="${bankAccount.isGoodGuy()}? 'Good Guy' : 'Bad Guy'">Good Guy</td>
     <td>
-      <form action="/exercise10/increase">
+      <form action="/exercise10/increase" method="get">
         <input type="hidden" name="index" th:value="${bankAccountStat.index}" />
         <input type="submit" value="+10" />
       </form>
