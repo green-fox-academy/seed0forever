@@ -19,7 +19,7 @@
     <!--/*@thymesVar id="bankAccount" type="com.greenfoxacademy.lionkingbank.model.BankAccount"*/-->
     <td th:text="${bankAccount.name}">Name</td>
     <td th:text="${#numbers.formatDecimal(bankAccount.balance, 1, 2)}">2000.00</td>
-    <td th:text="${#strings.toUpperCase(#strings.substring(bankAccount.animalType,0, 1))} + ${#strings.substring(bankAccount.animalType, 1)}">Name</td>
+    <td th:text="${#strings.toUpperCase(#strings.substring(bankAccount.animalType,0, 1))} + ${#strings.substring(bankAccount.animalType, 1)}">Animal Type</td>
   </tr>
 </table>
 
