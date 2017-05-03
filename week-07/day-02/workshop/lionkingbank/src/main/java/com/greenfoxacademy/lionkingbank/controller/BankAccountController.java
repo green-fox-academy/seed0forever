@@ -1,6 +1,8 @@
 package com.greenfoxacademy.lionkingbank.controller;
 
 import com.greenfoxacademy.lionkingbank.model.BankAccount;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +23,19 @@ public class BankAccountController {
 
     model.addAttribute("submittedText", submittedText);
     return "input-sanitization";
+  }
+
+  @RequestMapping("/exercise5")
+  public String listBankAccounts(Model model) {
+    List<BankAccount> bankAccountList = new ArrayList<>();
+    bankAccountList.add(new BankAccount("Pumbaa", "0", "warthog"));
+    bankAccountList.add(new BankAccount("Timon", "-200", "meerkat"));
+    bankAccountList.add(new BankAccount("Rafiki", "500", "monkey"));
+    bankAccountList.add(new BankAccount("Scar", "100000", "lion"));
+
+    model.addAttribute(bankAccountList);
+
+    return "bank-account-list";
   }
 
 }

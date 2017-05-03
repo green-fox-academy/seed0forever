@@ -1,6 +1,5 @@
 package com.greenfoxacademy.lionkingbank.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
