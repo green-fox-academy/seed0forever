@@ -51,4 +51,17 @@ public class BankAccountController {
     return "bank-account-list-and-stat";
   }
 
+  @RequestMapping("/exercise7")
+  public String listBankAccountsAndStatsAndKing(Model model) {
+    List<BankAccount> bankAccountList = new ArrayList<>();
+    bankAccountList.add(new BankAccount("Pumbaa", "0", "warthog"));
+    bankAccountList.add(new BankAccount("Timon", "-200", "meerkat"));
+    bankAccountList.add(new BankAccount("Rafiki", "500", "monkey"));
+    bankAccountList.add(new BankAccount("Scar", "100000", "lion", true));
+
+    model.addAttribute(bankAccountList);
+
+    return "bank-account-list-and-stat-and-king";
+  }
+
 }
