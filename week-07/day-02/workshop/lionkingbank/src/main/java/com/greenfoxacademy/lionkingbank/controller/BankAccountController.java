@@ -124,4 +124,33 @@ public class BankAccountController {
     return "redirect:/exercise10";
   }
 
+  @RequestMapping("/exercise11")
+  public String bankAccountSubmitAddIncrease(Model model) {
+    model.addAttribute(bankAccountsExercise10);
+    model.addAttribute("elementIndexToIncreaseBalance", new IndexEntry());
+    model.addAttribute("createdBankAccount", new BankAccount());
+
+    return "bank-account-submit-add";
+  }
+
+  @RequestMapping(value = "/exercise11/add")
+  public String bankAccountSubmitAdd(BankAccount createdBankAccount) {
+    bankAccountsExercise10.add(createdBankAccount);
+
+    return "redirect:/exercise11";
+
+  }
+
+  @RequestMapping(value = "/exercise11/increase")
+  public String bankAccountSubmitIncrease(IndexEntry elementIndexToIncreaseBalance) {
+    BankAccount bankAccountToChange = bankAccountsExercise10
+            .get(elementIndexToIncreaseBalance.getIndex());
+
+    float prevoiusBalance = bankAccountToChange.getBalance();
+
+    bankAccountToChange.setBalance(prevoiusBalance + 10f);
+
+    return "redirect:/exercise11";
+  }
+
 }

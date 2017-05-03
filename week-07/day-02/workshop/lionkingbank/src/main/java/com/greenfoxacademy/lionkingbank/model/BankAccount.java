@@ -7,11 +7,14 @@ import lombok.Setter;
 @Setter
 public class BankAccount {
 
-  private final String name;
-  private final String animalType;
+  private String name;
+  private String animalType;
   private float balance;
   private boolean isKing = false;
   private boolean isGoodGuy = true;
+
+  public BankAccount() {
+  }
 
   public BankAccount(String name, String balance, String animalType) {
     this.name = name;
