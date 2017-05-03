@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Getting Started: Serving Web Content</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Balance</th>
+    <th>Type</th>
+  </tr>
+  <tr>
+    <!--/*@thymesVar id="bankAccount" type="com.greenfoxacademy.lionkingbank.model.BankAccount"*/-->
+    <td th:text="${bankAccount.name}">Name</td>
+    <td th:text="${#numbers.formatDecimal(bankAccount.balance, 1, 2)}">2000.00</td>
+    <td th:text="${#strings.toUpperCase(#strings.substring(bankAccount.animalType,0, 1))} + ${#strings.substring(bankAccount.animalType, 1)}">Name</td>
+  </tr>
+</table>
+
+</body>
+
+</html>
+  
