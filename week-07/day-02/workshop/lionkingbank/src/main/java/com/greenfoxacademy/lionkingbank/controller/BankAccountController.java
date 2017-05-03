@@ -1,6 +1,7 @@
 package com.greenfoxacademy.lionkingbank.controller;
 
 import com.greenfoxacademy.lionkingbank.model.BankAccount;
+import com.greenfoxacademy.lionkingbank.model.IndexEntry;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class BankAccountController {
+
+  List<BankAccount> bankAccountsExercise10;
+
+  public BankAccountController() {
+    bankAccountsExercise10 = new ArrayList<>();
+    bankAccountsExercise10.add(new BankAccount("Mufasa", "800", "lion", true));
+    bankAccountsExercise10.add(new BankAccount("Pumbaa", "0", "warthog"));
+    bankAccountsExercise10.add(new BankAccount("Timon", "200", "meerkat"));
+    bankAccountsExercise10.add(new BankAccount("Rafiki", "500", "monkey"));
+    bankAccountsExercise10.add(new BankAccount("Scar", "100", "lion", true, false));
+  }
 
   @RequestMapping("/exercise3")
   public String showAccountInfo(Model model) {
@@ -90,6 +102,26 @@ public class BankAccountController {
     model.addAttribute(bankAccountList);
 
     return "bank-account-list-and-stat-and-king-badguy-switch";
+  }
+
+  @RequestMapping("/exercise10")
+  public String bankAccountSubmit(Model model) {
+    model.addAttribute(bankAccountsExercise10);
+    model.addAttribute("elementIndexToIncreaseBalance", new IndexEntry());
+
+    return "bank-account-submit";
+  }
+
+  @RequestMapping(value = "/exercise10/increase")
+  public String bankAccountIncreaseBalance(IndexEntry elementIndexToIncreaseBalance) {
+    BankAccount bankAccountToChange = bankAccountsExercise10
+            .get(elementIndexToIncreaseBalance.getIndex());
+
+    float prevoiusBalance = bankAccountToChange.getBalance();
+
+    bankAccountToChange.setBalance(prevoiusBalance + 10f);
+
+    return "redirect:/exercise10";
   }
 
 }
