@@ -33,19 +33,19 @@
     <!--/*@thymesVar id="createdBankAccount" type="com.greenfoxacademy.lionkingbank.model.BankAccount"*/-->
     <form action="/exercise11/add" method="get" th:object="${createdBankAccount}">
       <td></td>
-      <td><input type="text" th:field="*{name}"></input></td>
+      <td><input type="text" th:field="*{name}"/></td>
       <td>
-<!--
-        <select th:field="*{isKing}">
-        </select>
--->
+        <!--
+                <select th:field="*{isKing}">
+                </select>
+        -->
       </td>
-      <td><input type="text" th:field="*{balance}"></input></td>
-      <td><input type="text" th:field="*{animalType}"></input></td>
+      <td><input type="text" th:field="*{balance}"/></td>
+      <td><input type="text" th:field="*{animalType}"/></td>
       <td>
         <!--<input type="text" th:field="*{name}">name</input>-->
       </td>
-      <td><input type="submit" value="Add new account" /></td>
+      <td><input type="submit" value="Add new account"/></td>
     </form>
   </tr>
 </table>
