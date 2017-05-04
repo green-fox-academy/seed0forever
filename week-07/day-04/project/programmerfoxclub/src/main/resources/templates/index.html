@@ -10,13 +10,19 @@
 </head>
 
 <body>
-<p><a th:href="@{/information.html}">Information</a></p>
+<ul>
+  <li><a th:href="@{'/'}">Information</a></li>
+  <li><a th:href="@{'/trickCenter'}">Trick Centre</a></li>
+  <li><a th:href="@{'/nutritionStore'}">Nutrition Store</a></li>
+</ul>
 <p><img th:src="@{images/greenfox.png}" alt="Green Fox"/></p>
-<p>This is Mr. Fox. Currently living on pzza and lemonade. He knows 2 tricks.</p>
+<!--/*@thymesVar id="fox" type="com.greenfoxacademy.programmerfoxclub.model.Fox"*/-->
+<!--/*@thymesVar id="name" type="java.lang.String"*/-->
+<p th:text="|This is Mr. ${fox.name}. Currently living on ${fox.food} and ${fox.drink}. He knows ${fox.tricks.size()} tricks.|">
+  This is Mr. Fox. Currently living on pizza and lemonade. He knows 2 tricks.</p>
 <h1>Known tricks</h1>
 <ul>
-  <li>write HTML</li>
-  <li>code in Java</li>
+  <li th:each="trickItem : ${fox.tricks}" th:text="${trickItem}">write HTML</li>
 </ul>
 </body>
 </html>

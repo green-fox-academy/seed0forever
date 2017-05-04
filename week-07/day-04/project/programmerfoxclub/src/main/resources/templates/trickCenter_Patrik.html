@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>Title</title>
+</head>
+
+<body>
+<ul>
+  <li><a th:href="@{'/'}">Information</a></li>
+  <li><a th:href="@{'/trickCenter'}">Trick Centre</a></li>
+  <li><a th:href="@{'/nutritionstore'}">Nutrition Store</a></li>
+</ul>
+<img src="/greenfox.png" alt="Green Fox"/>
+
+<p th:each="trick : ${allTricks.}" th:text="${trick}"/>
+<!--
+<table>
+  <form action="/change-trick">
+    <tr>
+      <th>Tricks</th>
+    </tr>
+    <tr>
+      <td>
+        <select>
+          &lt;!&ndash;/*@thymesVar id="allTricks" type="java.util.List<String>"*/&ndash;&gt;
+          <option th:each="trick : ${allTricks}"
+                  th:value="${trick}"
+                  th:text="${trick}">
+          </option>
+        </select>
+      </td>
+      <td><input type="submit" value="Learn"/></td>
+    </tr>
+  </form>
+</table>
+-->
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>Title</title>
+</head>
+<body>
+<ul>
+  <li><a th:href="@{'/'}">Information</a></li>
+  <li><a th:href="@{'/trickcentre'}">Trick Centre</a></li>
+  <li><a th:href="@{'/nutritionstore'}">Nutrition Store</a></li>
+</ul>
+<img src="/greenfox.png"/>
+<table>
+  <form action="/change-tricks">
+    <tr>
+      <th>Tricks</th>
+    </tr>
+    <tr>
+
+      <td>
+        <select>
+          <!--/*@thymesVar id="allTricks" type="java.util.List<String>"*/-->
+          <option th:each="trick : ${allTricks}" value="${trick}" text="${trick}">Trick1</option>
+        </select>
+        <input type="submit" value="Add trick">
+      </td>
+
+    </tr>
+  </form>
+</table>
+</body>
+</html><!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>Title</title>
+</head>
+<body>
+<ul>
+  <li><a th:href="@{'/'}">Information</a></li>
+  <li><a th:href="@{'/trickcentre'}">Trick Centre</a></li>
+  <li><a th:href="@{'/nutritionstore'}">Nutrition Store</a></li>
+</ul>
+<img src="/greenfox.png"/>
+<table>
+  <form action="/change-nutrition">
+    <tr>
+      <th>Food</th>
+      <th>Drink</th>
+    </tr>
+    <tr>
+      <td><input type="list" name="food"/></td>
+      <td><input type="list" name="drink"/></td>
+      <td><input type="submit" value="Change"/></td>
+    </tr>
+  </form>
+</table>
+</body>
+</html>
