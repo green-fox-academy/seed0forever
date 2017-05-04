@@ -10,14 +10,13 @@
 
 <body>
 <h1>Let's hunt some pokemons!</h1>
-<h2 th:text="'A level ' + ${pokemon.level} + ' ' + ${pokemon.name} + 'appeared'"/>
+<h2 th:text="${pokemon.level} + ' level ' + ${pokemon.name}"/>
 <img th:src="'images/' + ${pokemon.name} + '.png'" width="200px"/>
+<p th:text="'Catched at: ' + ${pokemon.dateCatched}"/>
 
 <p>
-  <a th:href="@{/}">Go back to the home page</a>
+  <a th:href="@{/}">Back</a>
 </p>
-<p><a th:href="@{/catchpokemon}">CATCH IT!</a></p>
-
 </body>
 
 </html>
