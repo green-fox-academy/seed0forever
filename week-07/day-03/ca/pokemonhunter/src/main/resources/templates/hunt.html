@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Pokemon Hunt</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<h1>Let's hunt some pokemons!</h1>
+<h2 th:text="'A level '${pokemon.level} + ' ' + ${pokemon.name} + 'appeared'"/>
+<img th:src="'images/' + ${pokemon.name} + '.png'" width="200px"/>
+
+<p><a th:href="@{/catchpokemon}">CATCH IT!</a></p>
+
+</body>
+
+</html>
+  

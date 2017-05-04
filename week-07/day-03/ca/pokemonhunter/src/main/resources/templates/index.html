@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Pokemon Hunt</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<h1 th:text="${user.name} + '\'s pokemon.'"/>
+
+<h2><a th:href="@{hunt}"/></h2>
+
+  <ul th:each="pokemon : ${user.pokemons}">
+    <li th:text="${pokemon.name} + 'lvl(' + ${pokemon.level} + ')'"/>
+  </ul>
+
+</body>
+
+</html>
+  
