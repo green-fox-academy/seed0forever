@@ -1,0 +1,18 @@
+body {
+  background: url(../images/background_forest_hill.png);
+  background-size: auto 900px;
+  color: gold;
+}
+
+a {
+  color: gold;
+}
+
+table.navigation_header {
+  background-color: azure;
+  color: black;
+  font-color: black;
+}
+a.navigation_header {
+  color: darkgreen;
+}

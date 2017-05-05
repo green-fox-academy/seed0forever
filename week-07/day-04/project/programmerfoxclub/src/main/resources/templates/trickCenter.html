@@ -7,14 +7,18 @@
 <head>
   <title>Programmer Fox Club</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link rel="stylesheet" type="text/css" href="/style/main.css"/>
 </head>
 
 <body>
-<ul>
-  <li><a th:href="@{'/'}">Information</a></li>
-  <li><a th:href="@{'/trickCenter'}">Trick Centre</a></li>
-  <li><a th:href="@{'/nutritionStore'}">Nutrition Store</a></li>
-</ul>
+<table class="navigation_header">
+  <tr>
+    <th><a class="navigation_header" th:href="@{'/'}">Information</a></th>
+    <th><a class="navigation_header" th:href="@{'/trickCenter'}">Trick Centre</a></th>
+    <th><a class="navigation_header" th:href="@{'/nutritionStore'}">Nutrition Store</a></th>
+  </tr>
+</table>
+
 <img src="images/greenfox.png" alt="Green Fox"/>
 
 <table>
