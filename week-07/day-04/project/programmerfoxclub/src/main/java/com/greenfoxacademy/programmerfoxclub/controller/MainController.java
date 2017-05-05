@@ -58,7 +58,7 @@ public class MainController {
   }
 
   @GetMapping("/nutritionStore")
-  public ModelAndView viewNutritionStore(ModelAndView modelAndView){
+  public ModelAndView viewNutritionStore(ModelAndView modelAndView) {
     modelAndView.setViewName("nutritionStore");
     modelAndView.addObject("listOfFood", allFood);
     modelAndView.addObject("listOfDrinks", allDrink);
@@ -66,9 +66,11 @@ public class MainController {
   }
 
   @GetMapping("/trickCenter")
-  public ModelAndView viewTrickCenter(ModelAndView modelAndView){
+  public ModelAndView viewTrickCenter(ModelAndView modelAndView) {
     modelAndView.setViewName("trickCenter");
-    modelAndView.addObject("listOfTricks", allTricks);
+    List<String> remainingTricks = getRemainingTricks(fox, allTricks);
+
+    modelAndView.addObject("listOfRemainingTricks", remainingTricks);
     return modelAndView;
   }
 
@@ -83,5 +85,15 @@ public class MainController {
   public String changeTrick(@RequestParam String addTrick) {
     fox.addTrick(addTrick);
     return "redirect:";
+  }
+
+  private List<String> getRemainingTricks(Fox fox, List<String> listOfTricks) {
+    List<String> remainingTricks = new ArrayList<>();
+    for (String trickElement : listOfTricks) {
+      if (!fox.hasTrick(trickElement)) {
+        remainingTricks.add(trickElement);
+      }
+    }
+    return remainingTricks;
   }
 }

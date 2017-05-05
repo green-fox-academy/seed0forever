@@ -25,8 +25,8 @@
     <tr>
       <td>
         <select name="addTrick">
-          <!--/*@thymesVar id="listOfTricks" type="java.util.List<String>"*/-->
-          <option th:each="trick : ${listOfTricks}"
+          <!--/*@thymesVar id="listOfRemainingTricks" type="java.util.List<String>"*/-->
+          <option th:each="trick : ${listOfRemainingTricks}"
                   th:value="${trick}"
                   th:text="${trick}">
           </option>

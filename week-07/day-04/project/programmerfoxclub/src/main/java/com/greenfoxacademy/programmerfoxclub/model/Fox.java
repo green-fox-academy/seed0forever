@@ -27,4 +27,13 @@ public class Fox {
   public void addTrick(String trick) {
     tricks.add(trick);
   }
+
+  public boolean hasTrick(String trick) {
+    for (String trickElement : tricks) {
+      if (trickElement.equalsIgnoreCase(trick)) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
