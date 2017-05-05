@@ -29,12 +29,12 @@
     <tr>
       <th>Drink</th>
     </tr>
+    <!--/*@thymesVar id="listOfFood" type="java.util.List<String>"*/-->
+    <!--/*@thymesVar id="foodItem" type="java.lang.String"*/-->
+    <!--/*@thymesVar id="currentFood" type="java.lang.String"*/-->
     <tr>
       <td>
         <select name="changeFood">
-          <!--/*@thymesVar id="listOfFood" type="java.util.List<String>"*/-->
-          <!--/*@thymesVar id="foodItem" type="java.lang.String"*/-->
-          <!--/*@thymesVar id="currentFood" type="java.lang.String"*/-->
           <th:block th:each="foodItem : ${listOfFood}">
             <option th:value="${foodItem}"
                     th:text="${foodItem}"
