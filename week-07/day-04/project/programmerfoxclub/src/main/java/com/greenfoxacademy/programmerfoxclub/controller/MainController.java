@@ -16,6 +16,8 @@ public class MainController {
   Fox fox;
 
   private List<String> allTricks;
+  private List<String> allFood;
+  private List<String> allDrink;
 
   public MainController() {
     allTricks = new ArrayList<>();
@@ -27,6 +29,25 @@ public class MainController {
     allTricks.add("teleport");
     allTricks.add("throw fireballs");
     allTricks.add("become invisible");
+
+    allFood = new ArrayList<>();
+    allFood.add("pizza");
+    allFood.add("roast chicken");
+    allFood.add("ham");
+    allFood.add("sausage");
+    allFood.add("lamb");
+    allFood.add("pork");
+
+    allDrink = new ArrayList<>();
+    allDrink.add("tea");
+    allDrink.add("coffee");
+    allDrink.add("orange juice");
+    allDrink.add("energy drink");
+    allDrink.add("water");
+    allDrink.add("sake");
+    allDrink.add("wine");
+    allDrink.add("beer");
+    allDrink.add("milk");
   }
 
   @GetMapping("/")
@@ -36,11 +57,26 @@ public class MainController {
     return modelAndView;
   }
 
+  @GetMapping("/nutritionStore")
+  public ModelAndView viewNutritionStore(ModelAndView modelAndView){
+    modelAndView.setViewName("nutritionStore");
+    modelAndView.addObject("listOfFood", allFood);
+    modelAndView.addObject("listOfDrinks", allDrink);
+    return modelAndView;
+  }
+
   @GetMapping("/trickCenter")
   public ModelAndView viewTrickCenter(ModelAndView modelAndView){
     modelAndView.setViewName("trickCenter");
     modelAndView.addObject("listOfTricks", allTricks);
     return modelAndView;
+  }
+
+  @GetMapping("/change-nutrition")
+  public String changeNutrition(@RequestParam String changeFood, String changeDrink) {
+    fox.setFood(changeFood);
+    fox.setDrink(changeDrink);
+    return "redirect:";
   }
 
   @GetMapping("/change-trick")
