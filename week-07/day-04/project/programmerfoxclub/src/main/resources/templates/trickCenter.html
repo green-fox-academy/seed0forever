@@ -22,18 +22,23 @@
     <tr>
       <th>Tricks</th>
     </tr>
-    <tr>
-      <td>
-        <select name="addTrick">
-          <!--/*@thymesVar id="listOfRemainingTricks" type="java.util.List<String>"*/-->
-          <option th:each="trick : ${listOfRemainingTricks}"
-                  th:value="${trick}"
-                  th:text="${trick}">
-          </option>
-        </select>
-      </td>
-      <td><input type="submit" value="Learn"/></td>
-    </tr>
+    <!--/*@thymesVar id="listOfRemainingTricks" type="java.util.List<String>"*/-->
+    <th:block th:switch="${not #lists.isEmpty(listOfRemainingTricks)}">
+      <tr th:case="true">
+        <td>
+          <select name="addTrick">
+            <option th:each="trick : ${listOfRemainingTricks}"
+                    th:value="${trick}"
+                    th:text="${trick}">
+            </option>
+          </select>
+        </td>
+        <td><input type="submit" value="Learn"/></td>
+      </tr>
+      <tr th:case="false">
+        <td>Mr. Fox already knows everything!</td>
+      </tr>
+    </th:block>
   </form>
 </table>
 </body>

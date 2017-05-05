@@ -28,20 +28,28 @@
     <tr>
       <td>
         <select name="changeFood">
-          <!--/*@thymesVar id="listOfTricks" type="java.util.List<String>"*/-->
-          <option th:each="foodItem : ${listOfFood}"
-                  th:value="${foodItem}"
-                  th:text="${foodItem}">
-          </option>
+          <!--/*@thymesVar id="listOfFood" type="java.util.List<String>"*/-->
+          <!--/*@thymesVar id="foodItem" type="java.lang.String"*/-->
+          <!--/*@thymesVar id="currentFood" type="java.lang.String"*/-->
+          <th:block th:each="foodItem : ${listOfFood}">
+            <option th:value="${foodItem}"
+                    th:text="${foodItem}"
+                    th:selected="${currentFood.equals(foodItem)}">Food Item
+            </option>
+          </th:block>
         </select>
       </td>
       <td>
         <select name="changeDrink">
-          <!--/*@thymesVar id="listOfTricks" type="java.util.List<String>"*/-->
-          <option th:each="drinkItem : ${listOfDrinks}"
-                  th:value="${drinkItem}"
-                  th:text="${drinkItem}">
-          </option>
+          <!--/*@thymesVar id="listOfDrinks" type="java.util.List<String>"*/-->
+          <!--/*@thymesVar id="drinkItem" type="java.lang.String"*/-->
+          <!--/*@thymesVar id="currentDrink" type="java.lang.String"*/-->
+          <th:block th:each="drinkItem : ${listOfDrinks}">
+            <option th:value="${drinkItem}"
+                    th:text="${drinkItem}"
+                    th:selected="${currentDrink.equals(drinkItem)}">
+            </option>
+          </th:block>
         </select>
       </td>
       <td><input type="submit" value="Save"/></td>

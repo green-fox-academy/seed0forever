@@ -62,6 +62,8 @@ public class MainController {
     modelAndView.setViewName("nutritionStore");
     modelAndView.addObject("listOfFood", allFood);
     modelAndView.addObject("listOfDrinks", allDrink);
+    modelAndView.addObject("currentFood", fox.getFood());
+    modelAndView.addObject("currentDrink", fox.getDrink());
     return modelAndView;
   }
 
