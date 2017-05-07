@@ -22,8 +22,9 @@
 <p><img th:src="@{images/greenfox.png}" alt="Green Fox"/></p>
 <!--/*@thymesVar id="fox" type="com.greenfoxacademy.programmerfoxclub.model.Fox"*/-->
 <!--/*@thymesVar id="name" type="java.lang.String"*/-->
-<p th:text="|This is Mr. ${fox.name}. Currently living on ${fox.food} and ${fox.drink}. He knows ${fox.tricks.size()} tricks.|">
-  This is Mr. Fox. Currently living on pizza and lemonade. He knows 2 tricks.</p>
+<p th:text="|This is Mr. ${fox.name}. Currently living on ${fox.food} and ${fox.drink}.|">
+  This is Mr. Fox. Currently living on pizza and lemonade.</p>
+<p th:text="|He knows ${fox.tricks.size()} tricks.|" >He knows 2 tricks.</p>
 <h1>Known tricks</h1>
 <ul>
   <li th:each="trickItem : ${fox.tricks}" th:text="${trickItem}">write HTML</li>
