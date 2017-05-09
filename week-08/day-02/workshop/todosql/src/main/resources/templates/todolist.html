@@ -6,7 +6,7 @@
 <head>
   <title>Getting Started: Serving Web Content</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <link rel="stylesheet" type="text/css" href="main.css"/>
+  <link rel="stylesheet" type="text/css" href="/main.css"/>
 </head>
 
 <body>
@@ -18,7 +18,7 @@
     <th>ID</th>
     <th>Title</th>
     <th>isUrgent</th>
-    <th>isFalse</th>
+    <th>isDone</th>
   </tr>
   <tr th:each="todo : ${todos}">
     <td th:text="${todo.id}">1</td>
