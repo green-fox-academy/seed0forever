@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Getting Started: Serving Web Content</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+
+<h1>Todos for today:</h1>
+<ul>
+  <!--/*@thymesVar id="todos" type="com.greenfoxacademy.todoembedded.model.Todo"*/-->
+  <!--/*@thymesVar id="title" type="java.lang.String"*/-->
+  <li th:each="todo : ${todos}" th:text="${todo.title}">Start the day</li>
+</ul>
+
+</body>
+
+</html>
+  
