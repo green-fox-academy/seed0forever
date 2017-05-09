@@ -12,16 +12,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Todo {
 
-  public Todo(String title) {
-    this.title = title;
-  }
-
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private int id;
   private String title;
   private boolean isUrgent = false;
   private boolean isDone = false;
+  public Todo(String title) {
+    this.title = title;
+  }
 
   public void setTitle(String title) {
     this.title = title;
