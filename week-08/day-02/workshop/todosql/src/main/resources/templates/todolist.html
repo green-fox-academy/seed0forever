@@ -30,6 +30,7 @@
     <td th:text="${todo.isUrgent()}">false</td>
     <td th:text="${todo.isDone()}">false</td>
     <td><a th:href="'/todo/' + ${todo.id} + '/delete'">Delete</a></td>
+    <td><a th:href="'/todo/' + ${todo.id} + '/update'">Edit</a></td>
   </tr>
 </table>
 </body>

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Todo CRUD APP</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link rel="stylesheet" type="text/css" href="/main.css"/>
+</head>
+
+<body>
+<h1>Edit Todo</h1>
+
+<table>
+  <!--/*@thymesVar id="todo" type="com.greenfoxacademy.todosql.model.Todo"*/-->
+  <form action="/todo/update" method="post" th:object="${todo}">
+    <input type="hidden" th:field="*{id}"/>
+    <tr>
+      <th>Title</th>
+      <!--<th>isUrgent</th>-->
+      <!--<th>isDone</th>-->
+    </tr>
+    <tr>
+      <td><input type="text" th:field="*{title}" th:value="*{title}"/></td>
+      <!--<td><input type="checkbox" th:field="*{isUrgent()}"/></td>-->
+      <!--<td><input type="checkbox" th:field="*{isDone()}"/></td>-->
+    </tr>
+    <tr>
+      <td><input type="submit" value="Save"/><a th:href="@{/todo}">Cancel</a></td>
+    </tr>
+  </form>
+</table>
+</body>
+
+</html>
