@@ -20,6 +20,7 @@ public class Todo {
   private String title;
   private boolean isUrgent = false;
   private boolean isDone = false;
+
   public Todo(String title, boolean isUrgent, boolean isDone) {
     this.title = title;
     this.isUrgent = isUrgent;

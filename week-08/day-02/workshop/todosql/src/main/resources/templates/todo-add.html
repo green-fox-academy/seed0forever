@@ -14,14 +14,24 @@
 <p>
   <a th:href="@{add}">Add new todo</a>
 </p>
-<!--/*@thymesVar id="todos" type="com.greenfoxacademy.todoembedded.model.Todo"*/-->
-<!--/*@thymesVar id="title" type="java.lang.String"*/-->
+
 <table>
-  <tr>
-    <th>Title</th>
-    <th>isUrgent</th>
-    <th>isDone</th>
-  </tr>
+  <!--/*@thymesVar id="todo" type="com.greenfoxacademy.todosql.model.Todo"*/-->
+  <form action="/todo/add" method="post" th:object="${todo}">
+    <tr>
+      <th>Title</th>
+      <!--<th>isUrgent</th>-->
+      <!--<th>isDone</th>-->
+    </tr>
+    <tr>
+      <td><input type="text" th:field="*{title}"/></td>
+      <!--<td><input type="checkbox" th:field="*{isUrgent()}"/></td>-->
+      <!--<td><input type="checkbox" th:field="*{isDone()}"/></td>-->
+    </tr>
+    <tr>
+      <td><input type="submit" value="Add"/></td>
+    </tr>
+  </form>
 </table>
 </body>
 
