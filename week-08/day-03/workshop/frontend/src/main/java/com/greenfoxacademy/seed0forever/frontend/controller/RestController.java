@@ -2,6 +2,7 @@ package com.greenfoxacademy.seed0forever.frontend.controller;
 
 import com.greenfoxacademy.seed0forever.frontend.model.Doubling;
 import com.greenfoxacademy.seed0forever.frontend.model.Error;
+import com.greenfoxacademy.seed0forever.frontend.model.Greeting;
 import com.greenfoxacademy.seed0forever.frontend.model.RestResponseObject;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,5 +16,14 @@ public class RestController {
       return new Error("Please provide an input!");
     }
     return new Doubling(input);
+  }
+
+  @GetMapping("/greeter")
+  public RestResponseObject greet(@RequestParam(required = false) String name,
+          @RequestParam(required = false) String title) {
+    if (name == null || title == null) {
+      return new Error("Please provide a name!");
+    }
+    return new Greeting(name, title);
   }
 }
