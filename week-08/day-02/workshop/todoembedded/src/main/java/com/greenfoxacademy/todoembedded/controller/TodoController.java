@@ -14,9 +14,8 @@ public class TodoController {
   @Autowired
   TodoRepository todoRepository;
 
-  @ResponseBody
   @RequestMapping(value = {"", "/list"})
   public String list(Model model) {
-    return "This is my first todo";
+    return "todolist";
   }
 }
