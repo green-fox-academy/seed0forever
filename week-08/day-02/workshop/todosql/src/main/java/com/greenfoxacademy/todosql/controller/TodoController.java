@@ -16,7 +16,8 @@ public class TodoController {
 
   @RequestMapping(value = {"", "/", "/list"})
   public String list(Model model,
-          @RequestParam(value = "isActive", required = false) String isActive) {
+          @RequestParam(required = false) String isActive) {
+
     if (isActive != null && isActive.equalsIgnoreCase("false")) {
       model.addAttribute("todos", todoRepository.findByIsDoneTrue());
     } else if (isActive != null && isActive.equalsIgnoreCase("true")) {
@@ -25,5 +26,10 @@ public class TodoController {
       model.addAttribute("todos", todoRepository.findAll());
     }
     return "todolist";
+  }
+
+  @RequestMapping(value = "/add")
+  public String add(Model model) {
+    return "todo-add";
   }
 }
