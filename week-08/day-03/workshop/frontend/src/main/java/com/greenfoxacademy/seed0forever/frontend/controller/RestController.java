@@ -1,6 +1,7 @@
 package com.greenfoxacademy.seed0forever.frontend.controller;
 
 import com.greenfoxacademy.seed0forever.frontend.model.AppendA;
+import com.greenfoxacademy.seed0forever.frontend.model.ArrayCalculatorService;
 import com.greenfoxacademy.seed0forever.frontend.model.DoUntil;
 import com.greenfoxacademy.seed0forever.frontend.model.Doubling;
 import com.greenfoxacademy.seed0forever.frontend.model.ErrorRestResponse;
@@ -58,5 +59,11 @@ public class RestController {
     }
 
     return doUntilInstance;
+  }
+
+  @PostMapping("/arrays")
+  public RestResponseObject arrayCalculator(
+          @RequestBody(required = false) ArrayCalculatorService arrayCalculatorService) {
+    return arrayCalculatorService.createResultObject();
   }
 }
