@@ -3,7 +3,7 @@ package com.greenfoxacademy.seed0forever.frontend.controller;
 import com.greenfoxacademy.seed0forever.frontend.model.AppendA;
 import com.greenfoxacademy.seed0forever.frontend.model.DoUntil;
 import com.greenfoxacademy.seed0forever.frontend.model.Doubling;
-import com.greenfoxacademy.seed0forever.frontend.model.Error;
+import com.greenfoxacademy.seed0forever.frontend.model.ErrorRestResponse;
 import com.greenfoxacademy.seed0forever.frontend.model.Greeting;
 import com.greenfoxacademy.seed0forever.frontend.model.RestResponseObject;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +18,7 @@ public class RestController {
   @GetMapping("/doubling")
   public RestResponseObject doubling(@RequestParam(required = false) Integer input) {
     if (input == null) {
-      return new Error("Please provide an input!");
+      return new ErrorRestResponse("Please provide an input!");
     }
     return new Doubling(input);
   }
@@ -27,9 +27,9 @@ public class RestController {
   public RestResponseObject greet(@RequestParam(required = false) String name,
           @RequestParam(required = false) String title) {
     if (name == null) {
-      return new Error("Please provide a name!");
+      return new ErrorRestResponse("Please provide a name!");
     } else if (title == null) {
-      return new Error("Please provide a title!");
+      return new ErrorRestResponse("Please provide a title!");
     }
     return new Greeting(name, title);
   }
@@ -51,10 +51,10 @@ public class RestController {
       } else if (whatToDo.equalsIgnoreCase("factor")) {
         doUntilInstance.factorial();
       } else {
-        return new Error("Please enter \'sum\' or \'factor\' after /dountil/");
+        return new ErrorRestResponse("Please enter \'sum\' or \'factor\' after /dountil/");
       }
     } else {
-      return new Error("Please provide a number!");
+      return new ErrorRestResponse("Please provide a number!");
     }
 
     return doUntilInstance;

@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class Error implements RestResponseObject {
+public class ErrorRestResponse implements RestResponseObject {
 
   private String error;
 }
