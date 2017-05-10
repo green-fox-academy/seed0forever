@@ -1,5 +1,6 @@
 package com.greenfoxacademy.seed0forever.frontend.controller;
 
+import com.greenfoxacademy.seed0forever.frontend.entity.Log;
 import com.greenfoxacademy.seed0forever.frontend.entity.LogRepository;
 import com.greenfoxacademy.seed0forever.frontend.model.AppendA;
 import com.greenfoxacademy.seed0forever.frontend.model.ArrayCalculatorService;
@@ -23,6 +24,11 @@ public class RestController {
 
   @GetMapping("/doubling")
   public RestResponseObject doubling(@RequestParam(required = false) Integer input) {
+
+    restControllerLogRepository
+            .save(new Log("/doubling",
+                    "input=" + ((input != null) ? input : null)));
+
     if (input == null) {
       return new ErrorRestResponse("Please provide an input!");
     }
@@ -32,6 +38,11 @@ public class RestController {
   @GetMapping("/greeter")
   public RestResponseObject greet(@RequestParam(required = false) String name,
           @RequestParam(required = false) String title) {
+
+    restControllerLogRepository.save(new Log("/greeter", "name="
+            + ((name != null) ? name : null) + "&" + "title="
+            + ((title != null) ? title : null)));
+
     if (name == null) {
       return new ErrorRestResponse("Please provide a name!");
     } else if (title == null) {
@@ -42,14 +53,21 @@ public class RestController {
 
   @GetMapping("/appenda/{appendable}")
   public RestResponseObject appendA(@PathVariable String appendable) {
-    if (appendable == null) {
-    }
+
+    restControllerLogRepository.save(new Log("/appenda",
+            "appendable=" + appendable));
+
     return new AppendA(appendable);
   }
 
   @PostMapping("/dountil/{what}")
   public RestResponseObject doUntil(@RequestBody(required = false) DoUntil doUntilInstance,
           @PathVariable("what") String whatToDo) {
+
+    restControllerLogRepository.save(new Log("/dountil",
+            "what=" + ((whatToDo != null) ? whatToDo : null) + "&"
+                    + "until=" + ((doUntilInstance != null) ? doUntilInstance.privateGetUntil()
+                    : null)));
 
     if (doUntilInstance != null && doUntilInstance.fieldUntilIsGreaterThanOrEquals(0)) {
       if (whatToDo.equalsIgnoreCase("sum")) {
