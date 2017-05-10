@@ -1,5 +1,6 @@
 package com.greenfoxacademy.seed0forever.frontend.controller;
 
+import com.greenfoxacademy.seed0forever.frontend.entity.LogRepository;
 import com.greenfoxacademy.seed0forever.frontend.model.AppendA;
 import com.greenfoxacademy.seed0forever.frontend.model.ArrayCalculatorService;
 import com.greenfoxacademy.seed0forever.frontend.model.DoUntil;
@@ -7,6 +8,7 @@ import com.greenfoxacademy.seed0forever.frontend.model.Doubling;
 import com.greenfoxacademy.seed0forever.frontend.model.ErrorRestResponse;
 import com.greenfoxacademy.seed0forever.frontend.model.Greeting;
 import com.greenfoxacademy.seed0forever.frontend.model.RestResponseObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
+
+  @Autowired
+  LogRepository restControllerLogRepository;
 
   @GetMapping("/doubling")
   public RestResponseObject doubling(@RequestParam(required = false) Integer input) {
