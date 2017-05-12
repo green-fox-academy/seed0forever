@@ -20,13 +20,16 @@ public class RedditApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    Post testPost = new Post();
-    testPost.setTitle("Test post added at application startup");
-    testPost.setHref("localhost");
-    testPost.setScore(666);
-    testPost.setVote(1);
-    testPost.setOwner("seed0forever");
-    testPost.setTimestamp(new Timestamp(System.currentTimeMillis()));
-    mainAppPostRepository.save(testPost);
+  // Add test post at application startup
+  /*
+      Post testPost = new Post();
+      testPost.setTitle("Test post added at application startup");
+      testPost.setHref("localhost");
+      testPost.setScore(666);
+      testPost.setVote(1);
+      testPost.setOwner("seed0forever");
+      testPost.setTimestamp(new Timestamp(System.currentTimeMillis() / 1000));
+      mainAppPostRepository.save(testPost);
+  */
   }
 }
