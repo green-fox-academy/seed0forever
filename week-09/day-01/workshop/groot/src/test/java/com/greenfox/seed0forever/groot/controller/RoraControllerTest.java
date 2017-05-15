@@ -34,7 +34,7 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 @EnableWebMvc
 public class RoraControllerTest {
 
-  private MediaType contentType = new MediaType(MediaType.APPLICATION_JSON.getType(),
+  private static final MediaType EXPECTED_CONTENT_TYPE = new MediaType(MediaType.APPLICATION_JSON.getType(),
           MediaType.APPLICATION_JSON.getSubtype(),
           Charset.forName("utf8"));
 
