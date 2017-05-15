@@ -45,7 +45,7 @@ public class GuardianControllerTest {
   @Test
   public void respondGroot_WithoutMessage() throws Exception {
     mockMvc.perform(get("/groot"))
-            .andExpect(status().isOk())
+            .andExpect(status().isBadRequest())
             .andExpect(jsonPath("$.error", is("I am Groot!")));
   }
 
