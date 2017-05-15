@@ -34,7 +34,8 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 @EnableWebMvc
 public class RoraControllerTest {
 
-  private static final MediaType EXPECTED_CONTENT_TYPE = new MediaType(MediaType.APPLICATION_JSON.getType(),
+  private static final MediaType EXPECTED_CONTENT_TYPE = new MediaType(
+          MediaType.APPLICATION_JSON.getType(),
           MediaType.APPLICATION_JSON.getSubtype(),
           Charset.forName("utf8"));
 
@@ -49,11 +50,30 @@ public class RoraControllerTest {
   }
 
   @Test
-  public void listCargoStatus() throws Exception {
+  public void testA_listCargoStatus() throws Exception {
+    mockMvc.perform(get("/rocket"))
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(EXPECTED_CONTENT_TYPE))
+            .andExpect(jsonPath("$.caliber25", is(0)))
+            .andExpect(jsonPath("$.caliber30", is(0)))
+            .andExpect(jsonPath("$.caliber50", is(0)))
+            .andExpect(jsonPath("$.shipstatus", is("empty")))
+            .andExpect(jsonPath("$.ready", is(false)))
+            .andDo(print());
   }
 
   @Test
-  public void fillShipAndShowStatus() throws Exception {
+  public void testB_fillShipAndShowStatus() throws Exception {
+    mockMvc.perform(get("/rocket/fill")
+            .param("caliber", ".25")
+            .param("amount", "5000"))
+            .andExpect(status().isOk())
+            .andExpect(content().contentType(EXPECTED_CONTENT_TYPE))
+            .andExpect(jsonPath("$.received", is(".25")))
+            .andExpect(jsonPath("$.amount", is(5000)))
+            .andExpect(jsonPath("$.shipstatus", is("40%")))
+            .andExpect(jsonPath("$.ready", is(false)))
+            .andDo(print());
   }
 
 }
