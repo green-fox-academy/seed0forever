@@ -49,9 +49,9 @@ public class YonduControllerTest {
   public void respondYondu_WithExpectedParams() throws Exception {
     mockMvc.perform(get("/yondu")
             .param("distance", "100.0")
-            .param("time", "10.0")
-            .contentType(EXPECTED_CONTENT_TYPE))
+            .param("time", "10.0"))
             .andExpect(status().isOk())
+            .andExpect(content().contentType(EXPECTED_CONTENT_TYPE))
             .andExpect(jsonPath("$.distance", is(100.0)))
             .andExpect(jsonPath("$.time", is(10.0)))
             .andExpect(jsonPath("$.speed", is(10.0)));
