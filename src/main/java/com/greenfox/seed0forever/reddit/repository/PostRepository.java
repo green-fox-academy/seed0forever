@@ -10,4 +10,6 @@ public interface PostRepository extends CrudRepository<Post, Long> {
 
   @Override
   List<Post> findAll();
+
+  List<Post> findAllByOrderByIdAsc();
 }

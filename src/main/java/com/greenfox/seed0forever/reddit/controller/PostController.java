@@ -24,7 +24,7 @@ public class PostController {
 
   @GetMapping("/posts")
   public PostList getPosts() {
-    return new PostList(postRepository.findAll());
+    return new PostList(postRepository.findAllByOrderByIdAsc());
   }
 
   @PostMapping("/posts")
