@@ -12,7 +12,6 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 public class Post {
 
   @Id
@@ -24,6 +23,20 @@ public class Post {
   private long score;
   private String owner;
   private long vote;
+
+  public Post() {
+    this.title = "empty";
+    this.href = "empty";
+    this.timestamp = new Timestamp(System.currentTimeMillis() / 1000);
+    this.score = 0;
+  }
+
+  public Post(String title, String href) {
+    this.title = title;
+    this.href = href;
+    this.timestamp = new Timestamp(System.currentTimeMillis() / 1000);
+    this.score = 0;
+  }
 
   public void upVote() {
     score++;

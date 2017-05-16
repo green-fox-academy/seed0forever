@@ -33,7 +33,6 @@ public class PostController {
 
   @PostMapping("/posts")
   public Post addPost(@RequestBody Post receivedPost) {
-    receivedPost.setTimestamp(new Timestamp(System.currentTimeMillis() / 1000));
     postRepository.save(receivedPost);
     return receivedPost;
   }
