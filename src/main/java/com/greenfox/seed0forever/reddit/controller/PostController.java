@@ -22,13 +22,9 @@ public class PostController {
   @Autowired
   PostRepository postRepository;
 
-  @Autowired
-  PostList postList;
-
   @GetMapping("/posts")
   public PostList getPosts() {
-    postList.setPosts((List<Post>) postRepository.findAll());
-    return postList;
+    return new PostList(postRepository.findAll());
   }
 
   @PostMapping("/posts")
