@@ -74,12 +74,13 @@ public class TennisGame1 implements TennisGame {
 
   private String reportWhenAdvantageOrWin() {
     String score;
-    int minusResult = player1.getScore() - player2.getScore();
-    if (minusResult == 1) {
+    int scoreDifference = player1.getScore() - player2.getScore();
+
+    if (scoreDifference == 1) {
       score = "Advantage player1";
-    } else if (minusResult == -1) {
+    } else if (scoreDifference == -1) {
       score = "Advantage player2";
-    } else if (minusResult >= 2) {
+    } else if (scoreDifference >= 2) {
       score = "Win for player1";
     } else {
       score = "Win for player2";
