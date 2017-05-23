@@ -45,20 +45,15 @@ public class TennisGame1 implements TennisGame {
   }
 
   private String reportWhenDifferentAndUnderFour() {
-    int tempScore = 0;
-    String scoreReport = "";
 
-    for (int i = 1; i <= 2; i++) {
+    String player1ScoreReport =
+            convertToScoreName(player1.getScore());
+    String player2ScoreReport =
+            convertToScoreName(player2.getScore());
 
-      if (i == 1) {
-        tempScore = player1.getScore();
-      } else {
-        scoreReport += "-";
-        tempScore = player2.getScore();
-      }
-
-      scoreReport += convertToScoreName(tempScore);
-    }
+    String format = "%s-%s";
+    String scoreReport =
+            String.format(format, player1ScoreReport, player2ScoreReport);
 
     return scoreReport;
   }
