@@ -30,7 +30,7 @@ public class TennisGame1 implements TennisGame {
       score = reportWhenAdvantageOrWin();
 
     } else {
-      score = reportWhenPointsUnderFour();
+      score = reportWhenDifferentAndUnderFour();
     }
 
     return score;
@@ -44,32 +44,45 @@ public class TennisGame1 implements TennisGame {
     return player1.getScore() >= 4 || player2.getScore() >= 4;
   }
 
-  private String reportWhenPointsUnderFour() {
+  private String reportWhenDifferentAndUnderFour() {
     int tempScore = 0;
     String scoreReport = "";
-    for (int i = 1; i < 3; i++) {
+
+    for (int i = 1; i <= 2; i++) {
+
       if (i == 1) {
         tempScore = player1.getScore();
       } else {
         scoreReport += "-";
         tempScore = player2.getScore();
       }
-      switch (tempScore) {
-        case 0:
-          scoreReport += "Love";
-          break;
-        case 1:
-          scoreReport += "Fifteen";
-          break;
-        case 2:
-          scoreReport += "Thirty";
-          break;
-        case 3:
-          scoreReport += "Forty";
-          break;
-      }
+
+      scoreReport += convertToScoreName(tempScore);
     }
+
     return scoreReport;
+  }
+
+  private String convertToScoreName(int score) {
+    String scoreName = "";
+
+    switch (score) {
+      case 0:
+        scoreName = "Love";
+        break;
+      case 1:
+        scoreName = "Fifteen";
+        break;
+      case 2:
+        scoreName = "Thirty";
+        break;
+      case 3:
+        scoreName = "Forty";
+        break;
+      default:
+        scoreName = null;
+    }
+    return scoreName;
   }
 
   private String reportWhenAdvantageOrWin() {
