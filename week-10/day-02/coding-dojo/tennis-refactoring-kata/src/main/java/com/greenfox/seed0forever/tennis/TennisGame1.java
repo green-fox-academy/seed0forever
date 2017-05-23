@@ -2,7 +2,6 @@ package com.greenfox.seed0forever.tennis;
 
 public class TennisGame1 implements TennisGame {
 
-
   private int scoreOfGame1 = 0;
   private int scoreOfGame2 = 0;
   private String player1Name;
