@@ -23,10 +23,10 @@ public class TennisGame1 implements TennisGame {
   public String reportCurrentScore() {
     String score;
 
-    if (player1.getScore() == player2.getScore()) {
+    if (areScoresEqual()) {
       score = reportWhenEqualScores();
 
-    } else if (player1.getScore() >= 4 || player2.getScore() >= 4) {
+    } else if (isAnyScoreOverThree()) {
       score = reportWhenAdvantageOrWin();
 
     } else {
@@ -34,6 +34,14 @@ public class TennisGame1 implements TennisGame {
     }
 
     return score;
+  }
+
+  private boolean areScoresEqual() {
+    return player1.getScore() == player2.getScore();
+  }
+
+  private boolean isAnyScoreOverThree() {
+    return player1.getScore() >= 4 || player2.getScore() >= 4;
   }
 
   private String reportWhenPointsUnderFour() {
