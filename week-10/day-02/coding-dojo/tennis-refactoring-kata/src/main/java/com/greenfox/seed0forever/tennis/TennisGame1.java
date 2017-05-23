@@ -20,7 +20,7 @@ public class TennisGame1 implements TennisGame {
     }
   }
 
-  public String getScore() {
+  public String reportCurrentScore() {
     String score = "";
     int tempScore = 0;
     if (player1.getScore() == player2.getScore()) {

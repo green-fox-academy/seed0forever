@@ -76,7 +76,7 @@ public class TennisTest {
         game.wonPoint("player2");
       }
     }
-    assertEquals(this.expectedScore, game.getScore());
+    assertEquals(this.expectedScore, game.reportCurrentScore());
   }
 
   @Test
