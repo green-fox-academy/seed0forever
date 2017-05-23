@@ -22,13 +22,17 @@ public class TennisGame1 implements TennisGame {
 
   public String reportCurrentScore() {
     String score;
+
     if (player1.getScore() == player2.getScore()) {
       score = reportWhenEqualScores();
+
     } else if (player1.getScore() >= 4 || player2.getScore() >= 4) {
       score = reportWhenAdvantageOrWin();
+
     } else {
       score = reportWhenPointsUnderFour();
     }
+
     return score;
   }
 
