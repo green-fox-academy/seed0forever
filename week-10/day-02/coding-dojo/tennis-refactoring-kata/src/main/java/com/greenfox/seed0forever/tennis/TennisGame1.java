@@ -21,61 +21,78 @@ public class TennisGame1 implements TennisGame {
   }
 
   public String reportCurrentScore() {
-    String score = "";
-    int tempScore = 0;
+    String score;
     if (player1.getScore() == player2.getScore()) {
-      switch (player1.getScore()) {
+      score = reportWhenEqualScores();
+    } else if (player1.getScore() >= 4 || player2.getScore() >= 4) {
+      score = reportWhenAdvantageOrWin();
+    } else {
+      score = reportWhenPointsUnderFour();
+    }
+    return score;
+  }
+
+  private String reportWhenPointsUnderFour() {
+    int tempScore = 0;
+    String scoreReport = "";
+    for (int i = 1; i < 3; i++) {
+      if (i == 1) {
+        tempScore = player1.getScore();
+      } else {
+        scoreReport += "-";
+        tempScore = player2.getScore();
+      }
+      switch (tempScore) {
         case 0:
-          score = "Love-All";
+          scoreReport += "Love";
           break;
         case 1:
-          score = "Fifteen-All";
+          scoreReport += "Fifteen";
           break;
         case 2:
-          score = "Thirty-All";
+          scoreReport += "Thirty";
           break;
         case 3:
-          score = "Forty-All";
+          scoreReport += "Forty";
           break;
-        default:
-          score = "Deuce";
-          break;
+      }
+    }
+    return scoreReport;
+  }
 
-      }
-    } else if (player1.getScore() >= 4 || player2.getScore() >= 4) {
-      int minusResult = player1.getScore() - player2.getScore();
-      if (minusResult == 1) {
-        score = "Advantage player1";
-      } else if (minusResult == -1) {
-        score = "Advantage player2";
-      } else if (minusResult >= 2) {
-        score = "Win for player1";
-      } else {
-        score = "Win for player2";
-      }
+  private String reportWhenAdvantageOrWin() {
+    String score;
+    int minusResult = player1.getScore() - player2.getScore();
+    if (minusResult == 1) {
+      score = "Advantage player1";
+    } else if (minusResult == -1) {
+      score = "Advantage player2";
+    } else if (minusResult >= 2) {
+      score = "Win for player1";
     } else {
-      for (int i = 1; i < 3; i++) {
-        if (i == 1) {
-          tempScore = player1.getScore();
-        } else {
-          score += "-";
-          tempScore = player2.getScore();
-        }
-        switch (tempScore) {
-          case 0:
-            score += "Love";
-            break;
-          case 1:
-            score += "Fifteen";
-            break;
-          case 2:
-            score += "Thirty";
-            break;
-          case 3:
-            score += "Forty";
-            break;
-        }
-      }
+      score = "Win for player2";
+    }
+    return score;
+  }
+
+  private String reportWhenEqualScores() {
+    String score;
+    switch (player1.getScore()) {
+      case 0:
+        score = "Love-All";
+        break;
+      case 1:
+        score = "Fifteen-All";
+        break;
+      case 2:
+        score = "Thirty-All";
+        break;
+      case 3:
+        score = "Forty-All";
+        break;
+      default:
+        score = "Deuce";
+        break;
     }
     return score;
   }
