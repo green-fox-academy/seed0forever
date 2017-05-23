@@ -21,4 +21,8 @@ public class Player {
   public void increaseScore() {
     this.score++;
   }
+
+  public boolean hasNameIgnoreCase(String playerName) {
+    return this.name.equalsIgnoreCase(playerName);
+  }
 }
