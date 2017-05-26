@@ -1,6 +1,7 @@
 package com.greenfoxacademy.seed0forever.p2p_chat.model;
 
 public class Message {
+
     private String username;
     private String text;
 
