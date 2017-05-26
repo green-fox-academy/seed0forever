@@ -17,6 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    packagingOptions {
+        exclude 'META-INF/NOTICE' // It is not include NOTICE file
+        exclude 'META-INF/LICENSE' // It is not include LICENSE file
+    }
 }
 
 dependencies {
@@ -26,5 +30,6 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.squareup.retrofit2:converter-jackson:2.3.0'
     testCompile 'junit:junit:4.12'
 }
