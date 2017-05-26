@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<MessageResponse> call, Response<MessageResponse> response) {
 
                 MessageResponse messageResponse = response.body();
-                System.out.println(response.body());
                 messageAdapter.clear();
                 messageAdapter.addAll(messageResponse.getMessages());
 
