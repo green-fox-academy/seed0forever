@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">P2P-Chat</string>
+    <string name="edit_message">Edit message</string>
+    <string name="button_send">Send</string>
+</resources>
