@@ -5,4 +5,21 @@ package com.greenfoxacademy.seed0forever.p2p_chat.model.rest;
  */
 
 public class StatusResponse {
+
+    private String status;
+
+    public StatusResponse() {
+    }
+
+    public StatusResponse(String status) {
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }
