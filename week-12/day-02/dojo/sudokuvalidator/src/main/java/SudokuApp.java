@@ -1,8 +1,10 @@
+import java.util.Arrays;
+
 public class SudokuApp {
 
   public static void main(String[] args) {
 
-    boolean valid = SudokuValidator.validSolution(new int[][]{
+    int[][] sudoku1 = new int[][]{
             {5, 3, 4, 6, 7, 8, 9, 1, 2},
             {6, 7, 2, 1, 9, 5, 3, 4, 8},
             {1, 9, 8, 3, 4, 2, 5, 6, 7},
@@ -12,7 +14,9 @@ public class SudokuApp {
             {9, 6, 1, 5, 3, 7, 2, 8, 4},
             {2, 8, 7, 4, 1, 9, 6, 3, 5},
             {3, 4, 5, 2, 8, 6, 1, 7, 9}
-    });
+    };
+
+    System.out.println(Arrays.toString(sudoku1[0]));
   }
 
 }
