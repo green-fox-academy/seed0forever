@@ -39,10 +39,8 @@ public class SudokuValidator {
           }
         }
 
-        for (int digit = 1; digit <= 9; digit++) {
-          if (!currentBoxElements.contains(digit)) {
-            return false;
-          }
+        if (!containsAllDigits(currentBoxElements)) {
+          return false;
         }
       }
     }
@@ -52,16 +50,18 @@ public class SudokuValidator {
 
   private static boolean allColumnsContainAllDigits(int[][] sudokuTable) {
     for (int i = 0; i < sudokuTable.length; i++) {
+
       List<Integer> currentColumn = new ArrayList<>();
+
       for (int j = 0; j < sudokuTable[i].length; j++) {
         currentColumn.add(sudokuTable[j][i]);
       }
-      for (int digit = 1; digit <= 9; digit++) {
-        if (!currentColumn.contains(digit)) {
-          return false;
-        }
+
+      if (!containsAllDigits(currentColumn)) {
+        return false;
       }
     }
+
     return true;
   }
 
@@ -70,10 +70,18 @@ public class SudokuValidator {
 
       List<Integer> currentRow = IntStream.of(sudokuTable[i]).boxed().collect(Collectors.toList());
 
-      for (int digit = 1; digit <= 9; digit++) {
-        if (!currentRow.contains(digit)) {
-          return false;
-        }
+      if (!containsAllDigits(currentRow)) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  private static boolean containsAllDigits(List<Integer> sudokuNumbers) {
+    for (int digit = 1; digit <= 9; digit++) {
+      if (!sudokuNumbers.contains(digit)) {
+        return false;
       }
     }
     return true;
