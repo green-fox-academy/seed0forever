@@ -19,6 +19,34 @@ public class SudokuValidator {
       return false;
     }
 
+    if (!allBoxesContainAllDigits(sudokuTable)) {
+      return false;
+    }
+
+    return true;
+  }
+
+  private static boolean allBoxesContainAllDigits(int[][] sudokuTable) {
+
+    for (int boxRow = 0; boxRow < 3; boxRow++) {
+      for (int boxColumn = 0; boxColumn < 3; boxColumn++) {
+
+        List<Integer> currentBoxElements = new ArrayList<>();
+
+        for (int i = boxRow * 3; i < boxRow * 3 + 3; i++) {
+          for (int j = boxColumn * 3; j < boxColumn * 3 + 3; j++) {
+            currentBoxElements.add(sudokuTable[i][j]);
+          }
+        }
+
+        for (int digit = 1; digit <= 9; digit++) {
+          if (!currentBoxElements.contains(digit)) {
+            return false;
+          }
+        }
+      }
+    }
+
     return true;
   }
 
