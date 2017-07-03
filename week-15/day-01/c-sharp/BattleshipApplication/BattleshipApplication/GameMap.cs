@@ -32,21 +32,22 @@ namespace BattleshipApplication
                 {
                     MapCell currentCell = CellMatrix[row, column];
 
-                    if (currentCell == MapCell.Empty)
+                    switch (currentCell)
                     {
-                        gameMapString += ". ";
-                    }
-                    else if (currentCell == MapCell.ShipHidden)
-                    {
-                        gameMapString += "■ ";
-                    }
-                    else if (currentCell == MapCell.Miss)
-                    {
-                        gameMapString += "O ";
-                    }
-                    else if (currentCell == MapCell.ShipHit)
-                    {
-                        gameMapString += "X ";
+                        case MapCell.Empty:
+                            gameMapString += ". ";
+                            break;
+                        case MapCell.ShipHidden:
+                            gameMapString += "■ ";
+                            break;
+                        case MapCell.Miss:
+                            gameMapString += "O ";
+                            break;
+                        case MapCell.ShipHit:
+                            gameMapString += "X ";
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
                     }
                 }
                 gameMapString += Environment.NewLine;
