@@ -2,7 +2,7 @@
 
 namespace BattleshipApplication
 {
-    public static class GameMapFillerUtil
+    public static class GameUtil
     {
         public static readonly int[,] DefaultGameMap20 =
         {
