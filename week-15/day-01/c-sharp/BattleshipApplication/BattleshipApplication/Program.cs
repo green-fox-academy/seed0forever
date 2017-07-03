@@ -16,8 +16,11 @@ namespace BattleshipApplication
             while (true)
             {
                 var line = Console.ReadLine();
-                int column = -1 + int.Parse(line.Substring(0, 2));
-                int row = -1 + int.Parse(line.Substring(3, 2));
+                
+                int[] cellCoordinates = GameUtil.ParseInputCoordinates(line);
+
+                int row = cellCoordinates[0];
+                int column = cellCoordinates[1];
 
                 MapCell targetMapCell = gameMap.CellMatrix[row, column];
 
