@@ -12,8 +12,18 @@ namespace LinqExercises
 
             var evenNumbers = LinqExercise1(n);
             PrintEnumerableNumbers(evenNumbers);
-            
-            
+
+            var averageOfEvenNumbers = LinqExercise2(n);
+            Console.WriteLine("Average of the even numbers: " + averageOfEvenNumbers);
+
+
+        }
+
+        private static double LinqExercise2(int[] numbers)
+        {
+            var averageOfNumbers = LinqExercise1(numbers).Average();
+
+            return averageOfNumbers;
         }
 
         private static IEnumerable<int> LinqExercise1(int[] n)
@@ -31,6 +41,7 @@ namespace LinqExercises
                 Console.Write(number);
                 Console.Write(", ");
             }
+            Console.WriteLine();
         }
     }
 }
