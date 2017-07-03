@@ -7,6 +7,9 @@ namespace BattleshipApplication
     {
         public static void Main(string[] args)
         {
+            GameMap gameMap = new GameMap(20);
+            GameMapFillerUtil.FillMap(gameMap);
+            Console.Write(gameMap.ToString());
         }
     }
 }
