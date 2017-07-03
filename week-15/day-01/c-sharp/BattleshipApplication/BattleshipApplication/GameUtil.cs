@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace BattleshipApplication
 {
@@ -42,10 +43,17 @@ namespace BattleshipApplication
 
         public static int[] ParseInputCoordinates(string line)
         {
-            int column = -1 + int.Parse(line.Substring(0, 2));
-            int row = -1 + int.Parse(line.Substring(3, 2));
+            string[] splitString = line.Split('-');
+            
+            int column = -1 + Int32.Parse(splitString[0]);
+            int row = -1 + Int32.Parse(splitString[1]);
             
             return new[] {row, column};
+        }
+
+        public static int CountHiddenShipCells(GameMap gameMap)
+        {
+            return gameMap.CellMatrix.Cast<MapCell>().Count(mapCell => mapCell == MapCell.ShipHidden);
         }
     }
 }

@@ -13,10 +13,10 @@ namespace BattleshipApplication
             Console.Clear();
             Console.Write(gameMap.ToString());
 
-            while (true)
+            while (GameUtil.CountHiddenShipCells(gameMap) > 0)
             {
                 var line = Console.ReadLine();
-                
+
                 int[] cellCoordinates = GameUtil.ParseInputCoordinates(line);
 
                 int row = cellCoordinates[0];
