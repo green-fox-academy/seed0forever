@@ -19,7 +19,16 @@ namespace BattleshipApplication
                 int column = -1 + int.Parse(line.Substring(0, 2));
                 int row = -1 + int.Parse(line.Substring(3, 2));
 
-                gameMap.CellMatrix[row, column] = MapCell.Miss;
+                MapCell targetMapCell = gameMap.CellMatrix[row, column];
+
+                if (targetMapCell == MapCell.Empty)
+                {
+                    gameMap.CellMatrix[row, column] = MapCell.Miss;
+                }
+                else if (targetMapCell == MapCell.ShipHidden)
+                {
+                    gameMap.CellMatrix[row, column] = MapCell.ShipHit;
+                }
 
                 Console.Clear();
                 Console.Write(gameMap.ToString());
