@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.0.0
 MinimumVisualStudioVersion = 10.0.0.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountLetters", "CountLetters/CountLetters.csproj", "{073AADBB-7DAE-46C1-944F-C74E4925CC3A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountLettersTest", "CountLettersTest\CountLettersTest.csproj", "{3614F89B-0E51-4A94-BF74-0E1940D8F72F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{073AADBB-7DAE-46C1-944F-C74E4925CC3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{073AADBB-7DAE-46C1-944F-C74E4925CC3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{073AADBB-7DAE-46C1-944F-C74E4925CC3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3614F89B-0E51-4A94-BF74-0E1940D8F72F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3614F89B-0E51-4A94-BF74-0E1940D8F72F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3614F89B-0E51-4A94-BF74-0E1940D8F72F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3614F89B-0E51-4A94-BF74-0E1940D8F72F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

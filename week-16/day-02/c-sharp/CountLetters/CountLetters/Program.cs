@@ -8,8 +8,9 @@ namespace CountLetters
     {
         public static void Main(string[] args)
         {
+            var letterCounter = new LetterCounter();
             IDictionary<char, int> letterOccurrences =
-                CountLettersIn("This method should count the letter occurrences in this string!");
+                letterCounter.CountLettersIn("This method should count the letter occurrences in this string!");
 
             PrintDictionaryByValueDesc(letterOccurrences);
         }
@@ -24,27 +25,6 @@ namespace CountLetters
             {
                 Console.WriteLine("{0}: {1}", pair.Key, pair.Value);
             }
-        }
-
-        private static IDictionary<char, int> CountLettersIn(string input)
-        {
-            IDictionary<char, int> letterCounts = new Dictionary<char, int>();
-
-            char[] inputAsCharArray = input.ToLower().ToCharArray();
-
-            foreach (char currentChar in inputAsCharArray)
-            {
-                int currentValueInDictionary;
-                if (letterCounts.TryGetValue(currentChar, out currentValueInDictionary))
-                {
-                    letterCounts[currentChar] = currentValueInDictionary + 1;
-                }
-                else
-                {
-                    letterCounts.Add(currentChar, 1);
-                }
-            }
-            return letterCounts;
         }
     }
 }
