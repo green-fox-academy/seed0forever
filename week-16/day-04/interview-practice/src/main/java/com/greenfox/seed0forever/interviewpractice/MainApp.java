@@ -10,6 +10,14 @@ public class MainApp {
     Overrider overrider = new Overrider();
 
     executeZeroDivisionExperiment();
+
+
+    String cats = "My cat";
+    System.out.println(cats == "My cat");
+
+    String myString = new String("How many objects?");
+    System.out.println(myString);
+    System.out.println(myString == "How many objects?");
   }
 
   private static void executeZeroDivisionExperiment() {
